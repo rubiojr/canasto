@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2508C73C0FBC29A000A18478 /* DropConfig.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2508C73B0FBC29A000A18478 /* DropConfig.rb */; };
+		2508C73E0FBC2A9D00A18478 /* DropManagerDocument.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2508C73D0FBC2A9D00A18478 /* DropManagerDocument.rb */; };
+		255D5D880FC092D900CFDDF7 /* Preferences.rb in Resources */ = {isa = PBXBuildFile; fileRef = 255D5D870FC092D900CFDDF7 /* Preferences.rb */; };
 		257FEEA00FBAF71E00893BD3 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257FEE9F0FBAF71E00893BD3 /* MacRuby.framework */; };
 		257FEEAB0FBAF83600893BD3 /* MacRuby.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 257FEE9F0FBAF71E00893BD3 /* MacRuby.framework */; };
 		25B911C50FB9A548006001FB /* vendor in Resources */ = {isa = PBXBuildFile; fileRef = 25B9103D0FB9A548006001FB /* vendor */; };
@@ -39,6 +42,9 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		2508C73B0FBC29A000A18478 /* DropConfig.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropConfig.rb; sourceTree = "<group>"; };
+		2508C73D0FBC2A9D00A18478 /* DropManagerDocument.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropManagerDocument.rb; sourceTree = "<group>"; };
+		255D5D870FC092D900CFDDF7 /* Preferences.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Preferences.rb; sourceTree = "<group>"; };
 		257FEE9F0FBAF71E00893BD3 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MacRuby.framework; sourceTree = "<group>"; };
 		25B9103D0FB9A548006001FB /* vendor */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vendor; sourceTree = "<group>"; };
 		25B911C60FB9A567006001FB /* ApplicationController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ApplicationController.rb; sourceTree = "<group>"; };
@@ -71,6 +77,9 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				255D5D870FC092D900CFDDF7 /* Preferences.rb */,
+				2508C73D0FBC2A9D00A18478 /* DropManagerDocument.rb */,
+				2508C73B0FBC29A000A18478 /* DropConfig.rb */,
 				25B911C60FB9A567006001FB /* ApplicationController.rb */,
 				25B911C70FB9A567006001FB /* growl.rb */,
 				25B911C80FB9A567006001FB /* GrowlController.rb */,
@@ -202,6 +211,9 @@
 				25B911CC0FB9A567006001FB /* GrowlController.rb in Resources */,
 				25B911CD0FB9A567006001FB /* IORB.rb in Resources */,
 				25B911CF0FB9A57B006001FB /* little_drop.tiff in Resources */,
+				2508C73C0FBC29A000A18478 /* DropConfig.rb in Resources */,
+				2508C73E0FBC2A9D00A18478 /* DropManagerDocument.rb in Resources */,
+				255D5D880FC092D900CFDDF7 /* Preferences.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

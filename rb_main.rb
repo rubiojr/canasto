@@ -31,4 +31,5 @@ end
 if IORB::Config.exist?
   Dropio.api_key = IORB::Config.api_key
 end
+Dir.mkdir(Preferences.appSupportDir) if not File.exist?(Preferences.appSupportDir)
 NSApplicationMain(0, nil)
