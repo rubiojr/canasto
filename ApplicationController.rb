@@ -10,12 +10,15 @@ class ApplicationController
 
   attr_writer :menu
   attr_writer :currentDropMenu
-  attr_writer :tableView
-  attr_accessor :document
+  attr_writer :assetManagerDropsTableView
   attr_writer :pasteMenuItem
   attr_accessor :assetManagerDropSelector
+  attr_writer :drops
+  attr_writer :assets
+  attr_writer :progressIndicator
 
   def awakeFromNib
+    @animate = false
 		@status_bar = NSStatusBar.systemStatusBar
 		@status_item = @status_bar.statusItemWithLength(NSVariableStatusItemLength)
 		@status_item.setHighlightMode(true)
@@ -28,22 +31,20 @@ class ApplicationController
 		#@status_item.setAlternateImage(@app_alter_icon)
     @growl = GrowlController.new
     @selectedDropMenuItem = nil
-    setupMenus
+    @userDefaults = NSUserDefaults.standardUserDefaults
   end
 
-  def setupMenus
-    document.dropConfigs.each do |c|
-    #if IORB::Config.exist?
-    #  IORB::DropManager.each do |details|
-      mi = NSMenuItem.alloc.init
-      mi.title = c.dropName
-      mi.action = 'dropSelected:'
-      mi.setTarget self
-      mi.state = NSOffState
-      @currentDropMenu.addItem mi
+  def applicationDidFinishLaunching(notification)
+    dc = @userDefaults.dictionaryForKey('NCXDropConfigs')
+    if dc
+      dc.each do |k,v| 
+        dc = DropConfig.new
+        dc.dropName = k
+        dc.adminToken = v
+        @drops.addObject dc
+      end
     end
-    #  end
-    #end
+    populateDropsMenu
   end
 		
   def pasteToDrop(sender)
@@ -90,14 +91,82 @@ class ApplicationController
     alert.runModal
   end
   
+  def tableView(tv, shouldSelectRow:tableRow)
+    dc = @drops.arrangedObjects[tableRow]
+    changeDropSelected(dc.dropName)
+    true
+  end
+
   def dropSelected(sender)
-    @selectedDropMenuItem.state = NSOffState if not @selectedDropMenuItem.nil?
-    sender.state = NSOnState
     @selectedDropMenuItem = sender
-    @growl.dropSelected(@selectedDropMenuItem.title)
+    dropName = @selectedDropMenuItem.title
+    changeDropSelected(dropName)
+  end
+
+  def changeDropSelected(dropName)
+    @progressIndicator.startAnimation(self)
+    index = 0
+    @currentDropMenu.itemArray.each do |i|
+      if i.title == dropName
+        i.state = NSOnState
+        is = NSIndexSet.indexSetWithIndex index
+        @assetManagerDropsTableView.selectRowIndexes is,:byExtendingSelection => false
+      else
+        i.state = NSOffState
+      end
+      index += 1
+    end
+    @growl.dropSelected(dropName)
+    @userDefaults.setObject dropName, :forKey => 'NCXLastDropSelected'
     @pasteMenuItem.enabled = true
-    @assetManagerDropSelector.enabled = true
-    @pasteMenuItem.title = "Paste to #{@selectedDropMenuItem.title}"
+    @pasteMenuItem.title = "Paste to #{dropName}"
+    adminToken = nil
+    @drops.arrangedObjects.each do |dc|
+      adminToken = dc.adminToken if dc.dropName == dropName
+    end
+    Thread.start do 
+      drop = Dropio::Drop.find(dropName, adminToken)
+      @assets.removeObjects @assets.arrangedObjects
+      drop.assets.each do |a|
+        da = DropAsset.new
+        da.name = a.name
+        da.type = a.type
+        da.fileSize = a.filesize
+        da.createdAt = a.created_at
+        @assets.addObject da
+      end
+      @progressIndicator.stopAnimation self
+    end
+  end
+
+  def saveDropConfigs(sender)
+    drops = @drops.arrangedObjects
+    dc = {}
+    drops.each do |d|
+      dc[d.dropName] = d.adminToken
+    end
+    @userDefaults.setObject dc, :forKey => 'NCXDropConfigs'
+    @currentDropMenu.itemArray.each do |i|
+      @currentDropMenu.removeItem i
+    end
+    populateDropsMenu
+  end
+
+  def populateDropsMenu
+    lds = @userDefaults.objectForKey('NCXLastDropSelected') || dc.keys.first
+    @drops.arrangedObjects.each do |dc| 
+      mi = NSMenuItem.new
+      mi.title = dc.dropName
+      mi.action = 'dropSelected:'
+      mi.setTarget self
+      if lds == dc.dropName
+        mi.state = NSOnState
+        changeDropSelected(lds)
+      else
+        mi.state = NSOffState
+      end
+      @currentDropMenu.addItem mi
+    end
   end
 
 end

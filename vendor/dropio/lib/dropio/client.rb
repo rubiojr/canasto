@@ -315,7 +315,9 @@ class Dropio::Client
   
   # Extracts the error message from the response for the exception.
   def parse_error_message(response)
-    error_hash = JSON.parse(response.body) rescue nil
+    jsparser = SBJSON.alloc.init
+    e = Pointer.new_with_type '@'
+    error_hash = jsparser.objectWithString(response.body, :error => e) rescue nil
     
     if (error_hash && error_hash.is_a?(Hash) && error_hash["response"] && error_hash["response"]["message"])
       return error_hash["response"]["message"]

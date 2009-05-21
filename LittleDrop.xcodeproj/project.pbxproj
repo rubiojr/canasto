@@ -6,12 +6,29 @@
 	objectVersion = 44;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		252259A10FC5593200338235 /* Embed MacRuby */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 252259AA0FC5596200338235 /* Build configuration list for PBXAggregateTarget "Embed MacRuby" */;
+			buildPhases = (
+				252259A00FC5593200338235 /* ShellScript */,
+			);
+			dependencies = (
+				252259A50FC5593700338235 /* PBXTargetDependency */,
+			);
+			name = "Embed MacRuby";
+			productName = "Embed MacRuby";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		2508C73C0FBC29A000A18478 /* DropConfig.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2508C73B0FBC29A000A18478 /* DropConfig.rb */; };
 		2508C73E0FBC2A9D00A18478 /* DropManagerDocument.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2508C73D0FBC2A9D00A18478 /* DropManagerDocument.rb */; };
+		2522599C0FC558D000338235 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2522599B0FC558D000338235 /* MacRuby.framework */; };
+		252259C50FC55EB500338235 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252259C40FC55EB500338235 /* JSON.framework */; };
+		252259CA0FC55ED500338235 /* JSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 252259C40FC55EB500338235 /* JSON.framework */; };
+		25225A060FC5680C00338235 /* DropAsset.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25225A050FC5680C00338235 /* DropAsset.rb */; };
 		255D5D880FC092D900CFDDF7 /* Preferences.rb in Resources */ = {isa = PBXBuildFile; fileRef = 255D5D870FC092D900CFDDF7 /* Preferences.rb */; };
-		257FEEA00FBAF71E00893BD3 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257FEE9F0FBAF71E00893BD3 /* MacRuby.framework */; };
-		257FEEAB0FBAF83600893BD3 /* MacRuby.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 257FEE9F0FBAF71E00893BD3 /* MacRuby.framework */; };
 		25B911C50FB9A548006001FB /* vendor in Resources */ = {isa = PBXBuildFile; fileRef = 25B9103D0FB9A548006001FB /* vendor */; };
 		25B911CA0FB9A567006001FB /* ApplicationController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25B911C60FB9A567006001FB /* ApplicationController.rb */; };
 		25B911CB0FB9A567006001FB /* growl.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25B911C70FB9A567006001FB /* growl.rb */; };
@@ -25,14 +42,24 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		252259A40FC5593700338235 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090 /* LittleDrop */;
+			remoteInfo = LittleDrop;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		257FEEAA0FBAF7F800893BD3 /* CopyFiles */ = {
+		252259D30FC55EE000338235 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				257FEEAB0FBAF83600893BD3 /* MacRuby.framework in CopyFiles */,
+				252259CA0FC55ED500338235 /* JSON.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,8 +71,10 @@
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		2508C73B0FBC29A000A18478 /* DropConfig.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropConfig.rb; sourceTree = "<group>"; };
 		2508C73D0FBC2A9D00A18478 /* DropManagerDocument.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropManagerDocument.rb; sourceTree = "<group>"; };
+		2522599B0FC558D000338235 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = /Library/Frameworks/MacRuby.framework; sourceTree = "<absolute>"; };
+		252259C40FC55EB500338235 /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSON.framework; path = ../../../Library/Frameworks/JSON.framework; sourceTree = SOURCE_ROOT; };
+		25225A050FC5680C00338235 /* DropAsset.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropAsset.rb; sourceTree = "<group>"; };
 		255D5D870FC092D900CFDDF7 /* Preferences.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Preferences.rb; sourceTree = "<group>"; };
-		257FEE9F0FBAF71E00893BD3 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MacRuby.framework; sourceTree = "<group>"; };
 		25B9103D0FB9A548006001FB /* vendor */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vendor; sourceTree = "<group>"; };
 		25B911C60FB9A567006001FB /* ApplicationController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ApplicationController.rb; sourceTree = "<group>"; };
 		25B911C70FB9A567006001FB /* growl.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = growl.rb; sourceTree = "<group>"; };
@@ -67,7 +96,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				257FEEA00FBAF71E00893BD3 /* MacRuby.framework in Frameworks */,
+				2522599C0FC558D000338235 /* MacRuby.framework in Frameworks */,
+				252259C50FC55EB500338235 /* JSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +107,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				25225A050FC5680C00338235 /* DropAsset.rb */,
 				255D5D870FC092D900CFDDF7 /* Preferences.rb */,
 				2508C73D0FBC2A9D00A18478 /* DropManagerDocument.rb */,
 				2508C73B0FBC29A000A18478 /* DropConfig.rb */,
@@ -91,7 +122,8 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				257FEE9F0FBAF71E00893BD3 /* MacRuby.framework */,
+				252259C40FC55EB500338235 /* JSON.framework */,
+				2522599B0FC558D000338235 /* MacRuby.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -167,8 +199,7 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
-				257FEEAA0FBAF7F800893BD3 /* CopyFiles */,
-				257FEEB00FBAF87A00893BD3 /* ShellScript */,
+				252259D30FC55EE000338235 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -193,6 +224,7 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* LittleDrop */,
+				252259A10FC5593200338235 /* Embed MacRuby */,
 			);
 		};
 /* End PBXProject section */
@@ -214,13 +246,14 @@
 				2508C73C0FBC29A000A18478 /* DropConfig.rb in Resources */,
 				2508C73E0FBC2A9D00A18478 /* DropManagerDocument.rb in Resources */,
 				255D5D880FC092D900CFDDF7 /* Preferences.rb in Resources */,
+				25225A060FC5680C00338235 /* DropAsset.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		257FEEB00FBAF87A00893BD3 /* ShellScript */ = {
+		252259A00FC5593200338235 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -231,7 +264,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "install_name_tool -change /Library/Frameworks/MacRuby.framework/Versions/0.4/usr/lib/libmacruby.dylib @executable_path/../Frameworks/MacRuby.framework/Versions/0.4/usr/lib/libmacruby.dylib $CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH";
+			shellScript = "PATH=\"$PATH:/usr/local/bin\" /usr/bin/env macruby -r hotcocoa/application_builder -e \"HotCocoa::ApplicationBuilder.deploy(ARGV[0])\" $TARGET_BUILD_DIR/$PROJECT_NAME.app";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -245,6 +278,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		252259A50FC5593700338235 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* LittleDrop */;
+			targetProxy = 252259A40FC5593700338235 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
@@ -266,6 +307,27 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		252259A20FC5593200338235 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Embed MacRuby";
+			};
+			name = Debug;
+		};
+		252259A30FC5593200338235 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Embed MacRuby";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -273,6 +335,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../Library/Frameworks\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -294,6 +357,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../Library/Frameworks\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -331,6 +395,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		252259AA0FC5596200338235 /* Build configuration list for PBXAggregateTarget "Embed MacRuby" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				252259A20FC5593200338235 /* Debug */,
+				252259A30FC5593200338235 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "LittleDrop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -6,10 +6,8 @@ class Dropio::Client::Mapper
   
   def self.map_assets(drop, response_body)
     assets = parse_and_map(Dropio::Asset, response_body)
-    
     assets.drop = drop if assets.is_a?(Dropio::Asset)
     assets.each{ |a| a.drop = drop } if assets.is_a?(Array)
-    
     return assets
   end
   
@@ -25,7 +23,9 @@ class Dropio::Client::Mapper
   private
   
   def self.parse_and_map(model_class, response_body)
-    h = JSON.parse(response_body)
+    jsparser = SBJSON.alloc.init
+    e = Pointer.new_with_type '@'
+    h = jsparser.objectWithString(response_body, :error => e)
     
     # single model
     return model_class.new(h) if h.is_a?(Hash)

@@ -3,8 +3,8 @@ class DropConfig
   attr_accessor :dropName, :adminToken
 
   def initialize
-    @dropName = 'Edit Me'
-    @adminToken = 'FFFFFF'
+    @dropName = 'New Drop'
+    @adminToken = '0000000'
   end
 
   def encodeWithCoder(coder)

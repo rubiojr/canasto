@@ -7,15 +7,16 @@
 
 # Loading the Cocoa framework. If you need to load more frameworks, you can
 # do that here too.
+framework 'Cocoa'
+framework 'JSON'
 $:.unshift  File.join(File.dirname(__FILE__), 'vendor/plist/lib')
 $:.unshift  File.join(File.dirname(__FILE__), 'vendor/mime-types/lib')
 $:.unshift  File.join(File.dirname(__FILE__), 'vendor/dropio/lib')
-$:.unshift  File.join(File.dirname(__FILE__), 'vendor/macruby-json')
+#$:.unshift  File.join(File.dirname(__FILE__), 'vendor/macruby-json')
 $:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/1.9.1')
 $:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/1.9.1/universal-darwin9.5')
-framework 'Cocoa'
 require 'yaml'
-require 'json'
+#require 'json'
 require 'plist'
 require 'dropio'
 
