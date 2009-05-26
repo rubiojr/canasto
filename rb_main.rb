@@ -28,9 +28,4 @@ Dir.entries(dir_path).each do |path|
   end
 end
 
-# Starting the Cocoa main loop.
-if IORB::Config.exist?
-  Dropio.api_key = IORB::Config.api_key
-end
-Dir.mkdir(Preferences.appSupportDir) if not File.exist?(Preferences.appSupportDir)
 NSApplicationMain(0, nil)

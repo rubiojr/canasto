@@ -7,6 +7,8 @@
 //
 
 #import <MacRuby/MacRuby.h>
+#import <AppKit/AppKit.h>
+#import <DropIO.h>
 #import <JSON/JSON.h>
 
 int main(int argc, char *argv[])

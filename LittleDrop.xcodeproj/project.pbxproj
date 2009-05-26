@@ -6,51 +6,36 @@
 	objectVersion = 44;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		252259A10FC5593200338235 /* Embed MacRuby */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 252259AA0FC5596200338235 /* Build configuration list for PBXAggregateTarget "Embed MacRuby" */;
-			buildPhases = (
-				252259A00FC5593200338235 /* ShellScript */,
-			);
-			dependencies = (
-				252259A50FC5593700338235 /* PBXTargetDependency */,
-			);
-			name = "Embed MacRuby";
-			productName = "Embed MacRuby";
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		2508C73C0FBC29A000A18478 /* DropConfig.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2508C73B0FBC29A000A18478 /* DropConfig.rb */; };
 		2508C73E0FBC2A9D00A18478 /* DropManagerDocument.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2508C73D0FBC2A9D00A18478 /* DropManagerDocument.rb */; };
-		2522599C0FC558D000338235 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2522599B0FC558D000338235 /* MacRuby.framework */; };
 		252259C50FC55EB500338235 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252259C40FC55EB500338235 /* JSON.framework */; };
 		252259CA0FC55ED500338235 /* JSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 252259C40FC55EB500338235 /* JSON.framework */; };
 		25225A060FC5680C00338235 /* DropAsset.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25225A050FC5680C00338235 /* DropAsset.rb */; };
-		255D5D880FC092D900CFDDF7 /* Preferences.rb in Resources */ = {isa = PBXBuildFile; fileRef = 255D5D870FC092D900CFDDF7 /* Preferences.rb */; };
+		257CFDE30FCA940500936F68 /* NCXAssetDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFDE20FCA940500936F68 /* NCXAssetDownloader.m */; };
+		257CFEB40FCAAB3400936F68 /* DropIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEAD0FCAAB3400936F68 /* DropIO.m */; };
+		257CFEB50FCAAB3400936F68 /* DropIOAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEAF0FCAAB3400936F68 /* DropIOAsset.m */; };
+		257CFEB60FCAAB3400936F68 /* DropIODrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEB10FCAAB3400936F68 /* DropIODrop.m */; };
+		257CFEB70FCAAB3400936F68 /* XMLToObjectParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEB30FCAAB3400936F68 /* XMLToObjectParser.m */; };
+		257CFF1B0FCAD49200936F68 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257CFF1A0FCAD49200936F68 /* MacRuby.framework */; };
+		257CFF1D0FCAD49700936F68 /* MacRuby.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 257CFF1A0FCAD49200936F68 /* MacRuby.framework */; };
+		257CFF710FCAF4E600936F68 /* NewDropWindowController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 257CFF700FCAF4E600936F68 /* NewDropWindowController.rb */; };
+		259D80B40FC5AD310025D8FD /* AssetManagerDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 259D80B30FC5AD310025D8FD /* AssetManagerDelegate.rb */; };
 		25B911C50FB9A548006001FB /* vendor in Resources */ = {isa = PBXBuildFile; fileRef = 25B9103D0FB9A548006001FB /* vendor */; };
 		25B911CA0FB9A567006001FB /* ApplicationController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25B911C60FB9A567006001FB /* ApplicationController.rb */; };
 		25B911CB0FB9A567006001FB /* growl.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25B911C70FB9A567006001FB /* growl.rb */; };
 		25B911CC0FB9A567006001FB /* GrowlController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25B911C80FB9A567006001FB /* GrowlController.rb */; };
 		25B911CD0FB9A567006001FB /* IORB.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25B911C90FB9A567006001FB /* IORB.rb */; };
 		25B911CF0FB9A57B006001FB /* little_drop.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 25B911CE0FB9A57B006001FB /* little_drop.tiff */; };
+		25C359BF0FCBEB7600B11405 /* AssetDownloaderOperation.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25C359BE0FCBEB7600B11405 /* AssetDownloaderOperation.rb */; };
+		25C35A720FCC2B6D00B11405 /* CreateDropOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */; };
+		25E045230FC88B5C00966160 /* NCXFileUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E045220FC88B5C00966160 /* NCXFileUploader.m */; };
 		4DE339F70D74FCDD00ADB6EE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 4DE339F60D74FCDD00ADB6EE /* rb_main.rb */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		252259A40FC5593700338235 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090 /* LittleDrop */;
-			remoteInfo = LittleDrop;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		252259D30FC55EE000338235 /* CopyFiles */ = {
@@ -59,6 +44,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				257CFF1D0FCAD49700936F68 /* MacRuby.framework in CopyFiles */,
 				252259CA0FC55ED500338235 /* JSON.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,16 +57,32 @@
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		2508C73B0FBC29A000A18478 /* DropConfig.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropConfig.rb; sourceTree = "<group>"; };
 		2508C73D0FBC2A9D00A18478 /* DropManagerDocument.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropManagerDocument.rb; sourceTree = "<group>"; };
-		2522599B0FC558D000338235 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = /Library/Frameworks/MacRuby.framework; sourceTree = "<absolute>"; };
 		252259C40FC55EB500338235 /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSON.framework; path = ../../../Library/Frameworks/JSON.framework; sourceTree = SOURCE_ROOT; };
 		25225A050FC5680C00338235 /* DropAsset.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropAsset.rb; sourceTree = "<group>"; };
-		255D5D870FC092D900CFDDF7 /* Preferences.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Preferences.rb; sourceTree = "<group>"; };
+		257CFDE10FCA940500936F68 /* NCXAssetDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCXAssetDownloader.h; sourceTree = "<group>"; };
+		257CFDE20FCA940500936F68 /* NCXAssetDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCXAssetDownloader.m; sourceTree = "<group>"; };
+		257CFEAC0FCAAB3400936F68 /* DropIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropIO.h; sourceTree = "<group>"; };
+		257CFEAD0FCAAB3400936F68 /* DropIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropIO.m; sourceTree = "<group>"; };
+		257CFEAE0FCAAB3400936F68 /* DropIOAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropIOAsset.h; sourceTree = "<group>"; };
+		257CFEAF0FCAAB3400936F68 /* DropIOAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropIOAsset.m; sourceTree = "<group>"; };
+		257CFEB00FCAAB3400936F68 /* DropIODrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropIODrop.h; sourceTree = "<group>"; };
+		257CFEB10FCAAB3400936F68 /* DropIODrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropIODrop.m; sourceTree = "<group>"; };
+		257CFEB20FCAAB3400936F68 /* XMLToObjectParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLToObjectParser.h; sourceTree = "<group>"; };
+		257CFEB30FCAAB3400936F68 /* XMLToObjectParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLToObjectParser.m; sourceTree = "<group>"; };
+		257CFF1A0FCAD49200936F68 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MacRuby.framework; sourceTree = "<group>"; };
+		257CFF700FCAF4E600936F68 /* NewDropWindowController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = NewDropWindowController.rb; sourceTree = "<group>"; };
+		259D80B30FC5AD310025D8FD /* AssetManagerDelegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AssetManagerDelegate.rb; sourceTree = "<group>"; };
 		25B9103D0FB9A548006001FB /* vendor */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vendor; sourceTree = "<group>"; };
 		25B911C60FB9A567006001FB /* ApplicationController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ApplicationController.rb; sourceTree = "<group>"; };
 		25B911C70FB9A567006001FB /* growl.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = growl.rb; sourceTree = "<group>"; };
 		25B911C80FB9A567006001FB /* GrowlController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GrowlController.rb; sourceTree = "<group>"; };
 		25B911C90FB9A567006001FB /* IORB.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = IORB.rb; sourceTree = "<group>"; };
 		25B911CE0FB9A57B006001FB /* little_drop.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = little_drop.tiff; sourceTree = "<group>"; };
+		25C359BE0FCBEB7600B11405 /* AssetDownloaderOperation.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AssetDownloaderOperation.rb; sourceTree = "<group>"; };
+		25C35A700FCC2B6D00B11405 /* CreateDropOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateDropOperation.h; sourceTree = "<group>"; };
+		25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateDropOperation.m; sourceTree = "<group>"; };
+		25E045210FC88B5C00966160 /* NCXFileUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCXFileUploader.h; sourceTree = "<group>"; };
+		25E045220FC88B5C00966160 /* NCXFileUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCXFileUploader.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -96,8 +98,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				2522599C0FC558D000338235 /* MacRuby.framework in Frameworks */,
 				252259C50FC55EB500338235 /* JSON.framework in Frameworks */,
+				257CFF1B0FCAD49200936F68 /* MacRuby.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,14 +109,22 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				25C359BE0FCBEB7600B11405 /* AssetDownloaderOperation.rb */,
+				257CFF700FCAF4E600936F68 /* NewDropWindowController.rb */,
+				257CFDE10FCA940500936F68 /* NCXAssetDownloader.h */,
+				257CFDE20FCA940500936F68 /* NCXAssetDownloader.m */,
+				259D80B30FC5AD310025D8FD /* AssetManagerDelegate.rb */,
 				25225A050FC5680C00338235 /* DropAsset.rb */,
-				255D5D870FC092D900CFDDF7 /* Preferences.rb */,
 				2508C73D0FBC2A9D00A18478 /* DropManagerDocument.rb */,
 				2508C73B0FBC29A000A18478 /* DropConfig.rb */,
 				25B911C60FB9A567006001FB /* ApplicationController.rb */,
 				25B911C70FB9A567006001FB /* growl.rb */,
 				25B911C80FB9A567006001FB /* GrowlController.rb */,
 				25B911C90FB9A567006001FB /* IORB.rb */,
+				25E045210FC88B5C00966160 /* NCXFileUploader.h */,
+				25E045220FC88B5C00966160 /* NCXFileUploader.m */,
+				25C35A700FCC2B6D00B11405 /* CreateDropOperation.h */,
+				25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -122,8 +132,8 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				257CFF1A0FCAD49200936F68 /* MacRuby.framework */,
 				252259C40FC55EB500338235 /* JSON.framework */,
-				2522599B0FC558D000338235 /* MacRuby.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -147,6 +157,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		257CFEAB0FCAAB3400936F68 /* dropkit */ = {
+			isa = PBXGroup;
+			children = (
+				257CFEAC0FCAAB3400936F68 /* DropIO.h */,
+				257CFEAD0FCAAB3400936F68 /* DropIO.m */,
+				257CFEAE0FCAAB3400936F68 /* DropIOAsset.h */,
+				257CFEAF0FCAAB3400936F68 /* DropIOAsset.m */,
+				257CFEB00FCAAB3400936F68 /* DropIODrop.h */,
+				257CFEB10FCAAB3400936F68 /* DropIODrop.m */,
+				257CFEB20FCAAB3400936F68 /* XMLToObjectParser.h */,
+				257CFEB30FCAAB3400936F68 /* XMLToObjectParser.m */,
+			);
+			path = dropkit;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* LittleDrop */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +187,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				257CFEAB0FCAAB3400936F68 /* dropkit */,
 				25B9103D0FB9A548006001FB /* vendor */,
 				4DE339F60D74FCDD00ADB6EE /* rb_main.rb */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
@@ -200,6 +226,7 @@
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				252259D30FC55EE000338235 /* CopyFiles */,
+				257CFF310FCAD5F800936F68 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -224,7 +251,6 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* LittleDrop */,
-				252259A10FC5593200338235 /* Embed MacRuby */,
 			);
 		};
 /* End PBXProject section */
@@ -245,15 +271,17 @@
 				25B911CF0FB9A57B006001FB /* little_drop.tiff in Resources */,
 				2508C73C0FBC29A000A18478 /* DropConfig.rb in Resources */,
 				2508C73E0FBC2A9D00A18478 /* DropManagerDocument.rb in Resources */,
-				255D5D880FC092D900CFDDF7 /* Preferences.rb in Resources */,
 				25225A060FC5680C00338235 /* DropAsset.rb in Resources */,
+				259D80B40FC5AD310025D8FD /* AssetManagerDelegate.rb in Resources */,
+				257CFF710FCAF4E600936F68 /* NewDropWindowController.rb in Resources */,
+				25C359BF0FCBEB7600B11405 /* AssetDownloaderOperation.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		252259A00FC5593200338235 /* ShellScript */ = {
+		257CFF310FCAD5F800936F68 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -264,7 +292,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=\"$PATH:/usr/local/bin\" /usr/bin/env macruby -r hotcocoa/application_builder -e \"HotCocoa::ApplicationBuilder.deploy(ARGV[0])\" $TARGET_BUILD_DIR/$PROJECT_NAME.app";
+			shellScript = "install_name_tool -change /Library/Frameworks/MacRuby.framework/Versions/0.4/usr/lib/libmacruby.dylib @executable_path/../Frameworks/MacRuby.framework/Versions/0.4/usr/lib/libmacruby.dylib $CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -274,18 +302,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				25E045230FC88B5C00966160 /* NCXFileUploader.m in Sources */,
+				257CFDE30FCA940500936F68 /* NCXAssetDownloader.m in Sources */,
+				257CFEB40FCAAB3400936F68 /* DropIO.m in Sources */,
+				257CFEB50FCAAB3400936F68 /* DropIOAsset.m in Sources */,
+				257CFEB60FCAAB3400936F68 /* DropIODrop.m in Sources */,
+				257CFEB70FCAAB3400936F68 /* XMLToObjectParser.m in Sources */,
+				25C35A720FCC2B6D00B11405 /* CreateDropOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		252259A50FC5593700338235 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8D1107260486CEB800E47090 /* LittleDrop */;
-			targetProxy = 252259A40FC5593700338235 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
@@ -307,27 +334,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		252259A20FC5593200338235 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = "Embed MacRuby";
-			};
-			name = Debug;
-		};
-		252259A30FC5593200338235 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				PRODUCT_NAME = "Embed MacRuby";
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -336,6 +342,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../../Library/Frameworks\"",
+					"\"$(SRCROOT)/..\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -358,6 +365,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../../Library/Frameworks\"",
+					"\"$(SRCROOT)/..\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -395,15 +403,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		252259AA0FC5596200338235 /* Build configuration list for PBXAggregateTarget "Embed MacRuby" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				252259A20FC5593200338235 /* Debug */,
-				252259A30FC5593200338235 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "LittleDrop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

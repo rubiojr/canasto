@@ -97,6 +97,7 @@ class Dropio::Client
       req = Net::HTTP::Post.new(uri.path, DEFAULT_HEADER)
       form = create_form( { :drop_name => drop.name, :token => token , :file => file } )
       req.multipart_params = form  
+      puts 'foobared'
       complete_request(req, uri.host) { |body| asset = Mapper.map_assets(drop, body) }
     end
     
@@ -296,9 +297,14 @@ class Dropio::Client
   def complete_request(request, host = URI.parse(Dropio.api_url).host)
     # Set to debug http output.
     # http.set_debug_output $stderr
-    response = Net::HTTP.start(host, 80) { |http| 
-      http.request(request)
-    }
+    puts 'req begin'
+    begin
+      response = Net::HTTP.start(host, 80) { |http| 
+        http.request(request)
+      }
+    rescue Exception
+    end
+    puts 'req end'
 
 
     case response

@@ -17,4 +17,8 @@ class GrowlController
   def dropSelected(drop_name)
     @g.notify 'AssetRemoved', 'drop.io', "Drop #{drop_name} selected"
   end
+
+  def error(msg)
+    @g.notify 'LittleDrop', 'drop.io', msg
+  end
 end
