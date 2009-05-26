@@ -9,6 +9,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="946"/>
+			<integer value="1124"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1004,6 +1005,7 @@
 											</object>
 											<string key="NSFrame">{{1, 17}, {584, 230}}</string>
 											<reference key="NSSuperview" ref="180366124"/>
+											<reference key="NSNextKeyView" ref="1036839638"/>
 											<reference key="NSDocView" ref="1036839638"/>
 											<reference key="NSBGColor" ref="298306764"/>
 											<int key="NScvFlags">4</int>
@@ -1036,6 +1038,7 @@
 											</object>
 											<string key="NSFrame">{{1, 0}, {584, 17}}</string>
 											<reference key="NSSuperview" ref="180366124"/>
+											<reference key="NSNextKeyView" ref="733446281"/>
 											<reference key="NSDocView" ref="733446281"/>
 											<reference key="NSBGColor" ref="298306764"/>
 											<int key="NScvFlags">4</int>
@@ -1044,6 +1047,7 @@
 									</object>
 									<string key="NSFrameSize">{586, 248}</string>
 									<reference key="NSSuperview" ref="363917819"/>
+									<reference key="NSNextKeyView" ref="829631708"/>
 									<int key="NSsFlags">562</int>
 									<reference key="NSVScroller" ref="593109167"/>
 									<reference key="NSHScroller" ref="734160427"/>
@@ -1825,21 +1829,21 @@
 										<string key="NSName">_NSServicesMenu</string>
 									</object>
 								</object>
-								<object class="NSMenuItem" id="962228036">
-									<reference key="NSMenu" ref="445767790"/>
-									<string key="NSTitle">Hide LittleDrop</string>
-									<string key="NSKeyEquiv">h</string>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="635213375"/>
-									<reference key="NSMixedImage" ref="89671913"/>
-								</object>
 								<object class="NSMenuItem" id="404013292">
 									<reference key="NSMenu" ref="445767790"/>
 									<bool key="NSIsDisabled">YES</bool>
 									<bool key="NSIsSeparator">YES</bool>
 									<string key="NSTitle"/>
 									<string key="NSKeyEquiv"/>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="635213375"/>
+									<reference key="NSMixedImage" ref="89671913"/>
+								</object>
+								<object class="NSMenuItem" id="962228036">
+									<reference key="NSMenu" ref="445767790"/>
+									<string key="NSTitle">Hide LittleDrop</string>
+									<string key="NSKeyEquiv">h</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="635213375"/>
@@ -4275,7 +4279,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{92, 479}, {326, 20}}</string>
+					<string>{{92, 479}, {370, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{74, 862}</string>

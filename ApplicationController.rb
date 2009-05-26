@@ -191,7 +191,14 @@ class ApplicationController
   end
 
   def fileSent(notification)
+    @progressIndicator.stopAnimation self
     NSLog 'asset uploaded'
+    dropConfig = nil
+    @drops.arrangedObjects.each do |dc|
+      dropConfig = dc if dc.dropName == @userDefaults.objectForKey('NCXLastDropSelected')
+    end
+    n = NSNotification.notificationWithName 'DropIORefreshAssets', :object => dropConfig
+    @nQueue.enqueueNotification n, :postingStyle => NSPostNow
   end
 
   def assetDownloaderStarted(notification)
@@ -270,6 +277,7 @@ class ApplicationController
   end
   
   def sendFiles(notification)
+    @progressIndicator.startAnimation self
     obj = notification.object
     begin
       dropName = obj['dropName']
@@ -283,7 +291,7 @@ class ApplicationController
           fu.dropName = dropName
           fu.adminToken = adminToken
           fu.file = fname
-          @opqueue.addOperation fu
+          @opQueue.addOperation fu
         else
           puts 'File does not exist'
         end
