@@ -26,6 +26,7 @@ class ApplicationController
   end
 
   def awakeFromNib
+    NSUserDefaultsController.sharedUserDefaultsController.setAppliesImmediately true
     @userDefaults = NSUserDefaults.standardUserDefaults
     @userDefaults.registerDefaults( { 
         'ApiKey' => '',
@@ -33,8 +34,10 @@ class ApplicationController
     })
     NSLog "Defaults registered"
     @nc = NSNotificationCenter.defaultCenter
-    @nc.addObserver self, :selector => 'fileSent:', :name => 'FileUploaderFileSent', :object => nil
-    @nc.addObserver self, :selector => 'sendingFile:', :name => 'FileUploaderSendingFile', :object => nil
+    @nc.addObserver self, :selector => 'fileUploaderStarted:', :name => 'FileUploaderStarted', :object => nil
+    @nc.addObserver self, :selector => 'fileUploaderFinished:', :name => 'FileUploaderFinished', :object => nil
+    @nc.addObserver self, :selector => 'fileUploaderFileSent:', :name => 'FileUploaderFileSent', :object => nil
+    @nc.addObserver self, :selector => 'fileUploaderSendingFile:', :name => 'FileUploaderSendingFile', :object => nil
     @nc.addObserver self, :selector => 'assetDownloaderFinished:', :name => 'AssetDownloaderFinished', :object => nil
     @nc.addObserver self, :selector => 'assetDownloaderStarted:', :name => 'AssetDownloaderStarted', :object => nil
     @nc.addObserver self, :selector => 'assetDownloaderError:', :name => 'AssetDownloaderError', :object => nil
@@ -88,6 +91,40 @@ class ApplicationController
     end
   end
 		
+  def deleteDropConfig(sender)
+    dc = @drops.selectedObjects.first
+    puts "Delete drop config #{dc.dropName}"
+    error = nil
+    drop = DropIO.findDropNamed dc.dropName, :withToken => dc.adminToken, :error => error
+    if not drop.nil?
+      drop.delete
+      if DropIO.lastError == nil
+        # remove drop
+        puts 'Destroyed'
+        @drops.removeObject dc
+        configs = {}.merge(@userDefaults.dictionaryForKey('NCXDropConfigs') || {})
+        configs.delete dc.dropName
+        @userDefaults.setObject configs, :forKey => 'NCXDropConfigs'
+        @growl.dropDestroyed(dc.dropName)
+        if @drops.content.size == 0
+          @assets.removeObjects @assets.content
+        end
+        if @drops.content and @drops.content.size > 0
+          changeDropSelected @drops.selectedObjects.first.dropName
+        end
+      else
+        NSLog "Error deleting drop #{dc.dropName}"
+      end
+    else
+      warningAlert "Error deleting drop", "#{dc.dropName} could not be found. Removing from the list anyway..."
+      @drops.removeObject dc
+      configs = {}.merge(@userDefaults.dictionaryForKey('NCXDropConfigs') || {})
+      configs.delete dc.dropName
+      @userDefaults.setObject configs, :forKey => 'NCXDropConfigs'
+      NSUserDefaultsController.sharedUserDefaultsController.save self
+    end
+  end
+
   def pasteToDrop(sender)
     pb = NSPasteboard.generalPasteboard
     file = pb.stringForType NSFilenamesPboardType
@@ -139,6 +176,7 @@ class ApplicationController
   end
 
   def changeDropSelected(dropName)
+    NSLog 'Changing drop selected'
     @progressIndicator.startAnimation self
     index = 0
     @drops.arrangedObjects.each do |config|
@@ -153,7 +191,7 @@ class ApplicationController
       dropConfig = dc if dc.dropName == dropName
     end
     n = NSNotification.notificationWithName 'DropIORefreshAssets', :object => dropConfig
-    @nQueue.enqueueNotification n, :postingStyle => NSPostWhenIdle
+    @nQueue.enqueueNotification n, :postingStyle => NSPostNow
   end
 
   def saveDropConfigs(sender)
@@ -187,19 +225,6 @@ class ApplicationController
     changeDropSelected(@drops.selectedObjects.first.dropName)
   end
 
-  def sendingFile(notification)
-  end
-
-  def fileSent(notification)
-    @progressIndicator.stopAnimation self
-    NSLog 'asset uploaded'
-    dropConfig = nil
-    @drops.arrangedObjects.each do |dc|
-      dropConfig = dc if dc.dropName == @userDefaults.objectForKey('NCXLastDropSelected')
-    end
-    n = NSNotification.notificationWithName 'DropIORefreshAssets', :object => dropConfig
-    @nQueue.enqueueNotification n, :postingStyle => NSPostNow
-  end
 
   def assetDownloaderStarted(notification)
   end
@@ -232,73 +257,76 @@ class ApplicationController
     true
   end
 
-  def windowDidBecomeKey(notification)
-    window = notification.object
-    if window.title == 'Drop Manager'
-      if @drops.arrangedObjects.nil? or @drops.arrangedObjects.empty?
-      else
-        @drops.removeObjects(@drops.arrangedObjects || [])
-      end
-      dc = @userDefaults.dictionaryForKey('NCXDropConfigs') || {}
-      dc.each do |k,v| 
-        config = DropConfig.new
-        config.dropName = k
-        config.adminToken = v
-        @drops.addObject config
-      end
-    elsif window.title == 'Asset Manager'
-      dc = @userDefaults.dictionaryForKey('NCXDropConfigs') || {}
-      @drops.removeObjects (@drops.arrangedObjects || [])
-      dc.each do |k,v| 
-        config = DropConfig.new
-        config.dropName = k
-        config.adminToken = v
-        @drops.addObject config
-      end
-    else
-    end
-  end
+  #def windowDidBecomeKey(notification)
+  #  window = notification.object
+  #  if window.title == 'Asset Manager'
+  #    dc = @userDefaults.dictionaryForKey('NCXDropConfigs') || {}
+  #    @drops.removeObjects (@drops.content || [])
+  #    dc.each do |k,v| 
+  #      config = DropConfig.new
+  #      config.dropName = k
+  #      config.adminToken = v
+  #      @drops.addObject config
+  #    end
+  #  else
+  #  end
+  #end
   
   def refreshAssets(notification)
-    NSLog "refreshing #{notification.object.dropName} assets"
-    @assets.removeObjects @assets.arrangedObjects
+    drop = @drops.selectedObjects.first
+    NSLog "refreshing #{drop.dropName} assets"
+    @assets.removeObjects @assets.content
     op = NCXAssetDownloader.alloc.init
-    op.dropName = notification.object.dropName
-    op.adminToken = notification.object.adminToken
+    op.dropName = drop.dropName
+    op.adminToken = drop.adminToken
     @opQueue.addOperation op
   end
 
-  def createDrop(notification)
-    properties = notification.object
-    NSLog "Creating drop #{properties['dropName']}"
-    op = CreateDropOperation.alloc.init
-    op.properties = properties
-    @opQueue.addOperation op
-  end
+  #def createDrop(notification)
+  #  properties = notification.object
+  #  NSLog "Creating drop #{properties['dropName']}"
+  #  op = CreateDropOperation.alloc.init
+  #  op.properties = properties
+  #  @opQueue.addOperation op
+  #end
   
   def sendFiles(notification)
     @progressIndicator.startAnimation self
     obj = notification.object
-    begin
-      dropName = obj['dropName']
-      adminToken = obj['adminToken']
-      files = obj['files']
-      obj['files'].each do |e|
-        drop = Dropio::Drop.find(dropName, adminToken)
-        fname = e.strip.chomp
-        if File.exist?(fname) and not File.directory?(fname)
-          fu = NCXFileUploader.new
-          fu.dropName = dropName
-          fu.adminToken = adminToken
-          fu.file = fname
-          @opQueue.addOperation fu
-        else
-          puts 'File does not exist'
-        end
-      end
-    rescue Exception => e
-      puts "CRITICAL: #{e.message}"
-    end
+    dropName = obj['dropName']
+    adminToken = obj['adminToken']
+    files = obj['files']
+    NSLog "Sending Files..."
+    fu = NCXFileUploader.new
+    fu.dropName = dropName
+    fu.adminToken = adminToken
+    fu.files = files
+    @opQueue.addOperation fu
+  end
+
+  def fileUploaderFinished(notification)
+    NSLog 'Uploader finished'
+    drop = @drops.selectedObjects.first
+    @progressIndicator.stopAnimation self
+    NSLog 'Crearing assets'
+    @assets.removeObjects(@assets.content || [])
+    NSLog 'Assets Empty'
+    op = NCXAssetDownloader.alloc.init
+    op.dropName = drop.dropName
+    op.adminToken = drop.adminToken
+    @opQueue.addOperation op
+  end
+
+  def fileUploaderStarted(notification)
+  end
+  
+  def fileUploaderSendingFile(notification)
+  end
+
+  def fileUploaderFileSent(notification)
+    dropAsset = DropAsset.alloc.init
+    dropAsset.name = File.basename(notification.object)
+    @assets.addObject dropAsset
   end
 
   def createDropOperationStarted(notification)
@@ -307,14 +335,20 @@ class ApplicationController
 
   def createDropOperationFinished(notification)
     drop = notification.object
-    NSLog "Drop Created: #{drop.name} Admin Token: #{drop.adminToken}"
-    dc = {}.merge(@userDefaults.dictionaryForKey('NCXDropConfigs') || {})
-    dc[drop.name] = drop.adminToken
-    @userDefaults.setObject dc, :forKey => 'NCXDropConfigs'
-    config = DropConfig.alloc.init
-    config.dropName = drop.name
-    config.adminToken = drop.adminToken
-    @drops.addObject config
+    if drop.nil?
+      NSLog "Could not create the drop!"
+    else
+      NSLog "Drop Created: #{drop.name} Admin Token: #{drop.adminToken}"
+      dc = {}.merge(@userDefaults.dictionaryForKey('NCXDropConfigs') || {})
+      dc[drop.name] = drop.adminToken
+      @userDefaults.setObject dc, :forKey => 'NCXDropConfigs'
+      @userDefaults.synchronize
+      config = DropConfig.alloc.init
+      config.dropName = drop.name
+      config.adminToken = drop.adminToken
+      @drops.addObject config
+      changeDropSelected drop.name
+    end
   end
 
 end

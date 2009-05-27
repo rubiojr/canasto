@@ -12,33 +12,44 @@
 
 @implementation NCXFileUploader
 
-@synthesize file;
+@synthesize files;
 @synthesize adminToken;
 @synthesize dropName;
 
 - (void) main {
+	NSLog(@"Uploading to drop:");
+	NSLog(dropName);
 	NSNotificationQueue *queue = [NSNotificationQueue defaultQueue];
 	NSError* error = nil;
 	DropIODrop* drop = [DropIO findDropNamed:dropName 
 								   withToken:adminToken 
 									error:&error];
 
-	NSNotification *n = [NSNotification notificationWithName:@"FileUploaderSendingFile"
-													  object: file];
+	NSNotification *n1 = [NSNotification notificationWithName:@"FileUploaderStarted"
+									  object: nil];
+	[queue enqueueNotification:n1 postingStyle: NSPostNow];
 	
-	[queue enqueueNotification:n
-				  postingStyle: NSPostNow];
-	NSData *data = [NSData dataWithContentsOfFile:file];
-	DropIODocument* doc = [drop docWithFilename:file
-												data: data
-											mimeType: @"application/unknown"];
-	n = [NSNotification notificationWithName:@"FileUploaderFileSent"
-													  object: file];
-							
-	[queue enqueueNotification:n
-				  postingStyle: NSPostNow];
-	[doc release];
-	[n release];
-	[data release];
+	for (NSString *file in files) { 
+		NSLog(@"Sending file");
+		NSLog(file);
+		NSNotification *n = [NSNotification notificationWithName:@"FileUploaderSendingFile"
+														  object: file];
+		
+		[queue enqueueNotification:n
+					  postingStyle: NSPostNow];
+		NSData *data = [NSData dataWithContentsOfFile:file];
+		DropIODocument* doc = [drop docWithFilename:file
+													data: data
+												mimeType: @"application/unknown"];
+		n = [NSNotification notificationWithName:@"FileUploaderFileSent"
+														  object: file];
+								
+		[queue enqueueNotification:n
+					  postingStyle: NSPostNow];
+	}
+	
+	NSNotification *n2 = [NSNotification notificationWithName:@"FileUploaderFinished"
+									  object: nil];
+	[queue enqueueNotification:n2 postingStyle: NSPostNow];
 }
 @end

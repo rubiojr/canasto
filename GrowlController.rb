@@ -3,7 +3,7 @@ class GrowlController
 
   def initialize
     @g = Growl::Notifier.sharedInstance
-    @g.register 'Dropper', ['AssetAdded', 'AssetRemoved']
+    @g.register 'LittleDrop', ['AssetAdded', 'AssetRemoved', 'DropDestroyed', 'DropCreated']
     super
   end
 
@@ -17,8 +17,18 @@ class GrowlController
   def dropSelected(drop_name)
     @g.notify 'AssetRemoved', 'drop.io', "Drop #{drop_name} selected"
   end
+  def dropSelected(drop_name)
+    @g.notify 'DropCreated', 'drop.io', "Drop #{drop_name} created"
+  end
+  
+  def addingAsset(drop_name, asset_name)
+    @g.notify 'LittleDrop', 'drop.io', "Adding asset #{asset_name} to #{drop_name}"
+  end
+  def dropDestroyed(drop_name)
+    @g.notify 'DropDestroyed', 'drop.io', "Drop #{drop_name} has been destroyed!"
+  end
 
   def error(msg)
-    @g.notify 'LittleDrop', 'drop.io', msg
+    @g.notify 'LittleDrop', 'drop.io error!', msg
   end
 end

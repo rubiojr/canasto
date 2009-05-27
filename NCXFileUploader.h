@@ -10,13 +10,12 @@
 
 
 @interface NCXFileUploader : NSOperation {
-  NSString *file;
+  NSMutableArray *files;
 	NSString * dropName;
 	NSString *adminToken;
-
 }
 
-@property(retain) NSString *file;
+@property(retain) NSMutableArray *files;
 @property(retain) NSString *dropName;
 @property(retain) NSString *adminToken;
 

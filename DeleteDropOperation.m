@@ -1,15 +1,12 @@
 //
-//  CreateDropOperation.m
-//  LittleDrop
-//
 //  Created by Sergio Rubio on 26/05/09.
-//  Copyright 2009 CSIC. All rights reserved.
+//  Copyright 2009. All rights reserved.
 //
 
-#import "CreateDropOperation.h"
+#import "DestroyDropOperation.h"
 
 
-@implementation CreateDropOperation
+@implementation DestroyDropOperation
 
 @synthesize  properties;
 
@@ -26,20 +23,15 @@
 
   DropIODrop *drop;
 	if (password) {
-		NSLog(@"Create drop WITH password");
-		drop = [DropIO dropWithName:dropName andPassword:password];
+    NSLog(@"Create drop WITH password");
+    drop = [DropIO dropWithName:dropName andPassword:password];
 	} else {
-		NSLog(@"Create drop WITHOUT password");
-		drop = [DropIO dropWithName:dropName];
+    NSLog(@"Create drop WITHOUT password");
+    drop = [DropIO dropWithName:dropName];
 	}
 	n = [NSNotification notificationWithName:@"CreateDropOperationFinished"
 														  object: drop];
 	[queue enqueueNotification:n postingStyle: NSPostNow];
-	[n release];
-	[queue release];
-	[properties release];
-	[password release];
-	[dropName release];
 }
 
 
