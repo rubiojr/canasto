@@ -19,6 +19,7 @@ class ApplicationController
   attr_accessor :apiKeyTextField
   attr_accessor :webView
   attr_accessor :browserWindow
+  attr_accessor :assetsWindow
 
   def init
     super
@@ -89,8 +90,15 @@ class ApplicationController
       end
     end
     if @userDefaults.objectForKey('ApiKey').empty?
-      @preferences.makeKeyAndOrderFront self
+      #@preferences.makeKeyAndOrderFront self
+      NSApp.beginSheet @preferences, :modalForWindow => @assetsWindow, :modalDelegate => nil, :didEndSelector => nil, :contextInfo => nil
     end
+  end
+
+  def preferencesClosed(sender)
+    @userDefaults.synchronize
+    NSApp.endSheet @preferences
+    @preferences.orderOut sender
   end
 		
   def deleteDropConfig(sender)
@@ -251,6 +259,7 @@ class ApplicationController
       DropIO.APIKey = @userDefaults.objectForKey('ApiKey')
       NSLog "Api Key: #{DropIO.APIKey || ''}" 
       @userDefaults.setObject @apiKeyTextField.stringValue, :forKey => 'ApiKey'
+      @userDefaults.synchronize
     end
     if not DropIO.checkAPIKey
       warningAlert('Invalid API Key', 'The api key is not valid, double check it') 
@@ -359,6 +368,9 @@ class ApplicationController
     #@browserWindow.makeKeyAndOrderFront self
     #@webView.mainFrame.loadRequest NSURLRequest.requestWithURL(url)
     NSWorkspace.sharedWorkspace.openURL url
+  end
+
+  def addDropFromConfig(sender)
   end
 
 end
