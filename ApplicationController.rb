@@ -17,6 +17,8 @@ class ApplicationController
   attr_writer :progressIndicator
   attr_accessor :preferences
   attr_accessor :apiKeyTextField
+  attr_accessor :webView
+  attr_accessor :browserWindow
 
   def init
     super
@@ -349,6 +351,13 @@ class ApplicationController
       @drops.addObject config
       changeDropSelected drop.name
     end
+  end
+
+  def openWebView(sender)
+    dropName = @drops.selectedObjects.first.dropName
+    url = NSURL.URLWithString "http://drop.io/#{dropName}"
+    @browserWindow.makeKeyAndOrderFront self
+    @webView.mainFrame.loadRequest NSURLRequest.requestWithURL(url)
   end
 
 end

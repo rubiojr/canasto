@@ -27,6 +27,7 @@
 		25B911CC0FB9A567006001FB /* GrowlController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25B911C80FB9A567006001FB /* GrowlController.rb */; };
 		25B911CD0FB9A567006001FB /* IORB.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25B911C90FB9A567006001FB /* IORB.rb */; };
 		25B911CF0FB9A57B006001FB /* little_drop.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 25B911CE0FB9A57B006001FB /* little_drop.tiff */; };
+		25C0E1BB0FCD8F3800DB7DCB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C0E1BA0FCD8F3800DB7DCB /* WebKit.framework */; };
 		25C359BF0FCBEB7600B11405 /* AssetDownloaderOperation.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25C359BE0FCBEB7600B11405 /* AssetDownloaderOperation.rb */; };
 		25C35A720FCC2B6D00B11405 /* CreateDropOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */; };
 		25E045230FC88B5C00966160 /* NCXFileUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E045220FC88B5C00966160 /* NCXFileUploader.m */; };
@@ -78,6 +79,7 @@
 		25B911C80FB9A567006001FB /* GrowlController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GrowlController.rb; sourceTree = "<group>"; };
 		25B911C90FB9A567006001FB /* IORB.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = IORB.rb; sourceTree = "<group>"; };
 		25B911CE0FB9A57B006001FB /* little_drop.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = little_drop.tiff; sourceTree = "<group>"; };
+		25C0E1BA0FCD8F3800DB7DCB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		25C359BE0FCBEB7600B11405 /* AssetDownloaderOperation.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AssetDownloaderOperation.rb; sourceTree = "<group>"; };
 		25C35A700FCC2B6D00B11405 /* CreateDropOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateDropOperation.h; sourceTree = "<group>"; };
 		25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateDropOperation.m; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				252259C50FC55EB500338235 /* JSON.framework in Frameworks */,
 				257CFF1B0FCAD49200936F68 /* MacRuby.framework in Frameworks */,
+				25C0E1BB0FCD8F3800DB7DCB /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +212,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25C0E1BA0FCD8F3800DB7DCB /* WebKit.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
