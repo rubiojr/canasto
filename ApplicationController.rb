@@ -356,8 +356,9 @@ class ApplicationController
   def openWebView(sender)
     dropName = @drops.selectedObjects.first.dropName
     url = NSURL.URLWithString "http://drop.io/#{dropName}"
-    @browserWindow.makeKeyAndOrderFront self
-    @webView.mainFrame.loadRequest NSURLRequest.requestWithURL(url)
+    #@browserWindow.makeKeyAndOrderFront self
+    #@webView.mainFrame.loadRequest NSURLRequest.requestWithURL(url)
+    NSWorkspace.sharedWorkspace.openURL url
   end
 
 end
