@@ -20,6 +20,8 @@ class ApplicationController
   attr_accessor :webView
   attr_accessor :browserWindow
   attr_accessor :assetsWindow
+  attr_writer :dropManagerWindow
+  attr_writer :dropManagerTableView
 
   def init
     super
@@ -29,6 +31,8 @@ class ApplicationController
   end
 
   def awakeFromNib
+    GrowlApplicationBridge.setGrowlDelegate GrowlDelegate.new
+
     NSUserDefaultsController.sharedUserDefaultsController.setAppliesImmediately true
     @userDefaults = NSUserDefaults.standardUserDefaults
     @userDefaults.registerDefaults( { 
@@ -57,7 +61,7 @@ class ApplicationController
 		@app_icon = NSImage.alloc.initWithContentsOfFile(bundle.pathForResource('little_drop', :ofType => 'tiff'))
 		
 		@status_item.setImage(@app_icon)
-    @growl = GrowlController.new
+    #@growl = GrowlController.new
     @selectedDropMenuItem = nil
   end
 
@@ -97,41 +101,54 @@ class ApplicationController
 
   def preferencesClosed(sender)
     @userDefaults.synchronize
+    DropIO.APIKey = @userDefaults.objectForKey('ApiKey')
     NSApp.endSheet @preferences
     @preferences.orderOut sender
   end
-		
-  def deleteDropConfig(sender)
+
+  def deleteDropConfigAlert(sender)
+    puts "Deleting drop config"
+    alert = NSAlert.new
+    alert.addButtonWithTitle "Cancel"
+    alert.addButtonWithTitle "OK"
+    alert.setMessageText "Do you want to destroy the drop #{@drops.selectedObjects.first.dropName}?"
+    alert.setInformativeText "WARNING: Destroyed drops cannot be restored"
+    alert.setAlertStyle NSWarningAlertStyle
+    alert.beginSheetModalForWindow @dropManagerWindow, :modalDelegate => self, :didEndSelector => 'deleteDropConfigAlertDidEnd:returnCode:contextInfo:', :contextInfo => nil
+  end
+
+  def deleteDropConfigAlertDidEnd(alert, returnCode:returnCode, contextInfo:contextInfo)
+    if returnCode == NSAlertSecondButtonReturn
+      deleteDropConfig
+    else
+    end
     dc = @drops.selectedObjects.first
-    puts "Delete drop config #{dc.dropName}"
+    @drops.removeObject dc
+    configs = {}.merge(@userDefaults.dictionaryForKey('NCXDropConfigs') || {})
+    configs.delete dc.dropName
+    @userDefaults.setObject configs, :forKey => 'NCXDropConfigs'
+    @userDefaults.synchronize
+    if @drops.content and @drops.content.size == 0
+      @assets.removeObjects @assets.content
+    elsif @drops.content and @drops.content.size > 0
+      changeDropSelected @drops.selectedObjects.first.dropName
+    end
+  end
+		
+  def deleteDropConfig
+    dc = @drops.selectedObjects.first
     error = nil
     drop = DropIO.findDropNamed dc.dropName, :withToken => dc.adminToken, :error => error
     if not drop.nil?
       drop.delete
       if DropIO.lastError == nil
-        # remove drop
-        puts 'Destroyed'
-        @drops.removeObject dc
-        configs = {}.merge(@userDefaults.dictionaryForKey('NCXDropConfigs') || {})
-        configs.delete dc.dropName
-        @userDefaults.setObject configs, :forKey => 'NCXDropConfigs'
-        @growl.dropDestroyed(dc.dropName)
-        if @drops.content.size == 0
-          @assets.removeObjects @assets.content
-        end
-        if @drops.content and @drops.content.size > 0
-          changeDropSelected @drops.selectedObjects.first.dropName
-        end
+        GrowlDelegate.notify 'drop.io', "Drop #{dc.dropName} destroyed!", 'DropDestroyed'
       else
         NSLog "Error deleting drop #{dc.dropName}"
+        warningAlert "Error deleting drop", "Something went wrong destroying #{dc.dropName}"
       end
     else
-      warningAlert "Error deleting drop", "#{dc.dropName} could not be found. Removing from the list anyway..."
-      @drops.removeObject dc
-      configs = {}.merge(@userDefaults.dictionaryForKey('NCXDropConfigs') || {})
-      configs.delete dc.dropName
-      @userDefaults.setObject configs, :forKey => 'NCXDropConfigs'
-      NSUserDefaultsController.sharedUserDefaultsController.save self
+      warningAlert "Error deleting drop", "#{dc.dropName} could not be found."
     end
   end
 
@@ -211,6 +228,11 @@ class ApplicationController
       dc[d.dropName] = d.adminToken
     end
     @userDefaults.setObject dc, :forKey => 'NCXDropConfigs'
+    @userDefaults.synchronize
+    if @drops.content.size > 0
+      changeDropSelected @drops.selectedObjects.first.dropName
+    end
+    @dropManagerWindow.performClose self
   end
 
   def menuNeedsUpdate(menu)
@@ -268,21 +290,6 @@ class ApplicationController
     true
   end
 
-  #def windowDidBecomeKey(notification)
-  #  window = notification.object
-  #  if window.title == 'Asset Manager'
-  #    dc = @userDefaults.dictionaryForKey('NCXDropConfigs') || {}
-  #    @drops.removeObjects (@drops.content || [])
-  #    dc.each do |k,v| 
-  #      config = DropConfig.new
-  #      config.dropName = k
-  #      config.adminToken = v
-  #      @drops.addObject config
-  #    end
-  #  else
-  #  end
-  #end
-  
   def refreshAssets(notification)
     drop = @drops.selectedObjects.first
     NSLog "refreshing #{drop.dropName} assets"
@@ -293,14 +300,6 @@ class ApplicationController
     @opQueue.addOperation op
   end
 
-  #def createDrop(notification)
-  #  properties = notification.object
-  #  NSLog "Creating drop #{properties['dropName']}"
-  #  op = CreateDropOperation.alloc.init
-  #  op.properties = properties
-  #  @opQueue.addOperation op
-  #end
-  
   def sendFiles(notification)
     @progressIndicator.startAnimation self
     obj = notification.object
@@ -359,10 +358,12 @@ class ApplicationController
       config.adminToken = drop.adminToken
       @drops.addObject config
       changeDropSelected drop.name
+      GrowlDelegate.notify 'drop.io', "Drop #{drop.name} created", "DropCreated"
     end
   end
 
   def openWebView(sender)
+    return if @drops.content.size == 0
     dropName = @drops.selectedObjects.first.dropName
     url = NSURL.URLWithString "http://drop.io/#{dropName}"
     #@browserWindow.makeKeyAndOrderFront self
@@ -371,6 +372,16 @@ class ApplicationController
   end
 
   def addDropFromConfig(sender)
+    window = sender.window
+    editingEnded = window.makeFirstResponder window
+    dc = DropConfig.new
+    @drops.addObject dc
+    row = @drops.arrangedObjects.indexOfObjectIdenticalTo dc
+    @dropManagerTableView.editColumn 0, 
+                          :row => row,
+                          :withEvent => nil,
+                          :select => true 
+
   end
 
 end

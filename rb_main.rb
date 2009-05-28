@@ -9,6 +9,7 @@
 # do that here too.
 framework 'Cocoa'
 framework 'JSON'
+framework 'Growl'
 $:.unshift  File.join(File.dirname(__FILE__), 'vendor/plist/lib')
 $:.unshift  File.join(File.dirname(__FILE__), 'vendor/mime-types/lib')
 $:.unshift  File.join(File.dirname(__FILE__), 'vendor/dropio/lib')

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DefaultNotifications</key>
+	<array>
+		<string>RefreshAssetsOperation</string>
+		<string>DropDestroyed</string>
+		<string>DropCreated</string>
+	</array>
+	<key>TicketVersion</key>
+	<string>1</string>
+	<key>AllNotifications</key>
+	<array>
+		<string>RefreshAssetsOperation</string>
+		<string>DropDestroyed</string>
+		<string>DropCreated</string>
+	</array>
+</dict>
+</plist>
