@@ -68,7 +68,6 @@ class ApplicationController
   def applicationDidFinishLaunching(notification)
     dc = @userDefaults.dictionaryForKey('NCXDropConfigs')
     apiKey = @userDefaults.objectForKey('ApiKey')
-    Dropio.api_key = apiKey
     DropIO.APIKey = apiKey
     if dc
       lds = @userDefaults.objectForKey('NCXLastDropSelected') || dc.keys.first
