@@ -11,6 +11,7 @@
 		252259C50FC55EB500338235 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252259C40FC55EB500338235 /* JSON.framework */; };
 		252259CA0FC55ED500338235 /* JSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 252259C40FC55EB500338235 /* JSON.framework */; };
 		25225A060FC5680C00338235 /* DropAsset.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25225A050FC5680C00338235 /* DropAsset.rb */; };
+		255A7A5A10458B0200DF0563 /* AssetManagerCustomView.rb in Resources */ = {isa = PBXBuildFile; fileRef = 255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */; };
 		257CFDE30FCA940500936F68 /* NCXAssetDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFDE20FCA940500936F68 /* NCXAssetDownloader.m */; };
 		257CFEB40FCAAB3400936F68 /* DropIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEAD0FCAAB3400936F68 /* DropIO.m */; };
 		257CFEB50FCAAB3400936F68 /* DropIOAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEAF0FCAAB3400936F68 /* DropIOAsset.m */; };
@@ -62,6 +63,7 @@
 		2508C73B0FBC29A000A18478 /* DropConfig.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropConfig.rb; sourceTree = "<group>"; };
 		252259C40FC55EB500338235 /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSON.framework; path = ../../../Library/Frameworks/JSON.framework; sourceTree = SOURCE_ROOT; };
 		25225A050FC5680C00338235 /* DropAsset.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropAsset.rb; sourceTree = "<group>"; };
+		255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AssetManagerCustomView.rb; sourceTree = "<group>"; };
 		257CFDE10FCA940500936F68 /* NCXAssetDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCXAssetDownloader.h; sourceTree = "<group>"; };
 		257CFDE20FCA940500936F68 /* NCXAssetDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCXAssetDownloader.m; sourceTree = "<group>"; };
 		257CFEAC0FCAAB3400936F68 /* DropIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropIO.h; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */,
 				25E8F8A50FCEA350003637BB /* GrowlDelegate.rb */,
 				257CFF700FCAF4E600936F68 /* NewDropWindowController.rb */,
 				257CFDE10FCA940500936F68 /* NCXAssetDownloader.h */,
@@ -279,6 +282,7 @@
 				25E8F84D0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict in Resources */,
 				25E8F8A60FCEA350003637BB /* GrowlDelegate.rb in Resources */,
 				25E8F8C60FCEACC8003637BB /* update.xml in Resources */,
+				255A7A5A10458B0200DF0563 /* AssetManagerCustomView.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

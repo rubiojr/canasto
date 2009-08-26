@@ -2,12 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.03">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">9J61</string>
+		<string key="IBDocument.SystemVersion">9L30</string>
 		<string key="IBDocument.InterfaceBuilderVersion">677</string>
-		<string key="IBDocument.AppKitVersion">949.46</string>
+		<string key="IBDocument.AppKitVersion">949.54</string>
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="704"/>
 			<integer value="1148"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -154,7 +155,7 @@
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="724289522">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -173,14 +174,12 @@
 											<int key="NSvFlags">256</int>
 											<string key="NSFrameSize">{346, 182}</string>
 											<reference key="NSSuperview" ref="853230802"/>
-											<reference key="NSWindow"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="531013387">
 												<reference key="NSNextResponder" ref="831223806"/>
 												<int key="NSvFlags">256</int>
 												<string key="NSFrameSize">{346, 17}</string>
 												<reference key="NSSuperview" ref="831223806"/>
-												<reference key="NSWindow"/>
 												<reference key="NSTableView" ref="440830252"/>
 											</object>
 											<object class="_NSCornerView" key="NSCornerView" id="751856177">
@@ -188,7 +187,6 @@
 												<int key="NSvFlags">-2147483392</int>
 												<string key="NSFrame">{{-26, 0}, {16, 17}}</string>
 												<reference key="NSSuperview" ref="762531974"/>
-												<reference key="NSWindow"/>
 											</object>
 											<object class="NSMutableArray" key="NSTableColumns">
 												<bool key="EncodedWithXMLCoder">YES</bool>
@@ -302,7 +300,6 @@
 									</object>
 									<string key="NSFrame">{{1, 17}, {346, 182}}</string>
 									<reference key="NSSuperview" ref="762531974"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="440830252"/>
 									<reference key="NSDocView" ref="440830252"/>
 									<reference key="NSBGColor" ref="298306764"/>
@@ -313,7 +310,6 @@
 									<int key="NSvFlags">-2147483392</int>
 									<string key="NSFrame">{{332, 17}, {15, 19}}</string>
 									<reference key="NSSuperview" ref="762531974"/>
-									<reference key="NSWindow"/>
 									<reference key="NSTarget" ref="762531974"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSPercent">7.368421e-01</double>
@@ -323,7 +319,6 @@
 									<int key="NSvFlags">-2147483392</int>
 									<string key="NSFrame">{{1, 16}, {331, 15}}</string>
 									<reference key="NSSuperview" ref="762531974"/>
-									<reference key="NSWindow"/>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="762531974"/>
 									<string key="NSAction">_doScroller:</string>
@@ -338,7 +333,6 @@
 									</object>
 									<string key="NSFrame">{{1, 0}, {346, 17}}</string>
 									<reference key="NSSuperview" ref="762531974"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="531013387"/>
 									<reference key="NSDocView" ref="531013387"/>
 									<reference key="NSBGColor" ref="298306764"/>
@@ -348,7 +342,6 @@
 							</object>
 							<string key="NSFrame">{{20, 49}, {348, 200}}</string>
 							<reference key="NSSuperview" ref="724289522"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="853230802"/>
 							<int key="NSsFlags">562</int>
 							<reference key="NSVScroller" ref="588538229"/>
@@ -363,7 +356,6 @@
 							<int key="NSvFlags">289</int>
 							<string key="NSFrame">{{106, 19}, {78, 23}}</string>
 							<reference key="NSSuperview" ref="724289522"/>
-							<reference key="NSWindow"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="409695542">
 								<int key="NSCellFlags">-2080244224</int>
@@ -384,7 +376,6 @@
 							<int key="NSvFlags">289</int>
 							<string key="NSFrame">{{20, 19}, {78, 23}}</string>
 							<reference key="NSSuperview" ref="724289522"/>
-							<reference key="NSWindow"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="909224263">
 								<int key="NSCellFlags">-2080244224</int>
@@ -405,7 +396,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{262, 19}, {106, 23}}</string>
 							<reference key="NSSuperview" ref="724289522"/>
-							<reference key="NSWindow"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="647324733">
 								<int key="NSCellFlags">-2080244224</int>
@@ -423,8 +413,6 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{388, 269}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1024, 746}}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -917,7 +905,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 				</object>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="232527104">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">274</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1192,6 +1180,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 											</object>
 											<string key="NSFrame">{{1, 17}, {630, 230}}</string>
 											<reference key="NSSuperview" ref="180366124"/>
+											<reference key="NSNextKeyView" ref="1036839638"/>
 											<reference key="NSDocView" ref="1036839638"/>
 											<reference key="NSBGColor" ref="298306764"/>
 											<int key="NScvFlags">4</int>
@@ -1224,6 +1213,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 											</object>
 											<string key="NSFrame">{{1, 0}, {630, 17}}</string>
 											<reference key="NSSuperview" ref="180366124"/>
+											<reference key="NSNextKeyView" ref="733446281"/>
 											<reference key="NSDocView" ref="733446281"/>
 											<reference key="NSBGColor" ref="298306764"/>
 											<int key="NScvFlags">4</int>
@@ -1232,6 +1222,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 									</object>
 									<string key="NSFrameSize">{632, 248}</string>
 									<reference key="NSSuperview" ref="363917819"/>
+									<reference key="NSNextKeyView" ref="829631708"/>
 									<int key="NSsFlags">562</int>
 									<reference key="NSVScroller" ref="593109167"/>
 									<reference key="NSHScroller" ref="734160427"/>
@@ -1243,7 +1234,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 							</object>
 							<string key="NSFrame">{{0, 17}, {632, 248}}</string>
 							<reference key="NSSuperview" ref="232527104"/>
-							<string key="NSClassName">NSView</string>
+							<string key="NSClassName">AssetManagerCustomView</string>
 						</object>
 						<object class="NSBox" id="812768762">
 							<reference key="NSNextResponder" ref="232527104"/>
@@ -1292,6 +1283,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 						</object>
 					</object>
 					<string key="NSFrameSize">{632, 265}</string>
+					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1024, 746}}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -5061,6 +5053,33 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">ApplicationController.rb</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">AssetManagerCustomView</string>
+					<string key="superclassName">NSView</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSMutableArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>concludeDragOperation:</string>
+							<string>draggingEntered:</string>
+							<string>draggingExited:</string>
+							<string>performDragOperation:</string>
+							<string>prepareForDragOperation:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">AssetManagerCustomView.rb</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
