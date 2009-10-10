@@ -21,6 +21,7 @@
 		257CFF1D0FCAD49700936F68 /* MacRuby.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 257CFF1A0FCAD49200936F68 /* MacRuby.framework */; };
 		257CFF710FCAF4E600936F68 /* NewDropWindowController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 257CFF700FCAF4E600936F68 /* NewDropWindowController.rb */; };
 		259D80B40FC5AD310025D8FD /* AssetManagerDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 259D80B30FC5AD310025D8FD /* AssetManagerDelegate.rb */; };
+		25A2405610810CD6007A9B66 /* DeleteAssetOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A2405510810CD6007A9B66 /* DeleteAssetOperation.m */; };
 		25B911C50FB9A548006001FB /* vendor in Resources */ = {isa = PBXBuildFile; fileRef = 25B9103D0FB9A548006001FB /* vendor */; };
 		25B911CA0FB9A567006001FB /* ApplicationController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25B911C60FB9A567006001FB /* ApplicationController.rb */; };
 		25B911CF0FB9A57B006001FB /* little_drop.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 25B911CE0FB9A57B006001FB /* little_drop.tiff */; };
@@ -77,6 +78,8 @@
 		257CFF1A0FCAD49200936F68 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MacRuby.framework; sourceTree = "<group>"; };
 		257CFF700FCAF4E600936F68 /* NewDropWindowController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = NewDropWindowController.rb; sourceTree = "<group>"; };
 		259D80B30FC5AD310025D8FD /* AssetManagerDelegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AssetManagerDelegate.rb; sourceTree = "<group>"; };
+		25A2405410810CD6007A9B66 /* DeleteAssetOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteAssetOperation.h; sourceTree = "<group>"; };
+		25A2405510810CD6007A9B66 /* DeleteAssetOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteAssetOperation.m; sourceTree = "<group>"; };
 		25B9103D0FB9A548006001FB /* vendor */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vendor; sourceTree = "<group>"; };
 		25B911C60FB9A567006001FB /* ApplicationController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ApplicationController.rb; sourceTree = "<group>"; };
 		25B911CE0FB9A57B006001FB /* little_drop.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = little_drop.tiff; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				25A2405410810CD6007A9B66 /* DeleteAssetOperation.h */,
+				25A2405510810CD6007A9B66 /* DeleteAssetOperation.m */,
 				255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */,
 				25E8F8A50FCEA350003637BB /* GrowlDelegate.rb */,
 				257CFF700FCAF4E600936F68 /* NewDropWindowController.rb */,
@@ -317,6 +322,7 @@
 				257CFEB60FCAAB3400936F68 /* DropIODrop.m in Sources */,
 				257CFEB70FCAAB3400936F68 /* XMLToObjectParser.m in Sources */,
 				25C35A720FCC2B6D00B11405 /* CreateDropOperation.m in Sources */,
+				25A2405610810CD6007A9B66 /* DeleteAssetOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

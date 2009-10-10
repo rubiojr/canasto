@@ -8,8 +8,9 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="661"/>
 			<integer value="704"/>
-			<integer value="1148"/>
+			<integer value="1337"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -155,7 +156,7 @@
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="724289522">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -413,6 +414,7 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{388, 269}</string>
+					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1024, 746}}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -2015,6 +2017,14 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 									<reference key="NSOnImage" ref="635213375"/>
 									<reference key="NSMixedImage" ref="89671913"/>
 								</object>
+								<object class="NSMenuItem" id="458089408">
+									<reference key="NSMenu" ref="445767790"/>
+									<string key="NSTitle">Check for updates</string>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="635213375"/>
+									<reference key="NSMixedImage" ref="89671913"/>
+								</object>
 								<object class="NSMenuItem" id="11704675">
 									<reference key="NSMenu" ref="445767790"/>
 									<bool key="NSIsDisabled">YES</bool>
@@ -3223,6 +3233,30 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 					</object>
 					<int key="connectionID">1354</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">deleteAssetFromDropAlert:</string>
+						<reference key="source" ref="324382498"/>
+						<reference key="destination" ref="972690604"/>
+					</object>
+					<int key="connectionID">1356</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">assetManagerWindow</string>
+						<reference key="source" ref="324382498"/>
+						<reference key="destination" ref="586617986"/>
+					</object>
+					<int key="connectionID">1357</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">checkForUpdates:</string>
+						<reference key="source" ref="427256699"/>
+						<reference key="destination" ref="458089408"/>
+					</object>
+					<int key="connectionID">1359</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -4255,6 +4289,7 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 							<reference ref="872834867"/>
 							<reference ref="286864216"/>
 							<reference ref="962228036"/>
+							<reference ref="458089408"/>
 						</object>
 						<reference key="parent" ref="133006262"/>
 					</object>
@@ -4505,6 +4540,11 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 						<reference key="object" ref="1021947289"/>
 						<reference key="parent" ref="532405175"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1358</int>
+						<reference key="object" ref="458089408"/>
+						<reference key="parent" ref="445767790"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -4620,6 +4660,7 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<string>1342.IBPluginDependency</string>
 					<string>1348.IBPluginDependency</string>
 					<string>1349.IBPluginDependency</string>
+					<string>1358.IBPluginDependency</string>
 					<string>379.IBPluginDependency</string>
 					<string>390.IBEditorWindowLastContentRect</string>
 					<string>390.IBPluginDependency</string>
@@ -4762,7 +4803,7 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{-70, 1247}, {433, 20}}</string>
+					<string>{{136, 643}, {433, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{74, 862}</string>
@@ -4774,7 +4815,7 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{231, 1174}, {197, 73}}</string>
+					<string>{{437, 570}, {197, 73}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{525, 802}, {197, 73}}</string>
@@ -4786,7 +4827,7 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{-58, 1064}, {232, 183}}</string>
+					<string>{{148, 460}, {232, 183}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{23, 794}, {245, 183}}</string>
@@ -4827,7 +4868,7 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{74, 1184}, {114, 63}}</string>
+					<string>{{280, 580}, {114, 63}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4840,7 +4881,8 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{118, 1204}, {125, 43}}</string>
+					<string>{{324, 600}, {125, 43}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4856,8 +4898,8 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<string>{{228, 668}, {64, 6}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{-61, 1085}, {388, 269}}</string>
-					<string>{{-61, 1085}, {388, 269}}</string>
+					<string>{{102, 360}, {388, 269}}</string>
+					<string>{{102, 360}, {388, 269}}</string>
 					<reference ref="6"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{276, 350}, {240, 135}}</string>
@@ -4877,8 +4919,8 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{-160, 1068}, {632, 265}}</string>
-					<string>{{-160, 1068}, {632, 265}}</string>
+					<string>{{261, 66}, {632, 265}}</string>
+					<string>{{261, 66}, {632, 265}}</string>
 					<reference ref="5"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4982,7 +5024,7 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1354</int>
+			<int key="maxID">1359</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4996,6 +5038,7 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addDropFromConfig:</string>
 							<string>assetManagerPopupButtonClicked:</string>
+							<string>deleteAssetFromDropAlert:</string>
 							<string>deleteDropConfigAlert:</string>
 							<string>dropSelected:</string>
 							<string>openWebView:</string>
@@ -5013,6 +5056,7 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
+							<string>id</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -5021,6 +5065,7 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>apiKeyTextField</string>
 							<string>assetManagerDropSelector</string>
+							<string>assetManagerWindow</string>
 							<string>assets</string>
 							<string>assetsWindow</string>
 							<string>browserWindow</string>
@@ -5035,6 +5080,7 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

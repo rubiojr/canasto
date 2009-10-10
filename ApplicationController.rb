@@ -21,6 +21,7 @@ class ApplicationController
   attr_accessor :browserWindow
   attr_accessor :assetsWindow
   attr_writer :dropManagerWindow
+  attr_writer :assetManagerWindow
   attr_writer :dropManagerTableView
 
   def init
@@ -52,6 +53,8 @@ class ApplicationController
     @nc.addObserver self, :selector => 'sendFiles:', :name => 'SendFiles', :object => nil
     @nc.addObserver self, :selector => 'createDropOperationStarted:', :name => 'CreateDropOperationStarted', :object => nil
     @nc.addObserver self, :selector => 'createDropOperationFinished:', :name => 'CreateDropOperationFinished', :object => nil
+    @nc.addObserver self, :selector => 'deleteAssetOperationStarted:', :name => 'DeleteAssetOperationStarted', :object => nil
+    @nc.addObserver self, :selector => 'deleteAssetOperationFinished:', :name => 'DeleteAssetOperationFinished', :object => nil
 		@status_bar = NSStatusBar.systemStatusBar
 		@status_item = @status_bar.statusItemWithLength(NSVariableStatusItemLength)
 		@status_item.setHighlightMode(true)
@@ -133,7 +136,7 @@ class ApplicationController
       changeDropSelected @drops.selectedObjects.first.dropName
     end
   end
-		
+
   def deleteDropConfig
     dc = @drops.selectedObjects.first
     error = nil
@@ -148,6 +151,48 @@ class ApplicationController
       end
     else
       warningAlert "Error deleting drop", "#{dc.dropName} could not be found."
+    end
+  end
+
+  def currentDrop
+    dc = @drops.selectedObjects.first
+    error = nil
+    drop = DropIO.findDropNamed dc.dropName, :withToken => dc.adminToken, :error => error
+    if not drop.nil?
+      NSLog "drop found: #{dc.dropName}"
+    end
+    return drop
+  end
+  
+  def deleteAssetFromDropAlert(sender)
+    puts "Deleting asset"
+    alert = NSAlert.new
+    alert.addButtonWithTitle "Cancel"
+    alert.addButtonWithTitle "OK"
+    alert.setMessageText "Do you want to delete the asset #{@assets.selectedObjects.first.name}?"
+    alert.setInformativeText "WARNING: Deleted assets cannot be restored"
+    alert.setAlertStyle NSWarningAlertStyle
+    alert.beginSheetModalForWindow @assetManagerWindow, :modalDelegate => self, :didEndSelector => 'deleteAssetFromDropAlertDidEnd:returnCode:contextInfo:', :contextInfo => nil
+  end
+  
+  def deleteAssetFromDropAlertDidEnd(alert, returnCode:returnCode, contextInfo:contextInfo) 
+    if returnCode == NSAlertSecondButtonReturn
+      @progressIndicator.startAnimation self
+      begin
+        dc = @drops.selectedObjects.first
+        obj = @assets.selectedObjects.first
+        properties = {
+          'dropName' => dc.dropName,
+          'adminToken' => dc.adminToken,
+          'assetName' => obj.name
+        }
+        op = DeleteAssetOperation.alloc.init
+        op.properties = properties
+        @opQueue.addOperation op
+      rescue Exception => e
+        NSLog 'Exception deleting asset'
+        NSLog e.message
+      end
     end
   end
 
@@ -336,6 +381,15 @@ class ApplicationController
     dropAsset = DropAsset.alloc.init
     dropAsset.name = File.basename(notification.object)
     @assets.addObject dropAsset
+  end
+
+  def deleteAssetOperationFinished(notification)
+      @progressIndicator.stopAnimation self
+      obj = @assets.selectedObjects.first
+      @assets.removeObject obj
+  end
+
+  def deleteAssetOperationStarted(notification)
   end
 
   def createDropOperationStarted(notification)
