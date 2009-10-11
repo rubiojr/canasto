@@ -274,6 +274,8 @@
 								<string>1058C7A0FEA54F0111CA2CBB</string>
 								<string>257CFF1A0FCAD49200936F68</string>
 								<string>1C37FBAC04509CD000000102</string>
+								<string>25C9BE0F10815BD400CAF693</string>
+								<string>25C9BE1010815BD400CAF693</string>
 								<string>1C37FAAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
 								<string>1CC0EA4004350EF90041110B</string>
@@ -282,12 +284,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>22</integer>
-									<integer>0</integer>
+									<integer>45</integer>
+									<integer>40</integer>
+									<integer>39</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {186, 632}}</string>
+							<string>{{0, 337}, {186, 632}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -322,7 +325,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Info.plist</string>
+								<string>NCXFileUploader.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -330,16 +333,15 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Info.plist</string>
+										<string>NCXFileUploader.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>250180701081154E0052CB07</string>
+										<string>25C9BE1B10815F8C00CAF693</string>
 										<key>history</key>
 										<array>
 											<string>2508C7A70FBC379800A18478</string>
 											<string>252345A00FCD53A200A0DF99</string>
-											<string>252345D00FCD752700A0DF99</string>
 											<string>252345D90FCD75E500A0DF99</string>
 											<string>25E8F8730FCE9FC6003637BB</string>
 											<string>25E8F8760FCE9FC6003637BB</string>
@@ -353,7 +355,8 @@
 											<string>25A2406D1081107D007A9B66</string>
 											<string>25A2406E1081107D007A9B66</string>
 											<string>25A2408210811332007A9B66</string>
-											<string>25C3537A10811538008E2E8A</string>
+											<string>25C9BE1110815BD400CAF693</string>
+											<string>25C9BE0C10815BB800CAF693</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -374,6 +377,7 @@
 											<string>25A2406510810FB4007A9B66</string>
 											<string>25A2406710810FB4007A9B66</string>
 											<string>25A2406F1081107D007A9B66</string>
+											<string>25C9BE1210815BD400CAF693</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -431,9 +435,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2501806D1081154E0052CB07</string>
+				<string>25C9BDE1108153AC00CAF693</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>2501806E1081154E0052CB07</string>
+				<string>25C9BDE2108153AC00CAF693</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -567,6 +571,10 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>25C9BDFA108159C600CAF693</string>
+		<string>25C9BDFB108159C600CAF693</string>
+		<string>1C78EAAD065D492600B07095</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>25B911DA0FB9A5C2006001FB</string>
 		<string>/Users/rubiojr/Work/github/canasto/Canasto.xcodeproj</string>
 	</array>
@@ -592,7 +600,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>NCXFileUploader.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -609,6 +617,8 @@
 							<string>218pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -648,7 +658,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>25B911DA0FB9A5C2006001FB</string>
-				<string>2501806F1081154E0052CB07</string>
+				<string>25C9BDF2108159C600CAF693</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -768,13 +778,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>2540195E1081135600224367</string>
+				<string>25C9BDF3108159C600CAF693</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>2540195F1081135600224367</string>
-				<string>254019601081135600224367</string>
-				<string>254019611081135600224367</string>
-				<string>254019621081135600224367</string>
-				<string>254019631081135600224367</string>
+				<string>25C9BDF4108159C600CAF693</string>
+				<string>25C9BDF5108159C600CAF693</string>
+				<string>25C9BDF6108159C600CAF693</string>
+				<string>25C9BDF7108159C600CAF693</string>
+				<string>25C9BDF8108159C600CAF693</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -938,7 +948,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>25A2404A10810061007A9B66</string>
+				<string>25C9BDF9108159C600CAF693</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -948,7 +958,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

@@ -305,7 +305,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "install_name_tool -change /Library/Frameworks/MacRuby.framework/Versions/0.4/usr/lib/libmacruby.dylib @executable_path/../Frameworks/MacRuby.framework/Versions/0.4/usr/lib/libmacruby.dylib $CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH";
+			shellScript = "install_name_tool -change /Library/Frameworks/MacRuby.framework/Versions/0.5/usr/lib/libmacruby.dylib @executable_path/../Frameworks/MacRuby.framework/Versions/0.5/usr/lib/libmacruby.dylib $CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH";
 		};
 /* End PBXShellScriptBuildPhase section */
 

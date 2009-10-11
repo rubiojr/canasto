@@ -8,18 +8,6 @@
 			sepNavWindowFrame = "{{-124, 941}, {898, 825}}";
 		};
 	};
-	250180701081154E0052CB07 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			LSUIElement,
-		);
-		name = /Users/rubiojr/Work/github/canasto/Info.plist;
-		rLen = 0;
-		rLoc = 2147483647;
-	};
 	2508C73B0FBC29A000A18478 /* DropConfig.rb */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1011, 770}}";
@@ -66,16 +54,6 @@
 		rType = 0;
 		vrLen = 398;
 		vrLoc = 0;
-	};
-	252345D00FCD752700A0DF99 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 25E045220FC88B5C00966160 /* NCXFileUploader.m */;
-		name = "NCXFileUploader.m: 21";
-		rLen = 0;
-		rLoc = 341;
-		rType = 0;
-		vrLen = 1015;
-		vrLoc = 130;
 	};
 	252345D90FCD75E500A0DF99 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -346,18 +324,6 @@
 		rLen = 0;
 		rLoc = 2147483647;
 	};
-	25C3537A10811538008E2E8A /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			LSUIElement,
-		);
-		name = /Users/rubiojr/Work/github/canasto/Info.plist;
-		rLen = 0;
-		rLoc = 2147483647;
-	};
 	25C35A700FCC2B6D00B11405 /* CreateDropOperation.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {606, 506}}";
@@ -392,6 +358,48 @@
 		vrLen = 253;
 		vrLoc = 0;
 	};
+	25C9BE0C10815BB800CAF693 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "warning: unused variable 'doc'";
+		fRef = 25E045220FC88B5C00966160 /* NCXFileUploader.m */;
+		rLen = 1;
+		rLoc = 40;
+		rType = 1;
+	};
+	25C9BE1110815BD400CAF693 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			LSUIElement,
+		);
+		name = /Users/rubiojr/Work/github/canasto/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	25C9BE1210815BD400CAF693 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			LSUIElement,
+		);
+		name = /Users/rubiojr/Work/github/canasto/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	25C9BE1B10815F8C00CAF693 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 25E045220FC88B5C00966160 /* NCXFileUploader.m */;
+		name = "NCXFileUploader.m: 41";
+		rLen = 51;
+		rLoc = 1023;
+		rType = 0;
+		vrLen = 975;
+		vrLoc = 518;
+	};
 	25E044A20FC877E400966160 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
@@ -412,9 +420,9 @@
 	};
 	25E045220FC88B5C00966160 /* NCXFileUploader.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {558, 784}}";
+			sepNavIntBoundsRect = "{{0, 0}, {558, 812}}";
 			sepNavSelRange = "{1023, 51}";
-			sepNavVisRange = "{543, 555}";
+			sepNavVisRange = "{901, 415}";
 			sepNavWindowFrame = "{{97, 0}, {898, 746}}";
 		};
 	};
@@ -574,7 +582,7 @@
 				PBXFileTableDataSourceColumnWidthsKey = (
 					22,
 					300,
-					410,
+					411,
 				);
 				PBXFileTableDataSourceColumnsKey = (
 					PBXExecutablesDataSource_ActiveFlagID,
@@ -609,7 +617,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					388,
+					483,
 					60,
 					20,
 					48,
@@ -626,16 +634,14 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 276895044;
-			PBXWorkspaceStateSaveDate = 276895044;
+			PBXPerProjectTemplateStateSaveDate = 276911012;
+			PBXWorkspaceStateSaveDate = 276911012;
 		};
 		perUserProjectItems = {
-			250180701081154E0052CB07 /* PlistBookmark */ = 250180701081154E0052CB07 /* PlistBookmark */;
 			2508C75D0FBC328D00A18478 /* PBXTextBookmark */ = 2508C75D0FBC328D00A18478 /* PBXTextBookmark */;
 			2508C75E0FBC328D00A18478 /* PBXTextBookmark */ = 2508C75E0FBC328D00A18478 /* PBXTextBookmark */;
 			2508C7A70FBC379800A18478 /* PBXTextBookmark */ = 2508C7A70FBC379800A18478 /* PBXTextBookmark */;
 			252345A00FCD53A200A0DF99 /* PBXTextBookmark */ = 252345A00FCD53A200A0DF99 /* PBXTextBookmark */;
-			252345D00FCD752700A0DF99 /* PBXTextBookmark */ = 252345D00FCD752700A0DF99 /* PBXTextBookmark */;
 			252345D90FCD75E500A0DF99 /* PBXTextBookmark */ = 252345D90FCD75E500A0DF99 /* PBXTextBookmark */;
 			256A1B870FCEF848003A5723 /* PBXTextBookmark */ = 256A1B870FCEF848003A5723 /* PBXTextBookmark */;
 			256A1B890FCEF848003A5723 /* PBXTextBookmark */ = 256A1B890FCEF848003A5723 /* PBXTextBookmark */;
@@ -654,9 +660,12 @@
 			25A2406F1081107D007A9B66 /* PBXTextBookmark */ = 25A2406F1081107D007A9B66 /* PBXTextBookmark */;
 			25A2408210811332007A9B66 /* PBXTextBookmark */ = 25A2408210811332007A9B66 /* PBXTextBookmark */;
 			25B911D50FB9A5C2006001FB /* PlistBookmark */ = 25B911D50FB9A5C2006001FB /* PlistBookmark */;
-			25C3537A10811538008E2E8A /* PlistBookmark */ = 25C3537A10811538008E2E8A /* PlistBookmark */;
 			25C35A840FCC2DF200B11405 /* PBXTextBookmark */ = 25C35A840FCC2DF200B11405 /* PBXTextBookmark */;
 			25C35A870FCC2DF200B11405 /* PBXTextBookmark */ = 25C35A870FCC2DF200B11405 /* PBXTextBookmark */;
+			25C9BE0C10815BB800CAF693 /* PBXTextBookmark */ = 25C9BE0C10815BB800CAF693 /* PBXTextBookmark */;
+			25C9BE1110815BD400CAF693 /* PlistBookmark */ = 25C9BE1110815BD400CAF693 /* PlistBookmark */;
+			25C9BE1210815BD400CAF693 /* PlistBookmark */ = 25C9BE1210815BD400CAF693 /* PlistBookmark */;
+			25C9BE1B10815F8C00CAF693 /* PBXTextBookmark */ = 25C9BE1B10815F8C00CAF693 /* PBXTextBookmark */;
 			25E044A20FC877E400966160 /* PBXTextBookmark */ = 25E044A20FC877E400966160 /* PBXTextBookmark */;
 			25E045770FC890F500966160 /* PBXTextBookmark */ = 25E045770FC890F500966160 /* PBXTextBookmark */;
 			25E8F8730FCE9FC6003637BB /* PBXTextBookmark */ = 25E8F8730FCE9FC6003637BB /* PBXTextBookmark */;

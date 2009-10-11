@@ -12,8 +12,9 @@ framework 'JSON'
 framework 'Growl'
 $:.unshift  File.join(File.dirname(__FILE__), 'vendor/plist/lib')
 $:.unshift  File.join(File.dirname(__FILE__), 'vendor/mime-types/lib')
-$:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/1.9.1')
-$:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/1.9.1/universal-darwin9.5')
+$:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/1.9.0')
+$:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/1.9.0/universal-darwin9.0')
+$:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/site_ruby/1.9.0/universal-darwin9.0')
 require 'yaml'
 require 'plist'
 
