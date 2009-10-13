@@ -266,6 +266,7 @@
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
+								<string>25B9103D0FB9A548006001FB</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>29B97318FDCFA39411CA2CEA</string>
 								<string>29B97323FDCFA39411CA2CEA</string>
@@ -280,8 +281,9 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>26</integer>
-									<integer>22</integer>
+									<integer>20</integer>
+									<integer>19</integer>
+									<integer>17</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -333,7 +335,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>25EAA669108492DB00A15967</string>
+										<string>2576BADB1084BF7800AB0220</string>
 										<key>history</key>
 										<array>
 											<string>2508C7A70FBC379800A18478</string>
@@ -353,7 +355,7 @@
 											<string>25A2408210811332007A9B66</string>
 											<string>25EAA6511084802E00A15967</string>
 											<string>25EAA65E10848A6700A15967</string>
-											<string>25EAA65F10848A6700A15967</string>
+											<string>25E358421084BF3A008FBD9D</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -374,8 +376,6 @@
 											<string>25A2406510810FB4007A9B66</string>
 											<string>25A2406710810FB4007A9B66</string>
 											<string>25A2406F1081107D007A9B66</string>
-											<string>25EAA6531084802E00A15967</string>
-											<string>25EAA66010848A6700A15967</string>
 											<string>25EAA66110848A6700A15967</string>
 										</array>
 									</dict>
@@ -434,9 +434,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>25EAA620108467A000A15967</string>
+				<string>2576BAD91084BF5800AB0220</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>25EAA621108467A000A15967</string>
+				<string>2576BADA1084BF5800AB0220</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -570,9 +570,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>25B911DA0FB9A5C2006001FB</string>
 		<string>/Users/rubiojr/Work/github/canasto/Canasto.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -653,7 +650,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>25B911DA0FB9A5C2006001FB</string>
-				<string>25EAA62510846A1B00A15967</string>
+				<string>25E3583A1084BE3F008FBD9D</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -773,13 +770,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>25EAA62610846A1B00A15967</string>
+				<string>25E3583B1084BE3F008FBD9D</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>25EAA62710846A1B00A15967</string>
-				<string>25EAA62810846A1B00A15967</string>
-				<string>25EAA62910846A1B00A15967</string>
-				<string>25EAA62A10846A1B00A15967</string>
-				<string>25EAA62B10846A1B00A15967</string>
+				<string>25E3583C1084BE3F008FBD9D</string>
+				<string>25E3583D1084BE3F008FBD9D</string>
+				<string>25E3583E1084BE3F008FBD9D</string>
+				<string>25E3583F1084BE3F008FBD9D</string>
+				<string>25E358401084BE3F008FBD9D</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -943,7 +940,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>25EAA62C10846A1B00A15967</string>
+				<string>25E358411084BE3F008FBD9D</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -953,7 +950,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
