@@ -210,11 +210,17 @@ class ApplicationController
           adminToken = v
         end
       end
-      plist = Plist::parse_xml(file)
+      pfiles = []
+      file.each_line do |l|
+        if l =~ /<string>(.*)<\/string>/
+          pfiles << $1
+        end
+      end
+      #plist = Plist::parse_xml(file)
       notifObj = {
         :dropName => dropName,
         :adminToken => adminToken,
-        :files => plist
+        :files => pfiles
       }
       n = NSNotification.notificationWithName 'SendFiles', :object => notifObj
       @nQueue.enqueueNotification n, :postingStyle => NSPostWhenIdle
@@ -359,7 +365,6 @@ class ApplicationController
     adminToken = obj[:adminToken]
     files = obj[:files]
     NSLog "Sending Files to drop: #{dropName}"
-    NSLog "Files: #{files}"
     fu = NCXFileUploader.new
     fu.dropName = dropName
     fu.adminToken = adminToken

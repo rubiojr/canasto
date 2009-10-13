@@ -335,6 +335,17 @@
 		rLen = 0;
 		rLoc = 2147483647;
 	};
+	25BDC6E71084DFCC006ED793 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/rubiojr/Work/github/canasto/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
 	25C35A700FCC2B6D00B11405 /* CreateDropOperation.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {606, 506}}";
@@ -404,17 +415,6 @@
 		rType = 0;
 		vrLen = 301;
 		vrLoc = 0;
-	};
-	25E358421084BF3A008FBD9D /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = /Users/rubiojr/Work/github/canasto/Info.plist;
-		rLen = 0;
-		rLoc = 2147483647;
 	};
 	25E8F84C0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict */ = {
 		uiCtxt = {
@@ -665,8 +665,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 277135179;
-			PBXWorkspaceStateSaveDate = 277135179;
+			PBXPerProjectTemplateStateSaveDate = 277136549;
+			PBXWorkspaceStateSaveDate = 277136549;
 		};
 		perUserProjectItems = {
 			2508C75D0FBC328D00A18478 /* PBXTextBookmark */ = 2508C75D0FBC328D00A18478 /* PBXTextBookmark */;
@@ -692,11 +692,11 @@
 			25A2406F1081107D007A9B66 /* PBXTextBookmark */ = 25A2406F1081107D007A9B66 /* PBXTextBookmark */;
 			25A2408210811332007A9B66 /* PBXTextBookmark */ = 25A2408210811332007A9B66 /* PBXTextBookmark */;
 			25B911D50FB9A5C2006001FB /* PlistBookmark */ = 25B911D50FB9A5C2006001FB /* PlistBookmark */;
+			25BDC6E71084DFCC006ED793 /* PlistBookmark */ = 25BDC6E71084DFCC006ED793 /* PlistBookmark */;
 			25C35A840FCC2DF200B11405 /* PBXTextBookmark */ = 25C35A840FCC2DF200B11405 /* PBXTextBookmark */;
 			25C35A870FCC2DF200B11405 /* PBXTextBookmark */ = 25C35A870FCC2DF200B11405 /* PBXTextBookmark */;
 			25E044A20FC877E400966160 /* PBXTextBookmark */ = 25E044A20FC877E400966160 /* PBXTextBookmark */;
 			25E045770FC890F500966160 /* PBXTextBookmark */ = 25E045770FC890F500966160 /* PBXTextBookmark */;
-			25E358421084BF3A008FBD9D /* PlistBookmark */ = 25E358421084BF3A008FBD9D /* PlistBookmark */;
 			25E8F8730FCE9FC6003637BB /* PBXTextBookmark */ = 25E8F8730FCE9FC6003637BB /* PBXTextBookmark */;
 			25E8F8760FCE9FC6003637BB /* PlistBookmark */ = 25E8F8760FCE9FC6003637BB /* PlistBookmark */;
 			25E8F8790FCE9FC6003637BB /* PlistBookmark */ = 25E8F8790FCE9FC6003637BB /* PlistBookmark */;

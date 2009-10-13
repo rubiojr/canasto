@@ -27,8 +27,8 @@ class AssetManagerCustomView < NSView
   def performDragOperation sender 
     NSLog 'performDragOp'
     pb = sender.draggingPasteboard
-    file = pb.stringForType NSFilenamesPboardType
-    if file
+    files = pb.stringForType NSFilenamesPboardType
+    if files
       dc = @userDefaults.dictionaryForKey('NCXDropConfigs')
       ds = @userDefaults.objectForKey('NCXLastDropSelected') || dc.keys.first
       dropName = nil
@@ -39,11 +39,17 @@ class AssetManagerCustomView < NSView
           adminToken = v
         end
       end
-      plist = Plist::parse_xml(file)
+      pfiles = []
+      files.each_line do |l|
+        if l =~ /<string>(.*)<\/string>/
+          pfiles << $1
+        end
+      end
+      #plist = Plist::parse_xml(files)
       notifObj = {
         :dropName => dropName,
         :adminToken => adminToken,
-        :files => plist
+        :files => pfiles
       }
       n = NSNotification.notificationWithName 'SendFiles', :object => notifObj
       @nQueue.enqueueNotification n, :postingStyle => NSPostWhenIdle
