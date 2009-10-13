@@ -34,6 +34,7 @@
 		25E8F8B70FCEAACC003637BB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E8F8B60FCEAACC003637BB /* Sparkle.framework */; };
 		25E8F8BA0FCEAAD1003637BB /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 25E8F8B60FCEAACC003637BB /* Sparkle.framework */; };
 		25E8F8C60FCEACC8003637BB /* update.xml in Resources */ = {isa = PBXBuildFile; fileRef = 25E8F8C50FCEACC8003637BB /* update.xml */; };
+		25EAA659108484A000A15967 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 25EAA658108484A000A15967 /* dsa_pub.pem */; };
 		4DE339F70D74FCDD00ADB6EE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 4DE339F60D74FCDD00ADB6EE /* rb_main.rb */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -92,6 +93,7 @@
 		25E8F8A50FCEA350003637BB /* GrowlDelegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GrowlDelegate.rb; sourceTree = "<group>"; };
 		25E8F8B60FCEAACC003637BB /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		25E8F8C50FCEACC8003637BB /* update.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = update.xml; sourceTree = "<group>"; };
+		25EAA658108484A000A15967 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -210,6 +212,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				25EAA658108484A000A15967 /* dsa_pub.pem */,
 				25E8F8C50FCEACC8003637BB /* update.xml */,
 				25B911CE0FB9A57B006001FB /* little_drop.tiff */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -288,6 +291,7 @@
 				25E8F8A60FCEA350003637BB /* GrowlDelegate.rb in Resources */,
 				25E8F8C60FCEACC8003637BB /* update.xml in Resources */,
 				255A7A5A10458B0200DF0563 /* AssetManagerCustomView.rb in Resources */,
+				25EAA659108484A000A15967 /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

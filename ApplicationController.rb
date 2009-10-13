@@ -23,6 +23,7 @@ class ApplicationController
   attr_writer :dropManagerWindow
   attr_writer :assetManagerWindow
   attr_writer :dropManagerTableView
+  attr_writer :searchField
 
   def init
     super
@@ -305,6 +306,12 @@ class ApplicationController
   def assetDownloaderStarted(notification)
   end
 
+  # Triggered when search field content changes
+  def updateFilter(sender)
+    NSLog @searchField.stringValue
+
+  end
+
   def assetDownloaderFinished(notification)
     @progressIndicator.stopAnimation self
     notification.object.each do |a|
@@ -335,6 +342,7 @@ class ApplicationController
   end
 
   def refreshAssets(notification)
+    @progressIndicator.startAnimation self
     drop = @drops.selectedObjects.first
     NSLog "refreshing #{drop.dropName} assets"
     @assets.removeObjects @assets.content
@@ -347,10 +355,11 @@ class ApplicationController
   def sendFiles(notification)
     @progressIndicator.startAnimation self
     obj = notification.object
-    dropName = obj['dropName']
-    adminToken = obj['adminToken']
-    files = obj['files']
-    NSLog "Sending Files..."
+    dropName = obj[:dropName]
+    adminToken = obj[:adminToken]
+    files = obj[:files]
+    NSLog "Sending Files to drop: #{dropName}"
+    NSLog "Files: #{files}"
     fu = NCXFileUploader.new
     fu.dropName = dropName
     fu.adminToken = adminToken

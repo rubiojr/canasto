@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Canasto</title>
+    <description>Unofficial drop.io client for Mac OS X</description>
+    <link>http://rubiojr.netcorex.org/canasto</link>
+    <language>en</language>
+    <pubDate>Sat Oct 10 21:15:58 CEST 2009</pubDate>
+    <atom:link type="application/rss+xml" href="http://rubiojr.netcorex.org/canasto/update.xml" rel="self"/>
+    <item>
+      <title>Canasto 0.1alpha3</title>
+      <sparkle:releaseNotesLink>http://rubiojr.netcorex.org/canasto/release_notes.html</sparkle:releaseNotesLink>
+    <pubDate>Thu May 28 13:15:58 CEST 2009</pubDate>
+      <guid isPermaLink="false">Canasto-0.1alpha3</guid>
+      <enclosure type="application/dmg" url="http://rubiojr.netcorex.org/canasto/Canasto-0.1alpha3.dmg" length="5675806" sparkle:version="0.1alpha3"/>
+    </item>
+  </channel>
+</rss>
