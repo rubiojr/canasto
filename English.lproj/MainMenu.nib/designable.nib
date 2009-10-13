@@ -8,9 +8,11 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="803"/>
 			<integer value="752"/>
+			<integer value="945"/>
+			<integer value="390"/>
 			<integer value="1374"/>
+			<integer value="803"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1551,7 +1553,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="689590989">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1681,8 +1683,8 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 											<object class="NSTextFieldCell" key="NSCell" id="642654673">
 												<int key="NSCellFlags">69336577</int>
 												<int key="NSCellFlags2">1212153856</int>
-												<string type="base64-UTF8" key="NSContents">WW91IG5lZWQgYW4gYXBpIGtleSB0byB1c2UgTGl0dGxlRHJvcC7igKhHZXQgeW91ciBhcGkga2V5IGZy
-b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
+												<string type="base64-UTF8" key="NSContents">WW91IG5lZWQgYW4gYXBpIGtleSB0byB1c2UgQ2FuYXN0by7igKhHZXQgeW91ciBhcGkga2V5IGZyb20g
+aHR0cDovL2FwaS5kcm9wLmlvA</string>
 												<object class="NSFont" key="NSSupport">
 													<string key="NSName">HelveticaNeue-Italic</string>
 													<double key="NSSize">1.200000e+01</double>
@@ -1723,6 +1725,7 @@ b20gaHR0cDovL2FwaS5kcm9wLmlvA</string>
 						</object>
 					</object>
 					<string key="NSFrameSize">{343, 220}</string>
+					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1024, 746}}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>

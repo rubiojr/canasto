@@ -1,7 +1,7 @@
 class GrowlDelegate
 
   def applicationNameForGrowl
-    'LittleDrop'
+    'Canasto'
   end
 
   def growlIsReady
