@@ -1,1 +1,0 @@
-install_name_tool -change /Library/Frameworks/MacRuby.framework/Versions/0.5/usr/lib/libmacruby.dylib @executable_path/../Frameworks/MacRuby.framework/Versions/0.5/usr/lib/libmacruby.dylib MacRuby
