@@ -8,10 +8,10 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="752"/>
 			<integer value="945"/>
-			<integer value="390"/>
-			<integer value="1374"/>
+			<integer value="391"/>
+			<integer value="1132"/>
+			<integer value="752"/>
 			<integer value="803"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -131,7 +131,7 @@
 					</object>
 					<object class="NSMenuItem" id="143259428">
 						<reference key="NSMenu" ref="532405175"/>
-						<string key="NSTitle">About LittleDrop</string>
+						<string key="NSTitle">About Canasto</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="635213375"/>
@@ -4889,7 +4889,7 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{437, 570}, {197, 73}}</string>
+					<string>{{489, 566}, {197, 73}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{525, 802}, {197, 73}}</string>
