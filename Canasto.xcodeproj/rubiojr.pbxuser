@@ -65,6 +65,17 @@
 		vrLen = 328;
 		vrLoc = 0;
 	};
+	252DAB0D10AC53D300927480 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/rubiojr/Work/github/canasto/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
 	255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {701, 854}}";
@@ -208,17 +219,6 @@
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 538}";
 		};
-	};
-	2598D94D10AC3745003F3BE3 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = /Users/rubiojr/Work/github/canasto/Info.plist;
-		rLen = 0;
-		rLoc = 2147483647;
 	};
 	25A2405410810CD6007A9B66 /* DeleteAssetOperation.h */ = {
 		uiCtxt = {
@@ -685,8 +685,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 279721824;
-			PBXWorkspaceStateSaveDate = 279721824;
+			PBXPerProjectTemplateStateSaveDate = 279722898;
+			PBXWorkspaceStateSaveDate = 279722898;
 		};
 		perUserProjectItems = {
 			2508C75D0FBC328D00A18478 /* PBXTextBookmark */ = 2508C75D0FBC328D00A18478 /* PBXTextBookmark */;
@@ -694,6 +694,7 @@
 			2508C7A70FBC379800A18478 /* PBXTextBookmark */ = 2508C7A70FBC379800A18478 /* PBXTextBookmark */;
 			252345A00FCD53A200A0DF99 /* PBXTextBookmark */ = 252345A00FCD53A200A0DF99 /* PBXTextBookmark */;
 			252345D90FCD75E500A0DF99 /* PBXTextBookmark */ = 252345D90FCD75E500A0DF99 /* PBXTextBookmark */;
+			252DAB0D10AC53D300927480 /* PlistBookmark */ = 252DAB0D10AC53D300927480 /* PlistBookmark */;
 			2565510D1084E0D30016FF74 /* PBXTextBookmark */ = 2565510D1084E0D30016FF74 /* PBXTextBookmark */;
 			256551101084E0D30016FF74 /* PBXTextBookmark */ = 256551101084E0D30016FF74 /* PBXTextBookmark */;
 			256A1B870FCEF848003A5723 /* PBXTextBookmark */ = 256A1B870FCEF848003A5723 /* PBXTextBookmark */;
@@ -701,7 +702,6 @@
 			257CFE020FCA9E3400936F68 /* PBXTextBookmark */ = 257CFE020FCA9E3400936F68 /* PBXTextBookmark */;
 			257CFE190FCA9EB600936F68 /* PBXTextBookmark */ = 257CFE190FCA9EB600936F68 /* PBXTextBookmark */;
 			257CFE270FCA9F2A00936F68 /* PBXTextBookmark */ = 257CFE270FCA9F2A00936F68 /* PBXTextBookmark */;
-			2598D94D10AC3745003F3BE3 /* PlistBookmark */ = 2598D94D10AC3745003F3BE3 /* PlistBookmark */;
 			25A2406010810FB4007A9B66 /* PBXTextBookmark */ = 25A2406010810FB4007A9B66 /* PBXTextBookmark */;
 			25A2406110810FB4007A9B66 /* PBXTextBookmark */ = 25A2406110810FB4007A9B66 /* PBXTextBookmark */;
 			25A2406210810FB4007A9B66 /* PBXTextBookmark */ = 25A2406210810FB4007A9B66 /* PBXTextBookmark */;
