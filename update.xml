@@ -21,5 +21,12 @@
       <guid isPermaLink="false">Canasto-0.1alpha6</guid>
       <enclosure type="application/octet-stream" url="http://rubiojr.netcorex.org/canasto/Canasto-0.1alpha6.zip" length="16600364" sparkle:version="0.1alpha6" sparkle:dsaSignature="MC0CFQDGIllCMEQ931SF1CiEoHsravRGZwIUQh6eWbgZGbuHGXBCLo92rhFjUxw="/>
     </item>
+    <item>
+      <title>Canasto 0.1alpha7</title>
+      <sparkle:releaseNotesLink>http://rubiojr.netcorex.org/canasto/release_notes-0.1alpha7.html</sparkle:releaseNotesLink>
+    <pubDate>Tue Nov 20 13:15:58 CEST 2009</pubDate>
+      <guid isPermaLink="false">Canasto-0.1alpha7</guid>
+      <enclosure type="application/octet-stream" url="http://rubiojr.netcorex.org/canasto/Canasto-0.1alpha7.zip" length="16600364" sparkle:version="0.1alpha7" sparkle:dsaSignature="MC0CFQDGIllCMEQ931SF1CiEoHsravRGZwIUQh6eWbgZGbuHGXBCLo92rhFjUxw="/>
+    </item>
   </channel>
 </rss>

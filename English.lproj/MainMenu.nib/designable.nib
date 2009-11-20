@@ -9,10 +9,10 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="391"/>
-			<integer value="708"/>
-			<integer value="803"/>
-			<integer value="1391"/>
 			<integer value="1132"/>
+			<integer value="1391"/>
+			<integer value="703"/>
+			<integer value="803"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -503,9 +503,9 @@
 								<string key="NSToolbarItemPaletteLabel">Asset Info</string>
 								<string key="NSToolbarItemToolTip"/>
 								<nil key="NSToolbarItemView"/>
-								<object class="NSCustomResource" key="NSToolbarItemImage" id="807189706">
+								<object class="NSCustomResource" key="NSToolbarItemImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">NSInfo</string>
+									<string key="NSResourceName">asset_info_toolbar_64</string>
 								</object>
 								<nil key="NSToolbarItemTarget"/>
 								<nil key="NSToolbarItemAction"/>
@@ -723,7 +723,10 @@
 								<string key="NSToolbarItemPaletteLabel">Drop Info</string>
 								<string key="NSToolbarItemToolTip"/>
 								<nil key="NSToolbarItemView"/>
-								<reference key="NSToolbarItemImage" ref="807189706"/>
+								<object class="NSCustomResource" key="NSToolbarItemImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">drop_info_toolbar_64</string>
+								</object>
 								<nil key="NSToolbarItemTarget"/>
 								<nil key="NSToolbarItemAction"/>
 								<string key="NSToolbarItemMinSize">{0, 0}</string>
@@ -5303,8 +5306,8 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{114, 262}, {692, 290}}</string>
-					<string>{{114, 262}, {692, 290}}</string>
+					<string>{{47, 220}, {692, 290}}</string>
+					<string>{{47, 220}, {692, 290}}</string>
 					<reference ref="5"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -5320,7 +5323,7 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{180, 410}, {616, 0}}</string>
+					<string>{{85, 510}, {616, 0}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

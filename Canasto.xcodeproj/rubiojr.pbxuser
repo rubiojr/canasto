@@ -45,6 +45,13 @@
 		vrLen = 228;
 		vrLoc = 0;
 	};
+	25225A050FC5680C00338235 /* DropAsset.rb */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 731}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 201}";
+		};
+	};
 	252345A00FCD53A200A0DF99 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 25E045210FC88B5C00966160 /* NCXFileUploader.h */;
@@ -68,16 +75,43 @@
 	2525D8CD10B5A24500D60438 /* Embed MacRuby */ = {
 		activeExec = 0;
 	};
-	2525D91810B5AF9800D60438 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = /Users/rubiojr/Work/github/canasto/Info.plist;
+	25574F6A10B6B255005F79B6 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 25FB468310B5B52900ABF5A8 /* canasto.icns */;
+	};
+	25574F6B10B6B255005F79B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 25225A050FC5680C00338235 /* DropAsset.rb */;
+		name = "DropAsset.rb: 1";
 		rLen = 0;
-		rLoc = 2147483647;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 201;
+		vrLoc = 0;
+	};
+	25574F6C10B6B255005F79B6 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 25FB468310B5B52900ABF5A8 /* canasto.icns */;
+	};
+	25574F6D10B6B255005F79B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 25225A050FC5680C00338235 /* DropAsset.rb */;
+		name = "DropAsset.rb: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 201;
+		vrLoc = 0;
+	};
+	25574F7010B6B280005F79B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 25A2405410810CD6007A9B66 /* DeleteAssetOperation.h */;
+		name = "DeleteAssetOperation.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 239;
+		vrLoc = 0;
 	};
 	255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */ = {
 		uiCtxt = {
@@ -105,17 +139,6 @@
 		rType = 0;
 		vrLen = 952;
 		vrLoc = 0;
-	};
-	25656D5210AD981700EA2282 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = /Users/rubiojr/Work/github/canasto/Info.plist;
-		rLen = 0;
-		rLoc = 2147483647;
 	};
 	256A1B870FCEF848003A5723 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -236,7 +259,7 @@
 	};
 	25A2405410810CD6007A9B66 /* DeleteAssetOperation.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {701, 430}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 731}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 239}";
 		};
@@ -564,6 +587,29 @@
 		vrLen = 1178;
 		vrLoc = 0;
 	};
+	25FB468A10B5B59A00ABF5A8 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 25FB467610B5B24F00ABF5A8 /* asset_info_toolbar_64.png */;
+	};
+	25FB468D10B5B59A00ABF5A8 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 25FB468310B5B52900ABF5A8 /* canasto.icns */;
+	};
+	25FB468F10B5B59A00ABF5A8 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 25FB467610B5B24F00ABF5A8 /* asset_info_toolbar_64.png */;
+	};
+	25FEEC2410B6AF240021DF21 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/rubiojr/Work/github/canasto/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeExecutable = 2575D7E50FB9A4C900A70C8A /* Canasto */;
@@ -688,8 +734,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 280338599;
-			PBXWorkspaceStateSaveDate = 280338599;
+			PBXPerProjectTemplateStateSaveDate = 280408641;
+			PBXWorkspaceStateSaveDate = 280408641;
 		};
 		perUserProjectItems = {
 			2508C75D0FBC328D00A18478 /* PBXTextBookmark */ = 2508C75D0FBC328D00A18478 /* PBXTextBookmark */;
@@ -697,10 +743,13 @@
 			2508C7A70FBC379800A18478 /* PBXTextBookmark */ = 2508C7A70FBC379800A18478 /* PBXTextBookmark */;
 			252345A00FCD53A200A0DF99 /* PBXTextBookmark */ = 252345A00FCD53A200A0DF99 /* PBXTextBookmark */;
 			252345D90FCD75E500A0DF99 /* PBXTextBookmark */ = 252345D90FCD75E500A0DF99 /* PBXTextBookmark */;
-			2525D91810B5AF9800D60438 /* PlistBookmark */ = 2525D91810B5AF9800D60438 /* PlistBookmark */;
+			25574F6A10B6B255005F79B6 /* PBXBookmark */ = 25574F6A10B6B255005F79B6 /* PBXBookmark */;
+			25574F6B10B6B255005F79B6 /* PBXTextBookmark */ = 25574F6B10B6B255005F79B6 /* PBXTextBookmark */;
+			25574F6C10B6B255005F79B6 /* PBXBookmark */ = 25574F6C10B6B255005F79B6 /* PBXBookmark */;
+			25574F6D10B6B255005F79B6 /* PBXTextBookmark */ = 25574F6D10B6B255005F79B6 /* PBXTextBookmark */;
+			25574F7010B6B280005F79B6 /* PBXTextBookmark */ = 25574F7010B6B280005F79B6 /* PBXTextBookmark */;
 			2565510D1084E0D30016FF74 /* PBXTextBookmark */ = 2565510D1084E0D30016FF74 /* PBXTextBookmark */;
 			256551101084E0D30016FF74 /* PBXTextBookmark */ = 256551101084E0D30016FF74 /* PBXTextBookmark */;
-			25656D5210AD981700EA2282 /* PlistBookmark */ = 25656D5210AD981700EA2282 /* PlistBookmark */;
 			256A1B870FCEF848003A5723 /* PBXTextBookmark */ = 256A1B870FCEF848003A5723 /* PBXTextBookmark */;
 			256A1B890FCEF848003A5723 /* PBXTextBookmark */ = 256A1B890FCEF848003A5723 /* PBXTextBookmark */;
 			257CFE020FCA9E3400936F68 /* PBXTextBookmark */ = 257CFE020FCA9E3400936F68 /* PBXTextBookmark */;
@@ -731,6 +780,10 @@
 			25EAA6511084802E00A15967 /* PBXTextBookmark */ = 25EAA6511084802E00A15967 /* PBXTextBookmark */;
 			25EAA65E10848A6700A15967 /* PBXTextBookmark */ = 25EAA65E10848A6700A15967 /* PBXTextBookmark */;
 			25EAA66110848A6700A15967 /* PBXTextBookmark */ = 25EAA66110848A6700A15967 /* PBXTextBookmark */;
+			25FB468A10B5B59A00ABF5A8 /* PBXBookmark */ = 25FB468A10B5B59A00ABF5A8 /* PBXBookmark */;
+			25FB468D10B5B59A00ABF5A8 /* PBXBookmark */ = 25FB468D10B5B59A00ABF5A8 /* PBXBookmark */;
+			25FB468F10B5B59A00ABF5A8 /* PBXBookmark */ = 25FB468F10B5B59A00ABF5A8 /* PBXBookmark */;
+			25FEEC2410B6AF240021DF21 /* PlistBookmark */ = 25FEEC2410B6AF240021DF21 /* PlistBookmark */;
 		};
 		sourceControlManager = 2575D7EB0FB9A4D000A70C8A /* Source Control */;
 		userBuildSettings = {

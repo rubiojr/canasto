@@ -11,7 +11,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string></string>
+	<string>canasto.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.netcorex.canasto</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -23,7 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.1alpha6</string>
+	<string>0.1alpha7</string>
 	<key>LSUIElement</key>
 	<false/>
 	<key>NSMainNibFile</key>
