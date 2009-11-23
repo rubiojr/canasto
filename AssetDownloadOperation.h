@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface NCXAssetDownloader : NSOperation {
+@interface AssetDownloadOperation : NSOperation {
 	NSString * dropName;
 	NSString *adminToken;
 

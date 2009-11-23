@@ -6,11 +6,11 @@
 //  Copyright 2009 CSIC. All rights reserved.
 //
 
-#import "NCXFileUploader.h"
+#import "FileUploadOperation.h"
 #import "DropIO.h"
 
 
-@implementation NCXFileUploader
+@implementation FileUploadOperation
 
 @synthesize files;
 @synthesize adminToken;

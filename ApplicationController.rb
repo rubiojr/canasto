@@ -41,7 +41,7 @@ class ApplicationController
         'ApiKey' => '',
         'NCXLastDropSelected' => ''
     })
-    NSLog "Defaults registered"
+    CanastoLog.debug "Default preferences registered"
     @nc = NSNotificationCenter.defaultCenter
     @nc.addObserver self, :selector => 'fileUploaderStarted:', :name => 'FileUploaderStarted', :object => nil
     @nc.addObserver self, :selector => 'fileUploaderFinished:', :name => 'FileUploaderFinished', :object => nil
@@ -65,7 +65,6 @@ class ApplicationController
 		@app_icon = NSImage.alloc.initWithContentsOfFile(bundle.pathForResource('little_drop', :ofType => 'tiff'))
 		
 		@status_item.setImage(@app_icon)
-    #@growl = GrowlController.new
     @selectedDropMenuItem = nil
   end
 
@@ -97,7 +96,6 @@ class ApplicationController
       end
     end
     if @userDefaults.objectForKey('ApiKey').empty?
-      #@preferences.makeKeyAndOrderFront self
       NSApp.beginSheet @preferences, :modalForWindow => @assetsWindow, :modalDelegate => nil, :didEndSelector => nil, :contextInfo => nil
     end
   end
@@ -110,7 +108,6 @@ class ApplicationController
   end
 
   def deleteDropConfigAlert(sender)
-    puts "Deleting drop config"
     alert = NSAlert.new
     alert.addButtonWithTitle "Cancel"
     alert.addButtonWithTitle "OK"
@@ -122,10 +119,15 @@ class ApplicationController
 
   def deleteDropConfigAlertDidEnd(alert, returnCode:returnCode, contextInfo:contextInfo)
     if returnCode == NSAlertSecondButtonReturn
-      deleteDropConfig
+      deleteRemoteDrop
     else
     end
+    deleteDropConfig
+  end
+
+  def deleteDropConfig
     dc = @drops.selectedObjects.first
+    CanastoLog.debug "Removing config for drop #{dc.dropName}"
     @drops.removeObject dc
     configs = {}.merge(@userDefaults.dictionaryForKey('NCXDropConfigs') || {})
     configs.delete dc.dropName
@@ -138,50 +140,44 @@ class ApplicationController
     end
   end
 
-  def deleteDropConfig
+  def deleteRemoteDrop
     dc = @drops.selectedObjects.first
     error = nil
     drop = DropIO.findDropNamed dc.dropName, :withToken => dc.adminToken, :error => error
     if not drop.nil?
       drop.delete
       if DropIO.lastError == nil
+        CanastoLog.debug "Deleted drop #{dc.dropName} from drop.io"
         GrowlDelegate.notify 'drop.io', "Drop #{dc.dropName} destroyed!", 'DropDestroyed'
       else
-        NSLog "Error deleting drop #{dc.dropName}"
+        CanastoLog.debug "Error deleting drop #{dc.dropName}"
         warningAlert "Error deleting drop", "Something went wrong destroying #{dc.dropName}"
       end
     else
+      CanastoLog.debug "Could not delete drop #{dc.dropName} from drop.io: Not Found"
       warningAlert "Error deleting drop", "#{dc.dropName} could not be found."
     end
   end
 
-  def currentDrop
-    dc = @drops.selectedObjects.first
-    error = nil
-    drop = DropIO.findDropNamed dc.dropName, :withToken => dc.adminToken, :error => error
-    if not drop.nil?
-      NSLog "drop found: #{dc.dropName}"
-    end
-    return drop
-  end
-  
   def deleteAssetFromDropAlert(sender)
-    puts "Deleting asset"
+    asset_name = @assets.selectedObjects.first.name
+    CanastoLog.debug "Asking to delete asset #{asset_name}"
     alert = NSAlert.new
     alert.addButtonWithTitle "Cancel"
     alert.addButtonWithTitle "OK"
-    alert.setMessageText "Do you want to delete the asset #{@assets.selectedObjects.first.name}?"
+    alert.setMessageText "Do you want to delete the asset #{asset_name}?"
     alert.setInformativeText "WARNING: Deleted assets cannot be restored"
     alert.setAlertStyle NSWarningAlertStyle
     alert.beginSheetModalForWindow @assetManagerWindow, :modalDelegate => self, :didEndSelector => 'deleteAssetFromDropAlertDidEnd:returnCode:contextInfo:', :contextInfo => nil
   end
   
   def deleteAssetFromDropAlertDidEnd(alert, returnCode:returnCode, contextInfo:contextInfo) 
+    dc = @drops.selectedObjects.first
+    obj = @assets.selectedObjects.first
     if returnCode == NSAlertSecondButtonReturn
+      CanastoLog.debug "User wants to delete the asset, let's go"
       @progressIndicator.startAnimation self
       begin
-        dc = @drops.selectedObjects.first
-        obj = @assets.selectedObjects.first
         properties = {
           'dropName' => dc.dropName,
           'adminToken' => dc.adminToken,
@@ -189,11 +185,13 @@ class ApplicationController
         }
         op = DeleteAssetOperation.alloc.init
         op.properties = properties
+        CanastoLog.debug "Queing DeleteAssetOperation for asset #{obj.name}"
         @opQueue.addOperation op
       rescue Exception => e
-        NSLog 'Exception deleting asset'
-        NSLog e.message
+        CanastoLog.debug "Exception deleting asset #{obj.name}: #{e.message}"
       end
+    else
+      CanastoLog.debug "User cancelled asset deletion for #{obj.name}"
     end
   end
 
@@ -216,14 +214,13 @@ class ApplicationController
           pfiles << $1
         end
       end
-      #plist = Plist::parse_xml(file)
+      CanastoLog.debug "Pasting files to drop"
       notifObj = {
         :dropName => dropName,
         :adminToken => adminToken,
         :files => pfiles
       }
-      n = NSNotification.notificationWithName 'SendFiles', :object => notifObj
-      @nQueue.enqueueNotification n, :postingStyle => NSPostWhenIdle
+      uploadFiles(notifObj)
     else
       infoAlert "Nothing to paste", "Copy something to the clipboard first."
     end
@@ -254,7 +251,8 @@ class ApplicationController
   end
 
   def changeDropSelected(dropName)
-    NSLog 'Changing drop selected'
+    last_drop_selected = @userDefaults.objectForKey('NCXLastDropSelected')
+    CanastoLog.debug "Changing drop selected from #{last_drop_selected} to #{dropName}"
     @progressIndicator.startAnimation self
     index = 0
     @drops.arrangedObjects.each do |config|
@@ -268,6 +266,7 @@ class ApplicationController
     @drops.arrangedObjects.each do |dc|
       dropConfig = dc if dc.dropName == dropName
     end
+    GrowlDelegate.notify 'Canasto', "Changed current drop to #{dropName}", "ChangedDropSelected"
     n = NSNotification.notificationWithName 'DropIORefreshAssets', :object => dropConfig
     @nQueue.enqueueNotification n, :postingStyle => NSPostNow
   end
@@ -314,16 +313,17 @@ class ApplicationController
 
   # Triggered when search field content changes
   def updateFilter(sender)
-    NSLog @searchField.stringValue
-
+    CanastoLog.debug @searchField.stringValue
   end
 
   def assetDownloaderFinished(notification)
     @progressIndicator.stopAnimation self
     notification.object.each do |a|
-      da = DropAsset.init.alloc
+      da = DropAsset.new
       da.name = a.name
+      da.title = a.title
       da.type = a.type
+      da.URL = a.hiddenUrl
       da.fileSize = a.filesize
       da.createdAt = a.createdAt
       @assets.addObject da
@@ -331,12 +331,24 @@ class ApplicationController
   end
 
   def assetDownloaderError(notification)
+    @progressIndicator.stopAnimation self
+    alert = NSAlert.new
+    alert.informativeText = 'The selected drop no longer exists. Do you want to remove it from the list?'
+    alert.messageText = 'Invalid Drop'
+    alert.alertStyle = NSWarningAlertStyle
+    alert.addButtonWithTitle("Cancel")
+    alert.addButtonWithTitle("OK")
+    response = alert.runModal
+    if response == NSAlertSecondButtonReturn
+      deleteDropConfig
+    end
+    #GrowlDelegate.notify 'drop.io', "Drop #{dc.dropName} does not exist", 'DropDestroyed'
   end
 
   def windowShouldClose(window)
     if window.title == 'Preferences'
       DropIO.APIKey = @userDefaults.objectForKey('ApiKey')
-      NSLog "Api Key: #{DropIO.APIKey || ''}" 
+      CanastoLog.debug "Api Key: #{DropIO.APIKey || ''}" 
       @userDefaults.setObject @apiKeyTextField.stringValue, :forKey => 'ApiKey'
       @userDefaults.synchronize
     end
@@ -350,9 +362,9 @@ class ApplicationController
   def refreshAssets(notification)
     @progressIndicator.startAnimation self
     drop = @drops.selectedObjects.first
-    NSLog "refreshing #{drop.dropName} assets"
+    CanastoLog.debug "refreshing #{drop.dropName} assets"
     @assets.removeObjects @assets.content
-    op = NCXAssetDownloader.alloc.init
+    op = AssetDownloadOperation.new
     op.dropName = drop.dropName
     op.adminToken = drop.adminToken
     @opQueue.addOperation op
@@ -361,80 +373,28 @@ class ApplicationController
   def sendFiles(notification)
     @progressIndicator.startAnimation self
     obj = notification.object
+    uploadFiles(obj)
+  end
+
+  def uploadFiles(obj)
     dropName = obj[:dropName]
     adminToken = obj[:adminToken]
     files = obj[:files]
-    NSLog "Sending Files to drop: #{dropName}"
-    fu = NCXFileUploader.new
+    CanastoLog.debug "Sending files to drop #{dropName}"
+    CanastoLog.debug "File list:"
+    CanastoLog.debug "\n#{files.join("\n")}"
+    fu = FileUploadOperation.new
     fu.dropName = dropName
     fu.adminToken = adminToken
     fu.files = files
+    CanastoLog.debug "Queing FileUploadOperation for drop #{dropName}"
     @opQueue.addOperation fu
   end
-
-  def fileUploaderFinished(notification)
-    NSLog 'Uploader finished'
-    drop = @drops.selectedObjects.first
-    @progressIndicator.stopAnimation self
-    NSLog 'Crearing assets'
-    @assets.removeObjects(@assets.content || [])
-    NSLog 'Assets Empty'
-    op = NCXAssetDownloader.alloc.init
-    op.dropName = drop.dropName
-    op.adminToken = drop.adminToken
-    @opQueue.addOperation op
-  end
-
-  def fileUploaderStarted(notification)
-  end
   
-  def fileUploaderSendingFile(notification)
-  end
-
-  def fileUploaderFileSent(notification)
-    dropAsset = DropAsset.alloc.init
-    dropAsset.name = File.basename(notification.object)
-    @assets.addObject dropAsset
-  end
-
-  def deleteAssetOperationFinished(notification)
-      @progressIndicator.stopAnimation self
-      obj = @assets.selectedObjects.first
-      @assets.removeObject obj
-  end
-
-  def deleteAssetOperationStarted(notification)
-  end
-
-  def createDropOperationStarted(notification)
-    NSLog "Creating drop #{notification.object}"
-  end
-
-  def createDropOperationFinished(notification)
-    drop = notification.object
-    if drop.nil?
-      NSLog "Could not create the drop!"
-    else
-      NSLog "Drop Created: #{drop.name} Admin Token: #{drop.adminToken}"
-      dc = {}.merge(@userDefaults.dictionaryForKey('NCXDropConfigs') || {})
-      dc[drop.name] = drop.adminToken
-      @userDefaults.setObject dc, :forKey => 'NCXDropConfigs'
-      @userDefaults.synchronize
-      config = DropConfig.alloc.init
-      config.dropName = drop.name
-      config.adminToken = drop.adminToken
-      @drops.addObject config
-      changeDropSelected drop.name
-      GrowlDelegate.notify 'drop.io', "Drop #{drop.name} created", "DropCreated"
-    end
-  end
-
   def openWebView(sender)
     return if @drops.content.size == 0
     dropName = @drops.selectedObjects.first.dropName
     url = NSURL.URLWithString "http://drop.io/#{dropName}"
-    #@browserWindow.makeKeyAndOrderFront self
-    #@webView.mainFrame.loadRequest NSURLRequest.requestWithURL(url)
     NSWorkspace.sharedWorkspace.openURL url
   end
 
@@ -448,7 +408,77 @@ class ApplicationController
                           :row => row,
                           :withEvent => nil,
                           :select => true 
+  end
 
+  def currentDrop
+    @userDefaults.objectForKey('NCXLastDropSelected') || '' 
+  end
+
+  #
+  # NSOperation Handlers
+  #
+  def fileUploaderFinished(notification)
+    drop = @drops.selectedObjects.first
+    CanastoLog.debug "FileUploadOperation finished. drop: #{drop.dropName}"
+    @progressIndicator.stopAnimation self
+    CanastoLog.debug "Clearing assets to display assets from drop #{drop.dropName}"
+    @assets.removeObjects(@assets.content || [])
+    op = AssetDownloadOperation.new
+    op.dropName = drop.dropName
+    op.adminToken = drop.adminToken
+    CanastoLog.debug "Refresing assets from drop #{drop.dropName}"
+    @opQueue.addOperation op
+  end
+
+  def fileUploaderStarted(notification)
+    GrowlDelegate.notify 'Canasto', "Uploading files to #{currentDrop}", "AssetUploaded"
+  end
+  
+  def fileUploaderSendingFile(notification)
+    CanastoLog.debug "Sending file #{notification.object}"
+  end
+
+  def fileUploaderFileSent(notification)
+    dropAsset = DropAsset.alloc.init
+    dropAsset.name = File.basename(notification.object)
+    GrowlDelegate.notify 'Canasto', "File #{notification.object} uploaded!", "AssetUploaded"
+    @assets.addObject dropAsset
+  end
+
+  def deleteAssetOperationFinished(notification)
+    @progressIndicator.stopAnimation self
+    obj = @assets.selectedObjects.first
+    @assets.removeObject obj
+    GrowlDelegate.notify 'Canasto', "Asset #{notification.object} deleted!", "AssetDeleted"
+    CanastoLog.debug "DeleteAssetOperation finished for #{notification.object}"
+  end
+
+  def deleteAssetOperationStarted(notification)
+    CanastoLog.debug "DeleteAssetOperation started for #{notification.object}"
+  end
+
+  def createDropOperationStarted(notification)
+    CanastoLog.debug "Creating drop #{notification.object}"
+  end
+
+  def createDropOperationFinished(notification)
+    drop = notification.object
+    if drop.nil?
+      CanastoLog.debug "Could not create the drop #{drop.name}"
+      GrowlDelegate.notify 'Canasto', "Error creating the drop #{drop.name}", "DropCreated"
+    else
+      CanastoLog.debug "Drop Created: #{drop.name}"
+      dc = {}.merge(@userDefaults.dictionaryForKey('NCXDropConfigs') || {})
+      dc[drop.name] = drop.adminToken
+      @userDefaults.setObject dc, :forKey => 'NCXDropConfigs'
+      @userDefaults.synchronize
+      config = DropConfig.alloc.init
+      config.dropName = drop.name
+      config.adminToken = drop.adminToken
+      @drops.addObject config
+      changeDropSelected drop.name
+      GrowlDelegate.notify 'drop.io', "Drop #{drop.name} created", "DropCreated"
+    end
   end
 
 end

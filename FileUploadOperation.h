@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface NCXFileUploader : NSOperation {
+@interface FileUploadOperation : NSOperation {
   NSMutableArray *files;
 	NSString * dropName;
 	NSString *adminToken;

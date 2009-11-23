@@ -3,14 +3,13 @@
 //  LittleDrop
 //
 //  Created by Sergio Rubio on 23/05/09.
-//  Copyright 2009 CSIC. All rights reserved.
 //
 
-#import "NCXAssetDownloader.h"
+#import "AssetDownloadOperation.h"
 #import "DropIO.h"
 
 
-@implementation NCXAssetDownloader
+@implementation AssetDownloadOperation
 
 @synthesize adminToken;
 @synthesize dropName;

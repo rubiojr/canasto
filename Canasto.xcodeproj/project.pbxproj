@@ -25,7 +25,7 @@
 		2508C73C0FBC29A000A18478 /* DropConfig.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2508C73B0FBC29A000A18478 /* DropConfig.rb */; };
 		25225A060FC5680C00338235 /* DropAsset.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25225A050FC5680C00338235 /* DropAsset.rb */; };
 		255A7A5A10458B0200DF0563 /* AssetManagerCustomView.rb in Resources */ = {isa = PBXBuildFile; fileRef = 255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */; };
-		257CFDE30FCA940500936F68 /* NCXAssetDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFDE20FCA940500936F68 /* NCXAssetDownloader.m */; };
+		257CFDE30FCA940500936F68 /* AssetDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFDE20FCA940500936F68 /* AssetDownloadOperation.m */; };
 		257CFEB40FCAAB3400936F68 /* DropIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEAD0FCAAB3400936F68 /* DropIO.m */; };
 		257CFEB50FCAAB3400936F68 /* DropIOAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEAF0FCAAB3400936F68 /* DropIOAsset.m */; };
 		257CFEB60FCAAB3400936F68 /* DropIODrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEB10FCAAB3400936F68 /* DropIODrop.m */; };
@@ -38,7 +38,7 @@
 		25B911CA0FB9A567006001FB /* ApplicationController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25B911C60FB9A567006001FB /* ApplicationController.rb */; };
 		25B911CF0FB9A57B006001FB /* little_drop.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 25B911CE0FB9A57B006001FB /* little_drop.tiff */; };
 		25C35A720FCC2B6D00B11405 /* CreateDropOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */; };
-		25E045230FC88B5C00966160 /* NCXFileUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E045220FC88B5C00966160 /* NCXFileUploader.m */; };
+		25E045230FC88B5C00966160 /* FileUploadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E045220FC88B5C00966160 /* FileUploadOperation.m */; };
 		25E8F84D0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 25E8F84C0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict */; };
 		25E8F8A60FCEA350003637BB /* GrowlDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25E8F8A50FCEA350003637BB /* GrowlDelegate.rb */; };
 		25E8F8B70FCEAACC003637BB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E8F8B60FCEAACC003637BB /* Sparkle.framework */; };
@@ -87,8 +87,8 @@
 		2508C73B0FBC29A000A18478 /* DropConfig.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropConfig.rb; sourceTree = "<group>"; };
 		25225A050FC5680C00338235 /* DropAsset.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropAsset.rb; sourceTree = "<group>"; };
 		255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AssetManagerCustomView.rb; sourceTree = "<group>"; };
-		257CFDE10FCA940500936F68 /* NCXAssetDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCXAssetDownloader.h; sourceTree = "<group>"; };
-		257CFDE20FCA940500936F68 /* NCXAssetDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCXAssetDownloader.m; sourceTree = "<group>"; };
+		257CFDE10FCA940500936F68 /* AssetDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetDownloadOperation.h; sourceTree = "<group>"; };
+		257CFDE20FCA940500936F68 /* AssetDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetDownloadOperation.m; sourceTree = "<group>"; };
 		257CFEAC0FCAAB3400936F68 /* DropIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropIO.h; sourceTree = "<group>"; };
 		257CFEAD0FCAAB3400936F68 /* DropIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropIO.m; sourceTree = "<group>"; };
 		257CFEAE0FCAAB3400936F68 /* DropIOAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropIOAsset.h; sourceTree = "<group>"; };
@@ -106,8 +106,8 @@
 		25B911CE0FB9A57B006001FB /* little_drop.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = little_drop.tiff; sourceTree = "<group>"; };
 		25C35A700FCC2B6D00B11405 /* CreateDropOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateDropOperation.h; sourceTree = "<group>"; };
 		25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateDropOperation.m; sourceTree = "<group>"; };
-		25E045210FC88B5C00966160 /* NCXFileUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCXFileUploader.h; sourceTree = "<group>"; };
-		25E045220FC88B5C00966160 /* NCXFileUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCXFileUploader.m; sourceTree = "<group>"; };
+		25E045210FC88B5C00966160 /* FileUploadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUploadOperation.h; sourceTree = "<group>"; };
+		25E045220FC88B5C00966160 /* FileUploadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUploadOperation.m; sourceTree = "<group>"; };
 		25E8F84C0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		25E8F8A50FCEA350003637BB /* GrowlDelegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GrowlDelegate.rb; sourceTree = "<group>"; };
 		25E8F8B60FCEAACC003637BB /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
@@ -149,14 +149,14 @@
 				255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */,
 				25E8F8A50FCEA350003637BB /* GrowlDelegate.rb */,
 				257CFF700FCAF4E600936F68 /* NewDropWindowController.rb */,
-				257CFDE10FCA940500936F68 /* NCXAssetDownloader.h */,
-				257CFDE20FCA940500936F68 /* NCXAssetDownloader.m */,
+				257CFDE10FCA940500936F68 /* AssetDownloadOperation.h */,
+				257CFDE20FCA940500936F68 /* AssetDownloadOperation.m */,
 				259D80B30FC5AD310025D8FD /* AssetManagerDelegate.rb */,
 				25225A050FC5680C00338235 /* DropAsset.rb */,
 				2508C73B0FBC29A000A18478 /* DropConfig.rb */,
 				25B911C60FB9A567006001FB /* ApplicationController.rb */,
-				25E045210FC88B5C00966160 /* NCXFileUploader.h */,
-				25E045220FC88B5C00966160 /* NCXFileUploader.m */,
+				25E045210FC88B5C00966160 /* FileUploadOperation.h */,
+				25E045220FC88B5C00966160 /* FileUploadOperation.m */,
 				25C35A700FCC2B6D00B11405 /* CreateDropOperation.h */,
 				25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */,
 			);
@@ -352,8 +352,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				25E045230FC88B5C00966160 /* NCXFileUploader.m in Sources */,
-				257CFDE30FCA940500936F68 /* NCXAssetDownloader.m in Sources */,
+				25E045230FC88B5C00966160 /* FileUploadOperation.m in Sources */,
+				257CFDE30FCA940500936F68 /* AssetDownloadOperation.m in Sources */,
 				257CFEB40FCAAB3400936F68 /* DropIO.m in Sources */,
 				257CFEB50FCAAB3400936F68 /* DropIOAsset.m in Sources */,
 				257CFEB60FCAAB3400936F68 /* DropIODrop.m in Sources */,
@@ -426,9 +426,10 @@
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
+				GCC_MODEL_TUNING = "";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				ONLY_ACTIVE_ARCH = NO;
@@ -442,8 +443,9 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "ppc i386 ppc64 x86_64";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -453,6 +455,7 @@
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				ONLY_ACTIVE_ARCH = NO;

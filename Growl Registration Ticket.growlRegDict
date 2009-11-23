@@ -4,9 +4,12 @@
 <dict>
 	<key>DefaultNotifications</key>
 	<array>
-		<string>RefreshAssetsOperation</string>
+		<string>RefreshAssets</string>
 		<string>DropDestroyed</string>
 		<string>DropCreated</string>
+		<string>AssetUploaded</string>
+		<string>AssetDeleted</string>
+		<string>ChangedDropSelected</string>
 	</array>
 	<key>TicketVersion</key>
 	<string>1</string>
@@ -15,6 +18,9 @@
 		<string>RefreshAssetsOperation</string>
 		<string>DropDestroyed</string>
 		<string>DropCreated</string>
+		<string>AssetUploaded</string>
+		<string>AssetDeleted</string>
+		<string>ChangedDropSelected</string>
 	</array>
 </dict>
 </plist>
