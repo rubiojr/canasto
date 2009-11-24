@@ -26,6 +26,7 @@
 		25225A060FC5680C00338235 /* DropAsset.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25225A050FC5680C00338235 /* DropAsset.rb */; };
 		255A7A5A10458B0200DF0563 /* AssetManagerCustomView.rb in Resources */ = {isa = PBXBuildFile; fileRef = 255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */; };
 		2579246C10BC079A00AFF134 /* dropio.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2579246B10BC079A00AFF134 /* dropio.rb */; };
+		2579247410BC0E8A00AFF134 /* growl.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2579247310BC0E8A00AFF134 /* growl.rb */; };
 		257CFDE30FCA940500936F68 /* AssetDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFDE20FCA940500936F68 /* AssetDownloadOperation.m */; };
 		257CFEB40FCAAB3400936F68 /* DropIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEAD0FCAAB3400936F68 /* DropIO.m */; };
 		257CFEB50FCAAB3400936F68 /* DropIOAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEAF0FCAAB3400936F68 /* DropIOAsset.m */; };
@@ -42,7 +43,6 @@
 		25E045230FC88B5C00966160 /* FileUploadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E045220FC88B5C00966160 /* FileUploadOperation.m */; };
 		25E16CF310BBF0F400CA635E /* vendor in Resources */ = {isa = PBXBuildFile; fileRef = 25E16CCF10BBF0F400CA635E /* vendor */; };
 		25E8F84D0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 25E8F84C0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict */; };
-		25E8F8A60FCEA350003637BB /* GrowlDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25E8F8A50FCEA350003637BB /* GrowlDelegate.rb */; };
 		25E8F8B70FCEAACC003637BB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E8F8B60FCEAACC003637BB /* Sparkle.framework */; };
 		25E8F8BA0FCEAAD1003637BB /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 25E8F8B60FCEAACC003637BB /* Sparkle.framework */; };
 		25E8F8C60FCEACC8003637BB /* update.xml in Resources */ = {isa = PBXBuildFile; fileRef = 25E8F8C50FCEACC8003637BB /* update.xml */; };
@@ -90,6 +90,7 @@
 		25225A050FC5680C00338235 /* DropAsset.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropAsset.rb; sourceTree = "<group>"; };
 		255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AssetManagerCustomView.rb; sourceTree = "<group>"; };
 		2579246B10BC079A00AFF134 /* dropio.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dropio.rb; sourceTree = "<group>"; };
+		2579247310BC0E8A00AFF134 /* growl.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = growl.rb; sourceTree = "<group>"; };
 		257CFDE10FCA940500936F68 /* AssetDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetDownloadOperation.h; sourceTree = "<group>"; };
 		257CFDE20FCA940500936F68 /* AssetDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetDownloadOperation.m; sourceTree = "<group>"; };
 		257CFEAC0FCAAB3400936F68 /* DropIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropIO.h; sourceTree = "<group>"; };
@@ -113,7 +114,6 @@
 		25E045220FC88B5C00966160 /* FileUploadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUploadOperation.m; sourceTree = "<group>"; };
 		25E16CCF10BBF0F400CA635E /* vendor */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vendor; sourceTree = "<group>"; };
 		25E8F84C0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
-		25E8F8A50FCEA350003637BB /* GrowlDelegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GrowlDelegate.rb; sourceTree = "<group>"; };
 		25E8F8B60FCEAACC003637BB /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		25E8F8C50FCEACC8003637BB /* update.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = update.xml; sourceTree = "<group>"; };
 		25EAA658108484A000A15967 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
@@ -148,11 +148,11 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2579247310BC0E8A00AFF134 /* growl.rb */,
 				2579246B10BC079A00AFF134 /* dropio.rb */,
 				25A2405410810CD6007A9B66 /* DeleteAssetOperation.h */,
 				25A2405510810CD6007A9B66 /* DeleteAssetOperation.m */,
 				255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */,
-				25E8F8A50FCEA350003637BB /* GrowlDelegate.rb */,
 				257CFF700FCAF4E600936F68 /* NewDropWindowController.rb */,
 				257CFDE10FCA940500936F68 /* AssetDownloadOperation.h */,
 				257CFDE20FCA940500936F68 /* AssetDownloadOperation.m */,
@@ -324,7 +324,6 @@
 				259D80B40FC5AD310025D8FD /* AssetManagerDelegate.rb in Resources */,
 				257CFF710FCAF4E600936F68 /* NewDropWindowController.rb in Resources */,
 				25E8F84D0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict in Resources */,
-				25E8F8A60FCEA350003637BB /* GrowlDelegate.rb in Resources */,
 				25E8F8C60FCEACC8003637BB /* update.xml in Resources */,
 				255A7A5A10458B0200DF0563 /* AssetManagerCustomView.rb in Resources */,
 				25EAA659108484A000A15967 /* dsa_pub.pem in Resources */,
@@ -333,6 +332,7 @@
 				25FB468410B5B52900ABF5A8 /* canasto.icns in Resources */,
 				25E16CF310BBF0F400CA635E /* vendor in Resources */,
 				2579246C10BC079A00AFF134 /* dropio.rb in Resources */,
+				2579247410BC0E8A00AFF134 /* growl.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

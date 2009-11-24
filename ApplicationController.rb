@@ -34,7 +34,6 @@ class ApplicationController
   end
 
   def awakeFromNib
-    GrowlApplicationBridge.setGrowlDelegate GrowlDelegate.new
 
     NSUserDefaultsController.sharedUserDefaultsController.setAppliesImmediately true
     @userDefaults = NSUserDefaults.standardUserDefaults
@@ -70,6 +69,14 @@ class ApplicationController
   end
 
   def applicationDidFinishLaunching(notification)
+    Growl::Notifier.sharedInstance.register 'Canasto', 
+      ['ChangeDropSelected',
+       'RefreshAssetsOperation',
+       'DropDestroyed',
+       'DropCrated',
+       'AssetUploaded',
+       'AssetDeleted'
+      ]
     dc = @userDefaults.dictionaryForKey('NCXDropConfigs')
     apiKey = @userDefaults.objectForKey('ApiKey')
     DropIO.APIKey = apiKey
@@ -169,7 +176,7 @@ class ApplicationController
       drop.delete
       if DropIO.lastError == nil
         CanastoLog.debug "Deleted drop #{dc.dropName} from drop.io"
-        GrowlDelegate.notify 'drop.io', "Drop #{dc.dropName} destroyed!", 'DropDestroyed'
+        Growl.growl 'DropDestroyed', "Drop #{dc.dropName} destroyed!"
       else
         CanastoLog.debug "Error deleting drop #{dc.dropName}"
         warningAlert "Error deleting drop", "Something went wrong destroying #{dc.dropName}"
@@ -287,7 +294,7 @@ class ApplicationController
     @drops.arrangedObjects.each do |dc|
       dropConfig = dc if dc.dropName == dropName
     end
-    GrowlDelegate.notify 'Canasto', "Changed current drop to #{dropName}", "ChangedDropSelected"
+    Growl.growl 'ChangeDropSelected', 'Canasto', "Changed current drop to #{dropName}"
     n = NSNotification.notificationWithName 'DropIORefreshAssets', :object => dropConfig
     @nQueue.enqueueNotification n, :postingStyle => NSPostNow
     loadChat
@@ -364,7 +371,6 @@ class ApplicationController
     if response == NSAlertSecondButtonReturn
       deleteDropConfig
     end
-    #GrowlDelegate.notify 'drop.io', "Drop #{dc.dropName} does not exist", 'DropDestroyed'
   end
 
   def windowShouldClose(window)
@@ -454,7 +460,7 @@ class ApplicationController
   end
 
   def fileUploaderStarted(notification)
-    GrowlDelegate.notify 'Canasto', "Uploading files to #{currentDrop}", "AssetUploaded"
+    Growl.growl 'AssetUploaded', 'Canasto', "Uploading files to #{currentDrop}"
   end
   
   def fileUploaderSendingFile(notification)
@@ -464,7 +470,7 @@ class ApplicationController
   def fileUploaderFileSent(notification)
     dropAsset = DropAsset.alloc.init
     dropAsset.name = File.basename(notification.object)
-    GrowlDelegate.notify 'Canasto', "File #{notification.object} uploaded!", "AssetUploaded"
+    Growl.growl "AssetUploaded", 'Canasto', "File #{notification.object} uploaded!"
     @assets.addObject dropAsset
   end
 
@@ -472,7 +478,7 @@ class ApplicationController
     @progressIndicator.stopAnimation self
     obj = @assets.selectedObjects.first
     @assets.removeObject obj
-    GrowlDelegate.notify 'Canasto', "Asset #{notification.object} deleted!", "AssetDeleted"
+    Growl.growl 'AssetDeleted', 'Canasto', "Asset #{notification.object} deleted!"
     CanastoLog.debug "DeleteAssetOperation finished for #{notification.object}"
   end
 
@@ -488,7 +494,7 @@ class ApplicationController
     drop = notification.object
     if drop.nil?
       CanastoLog.debug "Could not create the drop #{drop.name}"
-      GrowlDelegate.notify 'Canasto', "Error creating the drop #{drop.name}", "DropCreated"
+      Growl.growl 'DropCreated', 'Canasto', "Error creating the drop #{drop.name}"
     else
       CanastoLog.debug "Drop Created: #{drop.name}"
       dc = {}.merge(@userDefaults.dictionaryForKey('NCXDropConfigs') || {})
@@ -500,7 +506,7 @@ class ApplicationController
       config.adminToken = drop.adminToken
       @drops.addObject config
       changeDropSelected drop.name
-      GrowlDelegate.notify 'drop.io', "Drop #{drop.name} created", "DropCreated"
+      Growl.growl "DropCreated", "Canasto", "Drop #{drop.name} created"
     end
   end
 

@@ -9,6 +9,7 @@
 # do that here too.
 framework 'Cocoa'
 framework 'Growl'
+
 $:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/1.9.0')
 $:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/1.9.0/universal-darwin9.0')
 $:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/site_ruby/1.9.0/universal-darwin9.0')
@@ -41,6 +42,5 @@ Dir.entries(dir_path).each do |path|
     require(path)
   end
 end
-
 CanastoLog.debug "going main loop"
 NSApplicationMain(0, nil)
