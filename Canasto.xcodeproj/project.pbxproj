@@ -32,9 +32,9 @@
 		257CFEB70FCAAB3400936F68 /* XMLToObjectParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEB30FCAAB3400936F68 /* XMLToObjectParser.m */; };
 		257CFF710FCAF4E600936F68 /* NewDropWindowController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 257CFF700FCAF4E600936F68 /* NewDropWindowController.rb */; };
 		258BA17F10B6B7F80098ADAB /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258BA17E10B6B7F80098ADAB /* Growl.framework */; };
-		258BA19110B6B8740098ADAB /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 258BA17E10B6B7F80098ADAB /* Growl.framework */; };
 		259D80B40FC5AD310025D8FD /* AssetManagerDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 259D80B30FC5AD310025D8FD /* AssetManagerDelegate.rb */; };
 		25A2405610810CD6007A9B66 /* DeleteAssetOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A2405510810CD6007A9B66 /* DeleteAssetOperation.m */; };
+		25A341CB10BBD63A004C04E9 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 258BA17E10B6B7F80098ADAB /* Growl.framework */; };
 		25B911CA0FB9A567006001FB /* ApplicationController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25B911C60FB9A567006001FB /* ApplicationController.rb */; };
 		25B911CF0FB9A57B006001FB /* little_drop.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 25B911CE0FB9A57B006001FB /* little_drop.tiff */; };
 		25C35A720FCC2B6D00B11405 /* CreateDropOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */; };
@@ -73,7 +73,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				258BA19110B6B8740098ADAB /* Growl.framework in CopyFiles */,
+				25A341CB10BBD63A004C04E9 /* Growl.framework in CopyFiles */,
 				25E8F8BA0FCEAAD1003637BB /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +417,8 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -434,7 +436,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = Canasto;
-				VALID_ARCHS = "i386 x86_64";
+				VALID_ARCHS = i386;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -445,7 +447,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -455,12 +457,13 @@
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				ONLY_ACTIVE_ARCH = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = Canasto;
-				VALID_ARCHS = "i386 x86_64";
+				VALID_ARCHS = i386;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -38,7 +38,7 @@ class ApplicationController
     NSUserDefaultsController.sharedUserDefaultsController.setAppliesImmediately true
     @userDefaults = NSUserDefaults.standardUserDefaults
     @userDefaults.registerDefaults( { 
-        'ApiKey' => '',
+        'ApiKey' => '6e78ca6387783007ac739d89d57b8caa4947e56e',
         'NCXLastDropSelected' => ''
     })
     CanastoLog.debug "Default preferences registered"
