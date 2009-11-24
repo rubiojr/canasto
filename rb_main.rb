@@ -13,8 +13,10 @@ $:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/V
 $:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/1.9.0/universal-darwin9.0')
 $:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/site_ruby/1.9.0/universal-darwin9.0')
 $:.unshift  File.join(File.dirname(__FILE__), 'vendor/rest-client/lib')
+$:.unshift  File.join(File.dirname(__FILE__), 'vendor/crack/lib')
 require 'logger'
 require 'restclient'
+require 'crack'
 
 module Canasto
   APPLICATION_SUPPORT_DIR = File.join(

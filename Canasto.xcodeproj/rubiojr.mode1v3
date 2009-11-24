@@ -335,7 +335,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>25E16D3510BC045300CA635E</string>
+										<string>2579245F10BC05F600AFF134</string>
 										<key>history</key>
 										<array>
 											<string>2508C7A70FBC379800A18478</string>
@@ -361,7 +361,7 @@
 											<string>25A341C310BBD534004C04E9</string>
 											<string>25E16D1F10BBFF7800CA635E</string>
 											<string>25E16D2010BBFF7800CA635E</string>
-											<string>25E16D2110BBFF7800CA635E</string>
+											<string>252DA5F610BC05A2009D2A45</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -388,8 +388,6 @@
 											<string>25FB468F10B5B59A00ABF5A8</string>
 											<string>25574F6D10B6B255005F79B6</string>
 											<string>25F98B8D10BAB4AD00C1464A</string>
-											<string>25E16D2210BBFF7800CA635E</string>
-											<string>25E16D2310BBFF7800CA635E</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -447,9 +445,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>25E16CB910BBEAB800CA635E</string>
+				<string>2579246010BC05F600AFF134</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>25E16CBA10BBEAB800CA635E</string>
+				<string>2579246110BC05F600AFF134</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -583,12 +581,10 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>25E16D2510BBFF7800CA635E</string>
-		<string>25E16D2610BBFF7800CA635E</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>25B911DA0FB9A5C2006001FB</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/rubiojr/Work/github/canasto/Canasto.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>-160 818 1278 969 -162 768 1280 1024 </string>
@@ -668,7 +664,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>25B911DA0FB9A5C2006001FB</string>
-				<string>25E16D1410BBFF6100CA635E</string>
+				<string>2579246210BC05F600AFF134</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -788,13 +784,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>25E16D1510BBFF6100CA635E</string>
+				<string>2579246310BC05F600AFF134</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>25E16D1610BBFF6100CA635E</string>
-				<string>25E16D1710BBFF6100CA635E</string>
-				<string>25E16D1810BBFF6100CA635E</string>
-				<string>25E16D1910BBFF6100CA635E</string>
-				<string>25E16D1A10BBFF6100CA635E</string>
+				<string>2579246410BC05F600AFF134</string>
+				<string>2579246510BC05F600AFF134</string>
+				<string>2579246610BC05F600AFF134</string>
+				<string>2579246710BC05F600AFF134</string>
+				<string>2579246810BC05F600AFF134</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -958,7 +954,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>25E16D1B10BBFF6100CA635E</string>
+				<string>2579246910BC05F600AFF134</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>

@@ -25,6 +25,7 @@
 		2508C73C0FBC29A000A18478 /* DropConfig.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2508C73B0FBC29A000A18478 /* DropConfig.rb */; };
 		25225A060FC5680C00338235 /* DropAsset.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25225A050FC5680C00338235 /* DropAsset.rb */; };
 		255A7A5A10458B0200DF0563 /* AssetManagerCustomView.rb in Resources */ = {isa = PBXBuildFile; fileRef = 255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */; };
+		2579246C10BC079A00AFF134 /* dropio.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2579246B10BC079A00AFF134 /* dropio.rb */; };
 		257CFDE30FCA940500936F68 /* AssetDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFDE20FCA940500936F68 /* AssetDownloadOperation.m */; };
 		257CFEB40FCAAB3400936F68 /* DropIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEAD0FCAAB3400936F68 /* DropIO.m */; };
 		257CFEB50FCAAB3400936F68 /* DropIOAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEAF0FCAAB3400936F68 /* DropIOAsset.m */; };
@@ -88,6 +89,7 @@
 		2508C73B0FBC29A000A18478 /* DropConfig.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropConfig.rb; sourceTree = "<group>"; };
 		25225A050FC5680C00338235 /* DropAsset.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropAsset.rb; sourceTree = "<group>"; };
 		255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AssetManagerCustomView.rb; sourceTree = "<group>"; };
+		2579246B10BC079A00AFF134 /* dropio.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dropio.rb; sourceTree = "<group>"; };
 		257CFDE10FCA940500936F68 /* AssetDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetDownloadOperation.h; sourceTree = "<group>"; };
 		257CFDE20FCA940500936F68 /* AssetDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetDownloadOperation.m; sourceTree = "<group>"; };
 		257CFEAC0FCAAB3400936F68 /* DropIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropIO.h; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2579246B10BC079A00AFF134 /* dropio.rb */,
 				25A2405410810CD6007A9B66 /* DeleteAssetOperation.h */,
 				25A2405510810CD6007A9B66 /* DeleteAssetOperation.m */,
 				255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */,
@@ -329,6 +332,7 @@
 				25FB467910B5B24F00ABF5A8 /* drop_info_toolbar_64.png in Resources */,
 				25FB468410B5B52900ABF5A8 /* canasto.icns in Resources */,
 				25E16CF310BBF0F400CA635E /* vendor in Resources */,
+				2579246C10BC079A00AFF134 /* dropio.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

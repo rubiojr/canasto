@@ -73,6 +73,7 @@ class ApplicationController
     dc = @userDefaults.dictionaryForKey('NCXDropConfigs')
     apiKey = @userDefaults.objectForKey('ApiKey')
     DropIO.APIKey = apiKey
+    Canasto::DropIO::Config.api_key = apiKey
     if dc
       lds = @userDefaults.objectForKey('NCXLastDropSelected') || dc.keys.first
       dc.each do |k,v| 
@@ -103,24 +104,26 @@ class ApplicationController
   end
 
   def loadChat
-    begin
-      dc = @drops.selectedObjects.first
-      token = dc.adminToken
-      api_key = @userDefaults.objectForKey('ApiKey')
-      drop_json = RestClient.get "http://api.drop.io/drops/#{currentDrop}?api_key=#{api_key}&format=json&version=2.0&token=#{token}"
-      drop_json.match(/chat_password":"(.*?)"/)
-      chat_password = $1
-      url = NSURL.URLWithString "http://drop.io/#{currentDrop}/remote_chat_bar.js?chat_password=#{chat_password}"
-      html = '<html><head></head><script type="text/javascript" charset="utf-8" src="http://drop.io/' + currentDrop + '/remote_chat_bar.js?chat_password=' + chat_password + '"></script><body style="background:lightgray"><div style="color: #292929; text-align:center;font-weight:bold;font-size:72px;text-shadow: 0px 1px 1px #fff">drop.io</div><div style="font-weight: bold;font-size: 24px;text-align:center;text-shadow: 0px 1px 1px #fff;color:#292929">chat</div></body></html>'
-      @chatWebView.mainFrame.loadHTMLString html, :baseURL => url
-    rescue Exception => e
-      CanastoLog.error "Exception loading chat:\n#{e.message}"
+    html = ''
+    Thread.start do |t|
+      begin
+        dc = @drops.selectedObjects.first
+        token = dc.adminToken
+        drop = Canasto::DropIO::Drop.load currentDrop, token
+        chat_password = drop.chat_password
+        url = NSURL.URLWithString "http://drop.io/#{currentDrop}/remote_chat_bar.js?chat_password=#{chat_password}"
+        html = '<html><head></head><script type="text/javascript" charset="utf-8" src="http://drop.io/' + currentDrop + '/remote_chat_bar.js?chat_password=' + chat_password + '"></script><body style="background:lightgray"><div style="color: #292929; text-align:center;font-weight:bold;font-size:72px;text-shadow: 0px 1px 1px #fff">drop.io</div><div style="font-weight: bold;font-size: 24px;text-align:center;text-shadow: 0px 1px 1px #fff;color:#292929">chat</div></body></html>'
+        @chatWebView.mainFrame.loadHTMLString html, :baseURL => url
+      rescue Exception => e
+        CanastoLog.error "Exception loading chat:\n#{e.message}"
+      end
     end
   end
 
   def preferencesClosed(sender)
     @userDefaults.synchronize
     DropIO.APIKey = @userDefaults.objectForKey('ApiKey')
+    Canasto::DropIO::Config.api_key = @userDefaults.objectForKey('ApiKey')
     NSApp.endSheet @preferences
     @preferences.orderOut sender
   end
@@ -367,6 +370,7 @@ class ApplicationController
   def windowShouldClose(window)
     if window.title == 'Preferences'
       DropIO.APIKey = @userDefaults.objectForKey('ApiKey')
+      Canasto::DropIO::Config.api_key = @userDefaults.objectForKey('ApiKey')
       CanastoLog.debug "Api Key: #{DropIO.APIKey || ''}" 
       @userDefaults.setObject @apiKeyTextField.stringValue, :forKey => 'ApiKey'
       @userDefaults.synchronize
