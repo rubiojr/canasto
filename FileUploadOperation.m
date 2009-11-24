@@ -38,7 +38,7 @@
 		[queue enqueueNotification:n
 					  postingStyle: NSPostNow];
 		NSData *data = [NSData dataWithContentsOfFile:file];
-		DropIODocument* doc = [drop docWithFilename:file
+		[drop docWithFilename:file
 													data: data
 												mimeType: @"application/unknown"];
 		n = [NSNotification notificationWithName:@"FileUploaderFileSent"

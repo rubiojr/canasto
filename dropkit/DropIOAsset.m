@@ -665,17 +665,18 @@ static NSDateFormatter* utcFormatter = nil;
 
 - (void) cropThumbnailImage
 {
-	self.thumbImage = [self.thumbImage cropSquare:THUMB_SIZE];
-	
-	if ((loadedTarget != nil) && (loadedSel != nil))
-	{
-		if ([loadedTarget respondsToSelector:loadedSel])
-			[loadedTarget performSelector:loadedSel];
-		
-		[loadedTarget release];
-		loadedTarget = nil;
-		loadedSel = nil;
-	}
+  // HACK
+	//self.thumbImage = [self.thumbImage cropSquare:THUMB_SIZE];
+	//
+	//if ((loadedTarget != nil) && (loadedSel != nil))
+	//{
+	//	if ([loadedTarget respondsToSelector:loadedSel])
+	//		[loadedTarget performSelector:loadedSel];
+	//	
+	//	[loadedTarget release];
+	//	loadedTarget = nil;
+	//	loadedSel = nil;
+	//}
 }
 
 - (NSImage*) icon
@@ -947,17 +948,18 @@ static NSDateFormatter* utcFormatter = nil;
  */
 - (void) cropThumbnailImage
 {
-	self.thumbImage = [self.thumbImage cropSquare:THUMB_SIZE];
-	
-	if ((loadedTarget != nil) && (loadedSel != nil))
-	{
-		if ([loadedTarget respondsToSelector:loadedSel])
-			[loadedTarget performSelector:loadedSel];
-		
-		[loadedTarget release];
-		loadedTarget = nil;
-		loadedSel = nil;
-	}
+  // HACK
+	//self.thumbImage = [self.thumbImage cropSquare:THUMB_SIZE];
+	//
+	//if ((loadedTarget != nil) && (loadedSel != nil))
+	//{
+	//	if ([loadedTarget respondsToSelector:loadedSel])
+	//		[loadedTarget performSelector:loadedSel];
+	//	
+	//	[loadedTarget release];
+	//	loadedTarget = nil;
+	//	loadedSel = nil;
+	//}
 }
 
 - (NSImage*) icon

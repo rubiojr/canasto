@@ -1401,7 +1401,7 @@ NSComparisonResult sortAssetsByType(id firstAsset, id secondAsset, void* context
 - (void) recordVoicemail
 {
 	// Pass voicemail URL to app's openURL method.
-	[[NSApplication sharedApplication] openURL:[self voicemailURL]];
+	//[[NSApplication sharedApplication] openURL:[self voicemailURL]];
 }
 
 /**
@@ -1412,7 +1412,7 @@ NSComparisonResult sortAssetsByType(id firstAsset, id secondAsset, void* context
 - (void) conferenceCall
 {
 	// Pass conference URL to app's openURL method.
-	[[NSApplication sharedApplication] openURL:[self conferenceURL]];
+	//[[NSApplication sharedApplication] openURL:[self conferenceURL]];
 }
 
 #pragma mark -
