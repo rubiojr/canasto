@@ -23,7 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.1alpha9</string>
+	<string>0.1alpha10</string>
 	<key>LSUIElement</key>
 	<false/>
 	<key>NSMainNibFile</key>

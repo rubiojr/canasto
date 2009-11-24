@@ -15,6 +15,7 @@ begin
   $:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/1.9.0')
   $:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/1.9.0/universal-darwin9.0')
   $:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/site_ruby/1.9.0/universal-darwin9.0')
+  $:.unshift  File.join(File.dirname(__FILE__), '../Frameworks/MacRuby.framework/Versions/Current/usr/lib/ruby/site_ruby/1.9.0/universal-darwin10.0')
   $:.unshift  File.join(File.dirname(__FILE__), 'vendor/rest-client/lib')
   $:.unshift  File.join(File.dirname(__FILE__), 'vendor/crack/lib')
   require 'logger'
