@@ -273,8 +273,6 @@
 								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>1058C7A0FEA54F0111CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>25A341AD10BBD3B2004C04E9</string>
-								<string>25A341DA10BBD64D004C04E9</string>
 								<string>1C37FAAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
 								<string>1CC0EA4004350EF90041110B</string>
@@ -283,9 +281,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>37</integer>
-									<integer>35</integer>
-									<integer>34</integer>
+									<integer>17</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -320,12 +316,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Info.plist</string>
+								<string>AssetManagerDelegate.rb</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -333,11 +331,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Info.plist</string>
+										<string>AssetManagerDelegate.rb</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>25A341E910BBE440004C04E9</string>
+										<string>25E16D3510BC045300CA635E</string>
 										<key>history</key>
 										<array>
 											<string>2508C7A70FBC379800A18478</string>
@@ -347,7 +345,6 @@
 											<string>25E8F8C10FCEAADB003637BB</string>
 											<string>25E8F8D40FCEB1F0003637BB</string>
 											<string>256A1B870FCEF848003A5723</string>
-											<string>25A2406010810FB4007A9B66</string>
 											<string>25A2406110810FB4007A9B66</string>
 											<string>25A2406210810FB4007A9B66</string>
 											<string>25A2406D1081107D007A9B66</string>
@@ -362,7 +359,9 @@
 											<string>25F98B8610BAB4AD00C1464A</string>
 											<string>25E8D50910BAE3AA00B85848</string>
 											<string>25A341C310BBD534004C04E9</string>
-											<string>25FEEC2410B6AF240021DF21</string>
+											<string>25E16D1F10BBFF7800CA635E</string>
+											<string>25E16D2010BBFF7800CA635E</string>
+											<string>25E16D2110BBFF7800CA635E</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -389,7 +388,8 @@
 											<string>25FB468F10B5B59A00ABF5A8</string>
 											<string>25574F6D10B6B255005F79B6</string>
 											<string>25F98B8D10BAB4AD00C1464A</string>
-											<string>25A341C410BBD534004C04E9</string>
+											<string>25E16D2210BBFF7800CA635E</string>
+											<string>25E16D2310BBFF7800CA635E</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -447,9 +447,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>25A341BD10BBD3BD004C04E9</string>
+				<string>25E16CB910BBEAB800CA635E</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>25A341BE10BBD3BD004C04E9</string>
+				<string>25E16CBA10BBEAB800CA635E</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -583,7 +583,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>25E16D2510BBFF7800CA635E</string>
+		<string>25E16D2610BBFF7800CA635E</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>25B911DA0FB9A5C2006001FB</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/rubiojr/Work/github/canasto/Canasto.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -625,8 +629,6 @@
 							<string>218pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -666,7 +668,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>25B911DA0FB9A5C2006001FB</string>
-				<string>25A341C610BBD534004C04E9</string>
+				<string>25E16D1410BBFF6100CA635E</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -786,13 +788,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>25E8D4D210BABD6700B85848</string>
+				<string>25E16D1510BBFF6100CA635E</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>25E8D4D310BABD6700B85848</string>
-				<string>25E8D4D410BABD6700B85848</string>
-				<string>25E8D4D510BABD6700B85848</string>
-				<string>25E8D4D610BABD6700B85848</string>
-				<string>25E8D4D710BABD6700B85848</string>
+				<string>25E16D1610BBFF6100CA635E</string>
+				<string>25E16D1710BBFF6100CA635E</string>
+				<string>25E16D1810BBFF6100CA635E</string>
+				<string>25E16D1910BBFF6100CA635E</string>
+				<string>25E16D1A10BBFF6100CA635E</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -956,7 +958,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>25E8D4D810BABD6700B85848</string>
+				<string>25E16D1B10BBFF6100CA635E</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>

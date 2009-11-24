@@ -39,6 +39,7 @@
 		25B911CF0FB9A57B006001FB /* little_drop.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 25B911CE0FB9A57B006001FB /* little_drop.tiff */; };
 		25C35A720FCC2B6D00B11405 /* CreateDropOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */; };
 		25E045230FC88B5C00966160 /* FileUploadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E045220FC88B5C00966160 /* FileUploadOperation.m */; };
+		25E16CF310BBF0F400CA635E /* vendor in Resources */ = {isa = PBXBuildFile; fileRef = 25E16CCF10BBF0F400CA635E /* vendor */; };
 		25E8F84D0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 25E8F84C0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict */; };
 		25E8F8A60FCEA350003637BB /* GrowlDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25E8F8A50FCEA350003637BB /* GrowlDelegate.rb */; };
 		25E8F8B70FCEAACC003637BB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E8F8B60FCEAACC003637BB /* Sparkle.framework */; };
@@ -108,6 +109,7 @@
 		25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateDropOperation.m; sourceTree = "<group>"; };
 		25E045210FC88B5C00966160 /* FileUploadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUploadOperation.h; sourceTree = "<group>"; };
 		25E045220FC88B5C00966160 /* FileUploadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUploadOperation.m; sourceTree = "<group>"; };
+		25E16CCF10BBF0F400CA635E /* vendor */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vendor; sourceTree = "<group>"; };
 		25E8F84C0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		25E8F8A50FCEA350003637BB /* GrowlDelegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GrowlDelegate.rb; sourceTree = "<group>"; };
 		25E8F8B60FCEAACC003637BB /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				25E16CCF10BBF0F400CA635E /* vendor */,
 				257CFEAB0FCAAB3400936F68 /* dropkit */,
 				4DE339F60D74FCDD00ADB6EE /* rb_main.rb */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
@@ -325,6 +328,7 @@
 				25FB467810B5B24F00ABF5A8 /* asset_info_toolbar_64.png in Resources */,
 				25FB467910B5B24F00ABF5A8 /* drop_info_toolbar_64.png in Resources */,
 				25FB468410B5B52900ABF5A8 /* canasto.icns in Resources */,
+				25E16CF310BBF0F400CA635E /* vendor in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
