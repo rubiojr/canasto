@@ -29,18 +29,18 @@ begin
     Dir.mkdir APPLICATION_SUPPORT_DIR
   end
 
-  CanastoLog = Logger.new (LOG_FILE)
 
   # Loading all the Ruby project files.
   dir_path = NSBundle.mainBundle.resourcePath.fileSystemRepresentation
   Dir.entries(dir_path).each do |path|
     if path != File.basename(__FILE__) and path[-3..-1] == '.rb'
-      CanastoLog.debug "loading ruby file at #{path}"
       require(path)
     end
   end
+
+  CanastoLog = Logger.new(LOG_FILE)
   CanastoLog.debug "going main loop"
   NSApplicationMain(0, nil)
 rescue Exception => e
-  puts "CANASTO DEBUG: #{e.message}"
+  puts "FATAL: #{e.message}"
 end

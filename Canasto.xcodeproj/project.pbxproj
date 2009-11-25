@@ -26,7 +26,6 @@
 		25225A060FC5680C00338235 /* DropAsset.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25225A050FC5680C00338235 /* DropAsset.rb */; };
 		2546AF7F10BC2C1600D1CBCE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2546AF7E10BC2C1600D1CBCE /* WebKit.framework */; };
 		255A7A5A10458B0200DF0563 /* AssetManagerCustomView.rb in Resources */ = {isa = PBXBuildFile; fileRef = 255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */; };
-		2579246C10BC079A00AFF134 /* dropio.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2579246B10BC079A00AFF134 /* dropio.rb */; };
 		2579247410BC0E8A00AFF134 /* growl.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2579247310BC0E8A00AFF134 /* growl.rb */; };
 		257CFDE30FCA940500936F68 /* AssetDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFDE20FCA940500936F68 /* AssetDownloadOperation.m */; };
 		257CFEB40FCAAB3400936F68 /* DropIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEAD0FCAAB3400936F68 /* DropIO.m */; };
@@ -39,6 +38,8 @@
 		25B911CA0FB9A567006001FB /* ApplicationController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25B911C60FB9A567006001FB /* ApplicationController.rb */; };
 		25B911CF0FB9A57B006001FB /* little_drop.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 25B911CE0FB9A57B006001FB /* little_drop.tiff */; };
 		25C35A720FCC2B6D00B11405 /* CreateDropOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */; };
+		25D3521110BD80D300FBB144 /* canasto.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25D3521010BD80D300FBB144 /* canasto.rb */; };
+		25D3525710BDA95800FBB144 /* CurrentDropController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25D3525610BDA95800FBB144 /* CurrentDropController.rb */; };
 		25E045230FC88B5C00966160 /* FileUploadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E045220FC88B5C00966160 /* FileUploadOperation.m */; };
 		25E16CF310BBF0F400CA635E /* vendor in Resources */ = {isa = PBXBuildFile; fileRef = 25E16CCF10BBF0F400CA635E /* vendor */; };
 		25E8F84D0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 25E8F84C0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict */; };
@@ -88,7 +89,6 @@
 		25225A050FC5680C00338235 /* DropAsset.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropAsset.rb; sourceTree = "<group>"; };
 		2546AF7E10BC2C1600D1CBCE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AssetManagerCustomView.rb; sourceTree = "<group>"; };
-		2579246B10BC079A00AFF134 /* dropio.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dropio.rb; sourceTree = "<group>"; };
 		2579247310BC0E8A00AFF134 /* growl.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = growl.rb; sourceTree = "<group>"; };
 		257CFDE10FCA940500936F68 /* AssetDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetDownloadOperation.h; sourceTree = "<group>"; };
 		257CFDE20FCA940500936F68 /* AssetDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetDownloadOperation.m; sourceTree = "<group>"; };
@@ -108,6 +108,8 @@
 		25B911CE0FB9A57B006001FB /* little_drop.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = little_drop.tiff; sourceTree = "<group>"; };
 		25C35A700FCC2B6D00B11405 /* CreateDropOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateDropOperation.h; sourceTree = "<group>"; };
 		25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateDropOperation.m; sourceTree = "<group>"; };
+		25D3521010BD80D300FBB144 /* canasto.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = canasto.rb; sourceTree = "<group>"; };
+		25D3525610BDA95800FBB144 /* CurrentDropController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = CurrentDropController.rb; sourceTree = "<group>"; };
 		25E045210FC88B5C00966160 /* FileUploadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUploadOperation.h; sourceTree = "<group>"; };
 		25E045220FC88B5C00966160 /* FileUploadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUploadOperation.m; sourceTree = "<group>"; };
 		25E16CCF10BBF0F400CA635E /* vendor */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vendor; sourceTree = "<group>"; };
@@ -146,8 +148,9 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				25D3525610BDA95800FBB144 /* CurrentDropController.rb */,
+				25D3521010BD80D300FBB144 /* canasto.rb */,
 				2579247310BC0E8A00AFF134 /* growl.rb */,
-				2579246B10BC079A00AFF134 /* dropio.rb */,
 				25A2405410810CD6007A9B66 /* DeleteAssetOperation.h */,
 				25A2405510810CD6007A9B66 /* DeleteAssetOperation.m */,
 				255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */,
@@ -329,8 +332,9 @@
 				25FB467910B5B24F00ABF5A8 /* drop_info_toolbar_64.png in Resources */,
 				25FB468410B5B52900ABF5A8 /* canasto.icns in Resources */,
 				25E16CF310BBF0F400CA635E /* vendor in Resources */,
-				2579246C10BC079A00AFF134 /* dropio.rb in Resources */,
 				2579247410BC0E8A00AFF134 /* growl.rb in Resources */,
+				25D3521110BD80D300FBB144 /* canasto.rb in Resources */,
+				25D3525710BDA95800FBB144 /* CurrentDropController.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

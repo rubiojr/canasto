@@ -34,13 +34,14 @@ class ApplicationController
   end
 
   def awakeFromNib
-
+    @currentDropController = CurrentDropController.new
     NSUserDefaultsController.sharedUserDefaultsController.setAppliesImmediately true
     @userDefaults = NSUserDefaults.standardUserDefaults
     @userDefaults.registerDefaults( { 
         'ApiKey' => '6e78ca6387783007ac739d89d57b8caa4947e56e',
         'NCXLastDropSelected' => ''
     })
+    @userDefaults.synchronize
     CanastoLog.debug "Default preferences registered"
     @nc = NSNotificationCenter.defaultCenter
     @nc.addObserver self, :selector => 'fileUploaderStarted:', :name => 'FileUploaderStarted', :object => nil
@@ -68,6 +69,18 @@ class ApplicationController
     @selectedDropMenuItem = nil
   end
 
+  def dropConfigs
+    @userDefaults.dictionaryForKey('NCXDropConfigs') || {}
+  end
+
+  def apiKey
+    @userDefaults.objectForKey('ApiKey')
+  end
+
+  def lastDropSelected
+    @userDefaults.objectForKey('NCXLastDropSelected')
+  end
+
   def applicationDidFinishLaunching(notification)
     Growl::Notifier.sharedInstance.register 'Canasto', 
       ['ChangeDropSelected',
@@ -75,15 +88,36 @@ class ApplicationController
        'DropDestroyed',
        'DropCrated',
        'AssetUploaded',
+       'InvalidApiKey',
        'AssetDeleted'
       ]
-    dc = @userDefaults.dictionaryForKey('NCXDropConfigs')
-    apiKey = @userDefaults.objectForKey('ApiKey')
-    DropIO.APIKey = apiKey
-    Canasto::DropIO::Config.api_key = apiKey
+    if apiKey.nil? or apiKey.empty?
+      NSApp.beginSheet @preferences, :modalForWindow => @assetsWindow, :modalDelegate => nil, :didEndSelector => nil, :contextInfo => nil
+    else
+      DropIO.APIKey = apiKey
+      Canasto::Config.api_key = apiKey
+      if Canasto.api_key_valid?
+        CanastoLog.debug "API KEY VALID"
+        loadDropConfigs
+        if not dropConfigs.empty?
+          changeDropSelected(currentDrop)
+        end
+      else
+        CanastoLog.error "Invalid API Key #{apiKey}"
+        Growl.growl 'InvalidApiKey', "Canasto", "Invalid API Key!!!"
+      end
+    end
+  end
+
+  def loadDropConfigs
+    if dropConfigs.empty?
+      CanastoLog.debug "No drop configs found, skipping load"
+      return
+    end
+    dc = dropConfigs
     if dc
-      lds = @userDefaults.objectForKey('NCXLastDropSelected') || dc.keys.first
-      dc.each do |k,v| 
+      lds = lastDropSelected || dc.keys.first
+      dc.each do |k,v|
         config = DropConfig.new
         config.dropName = k
         config.adminToken = v
@@ -95,42 +129,53 @@ class ApplicationController
           @drops.setSelectionIndex index
           @pasteMenuItem.enabled = true
           @pasteMenuItem.title = "Paste to #{lds}"
-          dropConfig = DropConfig.new
-          dropConfig.dropName = k
-          dropConfig.adminToken = v
-          n = NSNotification.notificationWithName 'DropIORefreshAssets', :object => dropConfig
-          @nQueue.enqueueNotification n, :postingStyle => NSPostWhenIdle
         end
         index += 1
       end
     end
-    if @userDefaults.objectForKey('ApiKey').empty?
-      NSApp.beginSheet @preferences, :modalForWindow => @assetsWindow, :modalDelegate => nil, :didEndSelector => nil, :contextInfo => nil
-    end
-    loadChat
+
   end
 
   def loadChat
+    NSRunLoop.currentRunLoop.performSelector 'chatInLoop:', :target => self, :argument => nil, :order => 0, :modes => [NSDefaultRunLoopMode]
+    #CanastoLog.debug "Loading drop chat from #{currentDrop}"
+    #url = NSURL.URLWithString "http://drop.io/#{currentDrop}/remote_chat_bar.js"
+    #@chatWebView.mainFrame.loadHTMLString "not implemented :(", :baseURL => url
+    #CanastoLog.debug "Chat loaded for #{currentDrop}"
+    #Thread.start do |t|
+    #  begin
+    #    html = ''
+    #    dc = selectedDropConfig
+    #    token = dc.adminToken
+    #    drop = Canasto::Drop.load dc.dropName, dc.adminToken
+    #    chat_password = drop.chat_password
+    #    url = NSURL.URLWithString "http://drop.io/#{currentDrop}/remote_chat_bar.js?chat_password=#{chat_password}"
+    #    html = '<html><head></head><script type="text/javascript" charset="utf-8" src="http://drop.io/' + currentDrop + '/remote_chat_bar.js?chat_password=' + chat_password + '"></script><body style="background:lightgray"><div style="color: #292929; text-align:center;font-weight:bold;font-size:72px;text-shadow: 0px 1px 1px #fff">drop.io</div><div style="font-weight: bold;font-size: 24px;text-align:center;text-shadow: 0px 1px 1px #fff;color:#292929">chat</div></body></html>'
+    #    @chatWebView.mainFrame.loadHTMLString html, :baseURL => url
+    #    CanastoLog.debug "Chat loaded for #{currentDrop}"
+    #  rescue Exception => e
+    #    CanastoLog.error "Exception loading chat:\n#{e.message}"
+    #  end
+    #end
+  end
+
+  def chatInLoop(id)
+    CanastoLog.debug "Loading drop chat from #{currentDrop}"
     html = ''
-    Thread.start do |t|
-      begin
-        dc = @drops.selectedObjects.first
-        token = dc.adminToken
-        drop = Canasto::DropIO::Drop.load currentDrop, token
-        chat_password = drop.chat_password
-        url = NSURL.URLWithString "http://drop.io/#{currentDrop}/remote_chat_bar.js?chat_password=#{chat_password}"
-        html = '<html><head></head><script type="text/javascript" charset="utf-8" src="http://drop.io/' + currentDrop + '/remote_chat_bar.js?chat_password=' + chat_password + '"></script><body style="background:lightgray"><div style="color: #292929; text-align:center;font-weight:bold;font-size:72px;text-shadow: 0px 1px 1px #fff">drop.io</div><div style="font-weight: bold;font-size: 24px;text-align:center;text-shadow: 0px 1px 1px #fff;color:#292929">chat</div></body></html>'
-        @chatWebView.mainFrame.loadHTMLString html, :baseURL => url
-      rescue Exception => e
-        CanastoLog.error "Exception loading chat:\n#{e.message}"
-      end
-    end
+    dc = selectedDropConfig
+    token = dc.adminToken
+    drop = Canasto::Drop.load dc.dropName, dc.adminToken
+    chat_password = drop.chat_password
+    url = NSURL.URLWithString "http://drop.io/#{currentDrop}/remote_chat_bar.js"
+    html = '<html><head></head><script type="text/javascript" charset="utf-8" src="http://drop.io/' + currentDrop + '/remote_chat_bar.js?chat_password=' + chat_password + '"></script><body style="background:lightgray"><div style="color: #292929; text-align:center;font-weight:bold;font-size:72px;text-shadow: 0px 1px 1px #fff">drop.io</div><div style="font-weight: bold;font-size: 24px;text-align:center;text-shadow: 0px 1px 1px #fff;color:#292929">chat</div></body></html>'
+    @chatWebView.mainFrame.loadHTMLString html, :baseURL => url
+    CanastoLog.debug "Chat loaded for #{currentDrop}"
   end
 
   def preferencesClosed(sender)
     @userDefaults.synchronize
-    DropIO.APIKey = @userDefaults.objectForKey('ApiKey')
-    Canasto::DropIO::Config.api_key = @userDefaults.objectForKey('ApiKey')
+    DropIO.APIKey = apiKey
+    Canasto::Config.api_key = apiKey
     NSApp.endSheet @preferences
     @preferences.orderOut sender
   end
@@ -139,7 +184,7 @@ class ApplicationController
     alert = NSAlert.new
     alert.addButtonWithTitle "Cancel"
     alert.addButtonWithTitle "OK"
-    alert.setMessageText "Do you want to destroy the drop #{@drops.selectedObjects.first.dropName}?"
+    alert.setMessageText "Do you want to destroy the drop #{selectedDropConfig.dropName}?"
     alert.setInformativeText "WARNING: Destroyed drops cannot be restored"
     alert.setAlertStyle NSWarningAlertStyle
     alert.beginSheetModalForWindow @dropManagerWindow, :modalDelegate => self, :didEndSelector => 'deleteDropConfigAlertDidEnd:returnCode:contextInfo:', :contextInfo => nil
@@ -154,7 +199,7 @@ class ApplicationController
   end
 
   def deleteDropConfig
-    dc = @drops.selectedObjects.first
+    dc = selectedDropConfig
     CanastoLog.debug "Removing config for drop #{dc.dropName}"
     @drops.removeObject dc
     configs = {}.merge(@userDefaults.dictionaryForKey('NCXDropConfigs') || {})
@@ -164,19 +209,19 @@ class ApplicationController
     if @drops.content and @drops.content.size == 0
       @assets.removeObjects @assets.content
     elsif @drops.content and @drops.content.size > 0
-      changeDropSelected @drops.selectedObjects.first.dropName
+      changeDropSelected selectedDropConfig.dropName
     end
   end
 
   def deleteRemoteDrop
-    dc = @drops.selectedObjects.first
+    dc = selectedDropConfig
     error = nil
     drop = DropIO.findDropNamed dc.dropName, :withToken => dc.adminToken, :error => error
     if not drop.nil?
       drop.delete
       if DropIO.lastError == nil
         CanastoLog.debug "Deleted drop #{dc.dropName} from drop.io"
-        Growl.growl 'DropDestroyed', "Drop #{dc.dropName} destroyed!"
+        Growl.growl 'DropDestroyed', "Canasto", "Drop #{dc.dropName} destroyed!"
       else
         CanastoLog.debug "Error deleting drop #{dc.dropName}"
         warningAlert "Error deleting drop", "Something went wrong destroying #{dc.dropName}"
@@ -200,7 +245,7 @@ class ApplicationController
   end
   
   def deleteAssetFromDropAlertDidEnd(alert, returnCode:returnCode, contextInfo:contextInfo) 
-    dc = @drops.selectedObjects.first
+    dc = selectedDropConfig
     obj = @assets.selectedObjects.first
     if returnCode == NSAlertSecondButtonReturn
       CanastoLog.debug "User wants to delete the asset, let's go"
@@ -231,7 +276,7 @@ class ApplicationController
       dropName = nil
       adminToken = nil
       dc.each do |k,v|
-        if k == @drops.selectedObjects.first.dropName
+        if k == selectedDropConfig.dropName
           dropName = k
           adminToken = v
         end
@@ -279,12 +324,15 @@ class ApplicationController
   end
 
   def changeDropSelected(dropName)
-    last_drop_selected = @userDefaults.objectForKey('NCXLastDropSelected')
-    CanastoLog.debug "Changing drop selected from #{last_drop_selected} to #{dropName}"
+    CanastoLog.debug "Changing drop selected from #{lastDropSelected} to #{dropName}"
+    @currentDropController.currentDrop = dropName
     @progressIndicator.startAnimation self
     index = 0
     @drops.arrangedObjects.each do |config|
-      @drops.setSelectionIndex index if config.dropName == dropName
+      if config.dropName == dropName
+        @drops.setSelectionIndex index 
+        CanastoLog.debug "Selected index set for Drops array controller"
+      end
       index += 1
     end
     @userDefaults.setObject dropName, :forKey => 'NCXLastDropSelected'
@@ -292,8 +340,15 @@ class ApplicationController
     @pasteMenuItem.title = "Paste to #{dropName}"
     dropConfig = nil
     @drops.arrangedObjects.each do |dc|
-      dropConfig = dc if dc.dropName == dropName
+      if dc.dropName == dropName
+        CanastoLog.debug "Drop config found for drop #{dropName}"
+        dropConfig = dc 
+      end
     end
+    if dropConfig.nil?
+        CanastoLog.error "FATAL Drop config NOT FOUND for drop #{dropName}"
+    end
+    CanastoLog.debug "Sending DropIORefreshAssets notification"
     Growl.growl 'ChangeDropSelected', 'Canasto', "Changed current drop to #{dropName}"
     n = NSNotification.notificationWithName 'DropIORefreshAssets', :object => dropConfig
     @nQueue.enqueueNotification n, :postingStyle => NSPostNow
@@ -309,7 +364,7 @@ class ApplicationController
     @userDefaults.setObject dc, :forKey => 'NCXDropConfigs'
     @userDefaults.synchronize
     if @drops.content.size > 0
-      changeDropSelected @drops.selectedObjects.first.dropName
+      changeDropSelected selectedDropConfig.dropName
     end
     @dropManagerWindow.performClose self
   end
@@ -323,7 +378,7 @@ class ApplicationController
       mi.title = dc.dropName
       mi.action = 'dropSelected:'
       mi.setTarget self
-      if dc.dropName == @drops.selectedObjects.first.dropName
+      if dc.dropName == selectedDropConfig.dropName
         mi.state = NSOnState
       else
         mi.state = NSOffState
@@ -333,9 +388,12 @@ class ApplicationController
   end
 
   def assetManagerPopupButtonClicked(sender)
-    changeDropSelected(@drops.selectedObjects.first.dropName)
+    changeDropSelected(selectedDropConfig.dropName)
   end
 
+  def selectedDropConfig
+    @drops.selectedObjects.first
+  end
 
   def assetDownloaderStarted(notification)
   end
@@ -376,7 +434,7 @@ class ApplicationController
   def windowShouldClose(window)
     if window.title == 'Preferences'
       DropIO.APIKey = @userDefaults.objectForKey('ApiKey')
-      Canasto::DropIO::Config.api_key = @userDefaults.objectForKey('ApiKey')
+      Canasto::Config.api_key = @userDefaults.objectForKey('ApiKey')
       CanastoLog.debug "Api Key: #{DropIO.APIKey || ''}" 
       @userDefaults.setObject @apiKeyTextField.stringValue, :forKey => 'ApiKey'
       @userDefaults.synchronize
@@ -390,8 +448,7 @@ class ApplicationController
 
   def refreshAssets(notification)
     @progressIndicator.startAnimation self
-    drop = @drops.selectedObjects.first
-    CanastoLog.debug "refreshing #{drop.dropName} assets"
+    drop = selectedDropConfig
     @assets.removeObjects @assets.content
     op = AssetDownloadOperation.new
     op.dropName = drop.dropName
@@ -422,7 +479,7 @@ class ApplicationController
   
   def openWebView(sender)
     return if @drops.content.size == 0
-    dropName = @drops.selectedObjects.first.dropName
+    dropName = selectedDropConfig.dropName
     url = NSURL.URLWithString "http://drop.io/#{dropName}"
     NSWorkspace.sharedWorkspace.openURL url
   end
@@ -447,7 +504,7 @@ class ApplicationController
   # NSOperation Handlers
   #
   def fileUploaderFinished(notification)
-    drop = @drops.selectedObjects.first
+    drop = selectedDropConfig
     CanastoLog.debug "FileUploadOperation finished. drop: #{drop.dropName}"
     @progressIndicator.stopAnimation self
     CanastoLog.debug "Clearing assets to display assets from drop #{drop.dropName}"
@@ -499,12 +556,16 @@ class ApplicationController
       CanastoLog.debug "Drop Created: #{drop.name}"
       dc = {}.merge(@userDefaults.dictionaryForKey('NCXDropConfigs') || {})
       dc[drop.name] = drop.adminToken
+      CanastoLog.debug 'Adding drop config to NCXDropConfigs'
       @userDefaults.setObject dc, :forKey => 'NCXDropConfigs'
       @userDefaults.synchronize
-      config = DropConfig.alloc.init
+      CanastoLog.debug 'Drop config added to NCXDropConfigs'
+      CanastoLog.debug 'Adding drop to Drops Array Controller'
+      config = DropConfig.new
       config.dropName = drop.name
       config.adminToken = drop.adminToken
       @drops.addObject config
+      CanastoLog.debug 'Drop added to Drops Array Controller'
       changeDropSelected drop.name
       Growl.growl "DropCreated", "Canasto", "Drop #{drop.name} created"
     end
