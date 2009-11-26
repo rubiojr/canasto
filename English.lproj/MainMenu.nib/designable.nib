@@ -8,9 +8,8 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="391"/>
+			<integer value="752"/>
 			<integer value="803"/>
-			<integer value="708"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -463,6 +462,7 @@
 							<string>570B6390-A13F-44E2-853F-ABB195E88867</string>
 							<string>57919C8E-59A4-4E32-814A-70F95BB0EEC3</string>
 							<string>5C0A5BE6-DD4A-4E9A-93B9-0E35460DAF31</string>
+							<string>73FED9EC-5A8E-480C-97CC-51553625E92F</string>
 							<string>AF24D39E-946E-4CF0-93A0-9741DCD62DF6</string>
 							<string>E151AB3F-671E-4CF7-AC15-D0801887BA01</string>
 							<string>EB358BA7-DE01-4A20-985E-6FA945438FCC</string>
@@ -572,6 +572,28 @@
 								<object class="NSCustomResource" key="NSToolbarItemImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">NSFolderSmart</string>
+								</object>
+								<nil key="NSToolbarItemTarget"/>
+								<nil key="NSToolbarItemAction"/>
+								<string key="NSToolbarItemMinSize">{0, 0}</string>
+								<string key="NSToolbarItemMaxSize">{0, 0}</string>
+								<bool key="NSToolbarItemEnabled">YES</bool>
+								<bool key="NSToolbarItemAutovalidates">YES</bool>
+								<int key="NSToolbarItemTag">-1</int>
+								<bool key="NSToolbarIsUserRemovable">YES</bool>
+								<int key="NSToolbarItemVisibilityPriority">0</int>
+							</object>
+							<object class="NSToolbarItem" id="1052817092">
+								<object class="NSMutableString" key="NSToolbarItemIdentifier">
+									<characters key="NS.bytes">73FED9EC-5A8E-480C-97CC-51553625E92F</characters>
+								</object>
+								<string key="NSToolbarItemLabel">Go Premium</string>
+								<string key="NSToolbarItemPaletteLabel">Go Premium</string>
+								<string key="NSToolbarItemToolTip"/>
+								<nil key="NSToolbarItemView"/>
+								<object class="NSCustomResource" key="NSToolbarItemImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">iconUpgrade</string>
 								</object>
 								<nil key="NSToolbarItemTarget"/>
 								<nil key="NSToolbarItemAction"/>
@@ -936,6 +958,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 						<reference ref="1042482839"/>
 						<reference ref="128474605"/>
 						<reference ref="784397313"/>
+						<reference ref="1052817092"/>
 					</object>
 					<object class="NSMutableArray" key="NSToolbarIBDefaultItems">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -945,6 +968,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 						<reference ref="784397313"/>
 						<reference ref="534598281"/>
 						<reference ref="834140155"/>
+						<reference ref="1052817092"/>
 						<reference ref="348895847"/>
 						<reference ref="363757240"/>
 					</object>
@@ -2663,6 +2687,9 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 				<nil key="NSParentWindow"/>
 				<nil key="NSDelegate"/>
 			</object>
+			<object class="NSCustomObject" id="1006372275">
+				<string key="NSClassName">CurrentDropController</string>
+			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
@@ -2810,14 +2837,6 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 						</object>
 					</object>
 					<int key="connectionID">763</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">progressIndicator</string>
-						<reference key="source" ref="324382498"/>
-						<reference key="destination" ref="643539194"/>
-					</object>
-					<int key="connectionID">795</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -3724,6 +3743,22 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 					</object>
 					<int key="connectionID">1426</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">goPremium:</string>
+						<reference key="source" ref="324382498"/>
+						<reference key="destination" ref="1052817092"/>
+					</object>
+					<int key="connectionID">1428</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">progressIndicator</string>
+						<reference key="source" ref="324382498"/>
+						<reference key="destination" ref="643539194"/>
+					</object>
+					<int key="connectionID">1431</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -3893,6 +3928,7 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 							<reference ref="1042482839"/>
 							<reference ref="128474605"/>
 							<reference ref="784397313"/>
+							<reference ref="1052817092"/>
 						</object>
 						<reference key="parent" ref="586617986"/>
 					</object>
@@ -5181,6 +5217,17 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 						<reference key="parent" ref="878542169"/>
 						<string key="objectName">Chat Web View</string>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1427</int>
+						<reference key="object" ref="1052817092"/>
+						<reference key="parent" ref="951959883"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1429</int>
+						<reference key="object" ref="1006372275"/>
+						<reference key="parent" ref="1049"/>
+						<string key="objectName">CurrentDropController</string>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -5327,6 +5374,8 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<string>1421.IBPluginDependency</string>
 					<string>1424.IBPluginDependency</string>
 					<string>1425.IBPluginDependency</string>
+					<string>1427.IBPluginDependency</string>
+					<string>1429.IBPluginDependency</string>
 					<string>379.IBPluginDependency</string>
 					<string>390.IBEditorWindowLastContentRect</string>
 					<string>390.IBPluginDependency</string>
@@ -5581,6 +5630,8 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.WebKitIBPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{497, 530}, {204, 183}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -5611,8 +5662,8 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{32, 1030}, {692, 290}}</string>
-					<string>{{32, 1030}, {692, 290}}</string>
+					<string>{{131, 807}, {692, 290}}</string>
+					<string>{{131, 807}, {692, 290}}</string>
 					<reference ref="5"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -5712,7 +5763,7 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1426</int>
+			<int key="maxID">1431</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5729,6 +5780,7 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 							<string>deleteAssetFromDropAlert:</string>
 							<string>deleteDropConfigAlert:</string>
 							<string>dropSelected:</string>
+							<string>goPremium:</string>
 							<string>openWebView:</string>
 							<string>pasteToDrop:</string>
 							<string>preferencesClosed:</string>
@@ -5737,6 +5789,7 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -5832,6 +5885,14 @@ aHR0cDovL2FwaS5kcm9wLmlvA</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">AssetManagerDelegate.rb</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">CurrentDropController</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">CurrentDropController.rb</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

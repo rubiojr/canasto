@@ -9,7 +9,7 @@ class AssetManagerCustomView < NSView
   end
 
   def draggingEntered sender 
-    NSLog("draggingEntered:")
+    CanastoLog.debug "draggingEntered:"
     if sender.draggingSource == self
         return NSDragOperationNone
     end
@@ -17,7 +17,7 @@ class AssetManagerCustomView < NSView
   end
 
   def draggingExited sender
-    NSLog("draggingExited:")
+    CanastoLog.debug "draggingExited:"
   end
 
   def prepareForDragOperation sender
@@ -25,7 +25,7 @@ class AssetManagerCustomView < NSView
   end
 
   def performDragOperation sender 
-    NSLog 'performDragOp'
+    CanastoLog.debug 'performDragOp'
     pb = sender.draggingPasteboard
     files = pb.stringForType NSFilenamesPboardType
     if files
@@ -60,7 +60,7 @@ class AssetManagerCustomView < NSView
   end
  
   def concludeDragOperation sender 
-   NSLog("concludeDragOperation:")
+   CanastoLog.debug "concludeDragOperation:"
   end
 
 end

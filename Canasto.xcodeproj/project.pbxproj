@@ -24,23 +24,25 @@
 /* Begin PBXBuildFile section */
 		2508C73C0FBC29A000A18478 /* DropConfig.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2508C73B0FBC29A000A18478 /* DropConfig.rb */; };
 		25225A060FC5680C00338235 /* DropAsset.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25225A050FC5680C00338235 /* DropAsset.rb */; };
+		2523C35610BE7D2F002839B7 /* asset_info_toolbar_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 2523C35110BE7D2F002839B7 /* asset_info_toolbar_64.png */; };
+		2523C35710BE7D2F002839B7 /* canasto.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2523C35210BE7D2F002839B7 /* canasto.icns */; };
+		2523C35810BE7D2F002839B7 /* drop_info_toolbar_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 2523C35310BE7D2F002839B7 /* drop_info_toolbar_64.png */; };
+		2523C35910BE7D2F002839B7 /* iconUpgrade.png in Resources */ = {isa = PBXBuildFile; fileRef = 2523C35410BE7D2F002839B7 /* iconUpgrade.png */; };
+		2523C35A10BE7D2F002839B7 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 2523C35510BE7D2F002839B7 /* README */; };
 		2546AF7F10BC2C1600D1CBCE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2546AF7E10BC2C1600D1CBCE /* WebKit.framework */; };
 		255A7A5A10458B0200DF0563 /* AssetManagerCustomView.rb in Resources */ = {isa = PBXBuildFile; fileRef = 255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */; };
 		2579247410BC0E8A00AFF134 /* growl.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2579247310BC0E8A00AFF134 /* growl.rb */; };
-		257CFDE30FCA940500936F68 /* AssetDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFDE20FCA940500936F68 /* AssetDownloadOperation.m */; };
 		257CFEB40FCAAB3400936F68 /* DropIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEAD0FCAAB3400936F68 /* DropIO.m */; };
 		257CFEB50FCAAB3400936F68 /* DropIOAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEAF0FCAAB3400936F68 /* DropIOAsset.m */; };
 		257CFEB60FCAAB3400936F68 /* DropIODrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEB10FCAAB3400936F68 /* DropIODrop.m */; };
 		257CFEB70FCAAB3400936F68 /* XMLToObjectParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CFEB30FCAAB3400936F68 /* XMLToObjectParser.m */; };
 		257CFF710FCAF4E600936F68 /* NewDropWindowController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 257CFF700FCAF4E600936F68 /* NewDropWindowController.rb */; };
 		259D80B40FC5AD310025D8FD /* AssetManagerDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 259D80B30FC5AD310025D8FD /* AssetManagerDelegate.rb */; };
-		25A2405610810CD6007A9B66 /* DeleteAssetOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A2405510810CD6007A9B66 /* DeleteAssetOperation.m */; };
 		25B911CA0FB9A567006001FB /* ApplicationController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25B911C60FB9A567006001FB /* ApplicationController.rb */; };
 		25B911CF0FB9A57B006001FB /* little_drop.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 25B911CE0FB9A57B006001FB /* little_drop.tiff */; };
 		25C35A720FCC2B6D00B11405 /* CreateDropOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */; };
 		25D3521110BD80D300FBB144 /* canasto.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25D3521010BD80D300FBB144 /* canasto.rb */; };
-		25D3525710BDA95800FBB144 /* CurrentDropController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25D3525610BDA95800FBB144 /* CurrentDropController.rb */; };
-		25E045230FC88B5C00966160 /* FileUploadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E045220FC88B5C00966160 /* FileUploadOperation.m */; };
+		25D3525710BDA95800FBB144 /* DropController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 25D3525610BDA95800FBB144 /* DropController.rb */; };
 		25E16CF310BBF0F400CA635E /* vendor in Resources */ = {isa = PBXBuildFile; fileRef = 25E16CCF10BBF0F400CA635E /* vendor */; };
 		25E8F84D0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 25E8F84C0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict */; };
 		25E8F8B70FCEAACC003637BB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E8F8B60FCEAACC003637BB /* Sparkle.framework */; };
@@ -48,9 +50,6 @@
 		25E8F8C60FCEACC8003637BB /* update.xml in Resources */ = {isa = PBXBuildFile; fileRef = 25E8F8C50FCEACC8003637BB /* update.xml */; };
 		25EAA659108484A000A15967 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 25EAA658108484A000A15967 /* dsa_pub.pem */; };
 		25F03C0110AC379C0006716F /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F03C0010AC379C0006716F /* MacRuby.framework */; };
-		25FB467810B5B24F00ABF5A8 /* asset_info_toolbar_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FB467610B5B24F00ABF5A8 /* asset_info_toolbar_64.png */; };
-		25FB467910B5B24F00ABF5A8 /* drop_info_toolbar_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FB467710B5B24F00ABF5A8 /* drop_info_toolbar_64.png */; };
-		25FB468410B5B52900ABF5A8 /* canasto.icns in Resources */ = {isa = PBXBuildFile; fileRef = 25FB468310B5B52900ABF5A8 /* canasto.icns */; };
 		4DE339F70D74FCDD00ADB6EE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 4DE339F60D74FCDD00ADB6EE /* rb_main.rb */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -87,11 +86,14 @@
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		2508C73B0FBC29A000A18478 /* DropConfig.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropConfig.rb; sourceTree = "<group>"; };
 		25225A050FC5680C00338235 /* DropAsset.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropAsset.rb; sourceTree = "<group>"; };
+		2523C35110BE7D2F002839B7 /* asset_info_toolbar_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asset_info_toolbar_64.png; sourceTree = "<group>"; };
+		2523C35210BE7D2F002839B7 /* canasto.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = canasto.icns; sourceTree = "<group>"; };
+		2523C35310BE7D2F002839B7 /* drop_info_toolbar_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drop_info_toolbar_64.png; sourceTree = "<group>"; };
+		2523C35410BE7D2F002839B7 /* iconUpgrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconUpgrade.png; sourceTree = "<group>"; };
+		2523C35510BE7D2F002839B7 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		2546AF7E10BC2C1600D1CBCE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AssetManagerCustomView.rb; sourceTree = "<group>"; };
 		2579247310BC0E8A00AFF134 /* growl.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = growl.rb; sourceTree = "<group>"; };
-		257CFDE10FCA940500936F68 /* AssetDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetDownloadOperation.h; sourceTree = "<group>"; };
-		257CFDE20FCA940500936F68 /* AssetDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetDownloadOperation.m; sourceTree = "<group>"; };
 		257CFEAC0FCAAB3400936F68 /* DropIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropIO.h; sourceTree = "<group>"; };
 		257CFEAD0FCAAB3400936F68 /* DropIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropIO.m; sourceTree = "<group>"; };
 		257CFEAE0FCAAB3400936F68 /* DropIOAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropIOAsset.h; sourceTree = "<group>"; };
@@ -102,25 +104,18 @@
 		257CFEB30FCAAB3400936F68 /* XMLToObjectParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLToObjectParser.m; sourceTree = "<group>"; };
 		257CFF700FCAF4E600936F68 /* NewDropWindowController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = NewDropWindowController.rb; sourceTree = "<group>"; };
 		259D80B30FC5AD310025D8FD /* AssetManagerDelegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AssetManagerDelegate.rb; sourceTree = "<group>"; };
-		25A2405410810CD6007A9B66 /* DeleteAssetOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteAssetOperation.h; sourceTree = "<group>"; };
-		25A2405510810CD6007A9B66 /* DeleteAssetOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteAssetOperation.m; sourceTree = "<group>"; };
 		25B911C60FB9A567006001FB /* ApplicationController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ApplicationController.rb; sourceTree = "<group>"; };
 		25B911CE0FB9A57B006001FB /* little_drop.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = little_drop.tiff; sourceTree = "<group>"; };
 		25C35A700FCC2B6D00B11405 /* CreateDropOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateDropOperation.h; sourceTree = "<group>"; };
 		25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateDropOperation.m; sourceTree = "<group>"; };
 		25D3521010BD80D300FBB144 /* canasto.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = canasto.rb; sourceTree = "<group>"; };
-		25D3525610BDA95800FBB144 /* CurrentDropController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = CurrentDropController.rb; sourceTree = "<group>"; };
-		25E045210FC88B5C00966160 /* FileUploadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUploadOperation.h; sourceTree = "<group>"; };
-		25E045220FC88B5C00966160 /* FileUploadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUploadOperation.m; sourceTree = "<group>"; };
+		25D3525610BDA95800FBB144 /* DropController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DropController.rb; sourceTree = "<group>"; };
 		25E16CCF10BBF0F400CA635E /* vendor */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vendor; sourceTree = "<group>"; };
 		25E8F84C0FCE9BD4003637BB /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		25E8F8B60FCEAACC003637BB /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		25E8F8C50FCEACC8003637BB /* update.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = update.xml; sourceTree = "<group>"; };
 		25EAA658108484A000A15967 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		25F03C0010AC379C0006716F /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = /Library/Frameworks/MacRuby.framework; sourceTree = "<absolute>"; };
-		25FB467610B5B24F00ABF5A8 /* asset_info_toolbar_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asset_info_toolbar_64.png; sourceTree = "<group>"; };
-		25FB467710B5B24F00ABF5A8 /* drop_info_toolbar_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drop_info_toolbar_64.png; sourceTree = "<group>"; };
-		25FB468310B5B52900ABF5A8 /* canasto.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = canasto.icns; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -148,21 +143,15 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				25D3525610BDA95800FBB144 /* CurrentDropController.rb */,
+				25D3525610BDA95800FBB144 /* DropController.rb */,
 				25D3521010BD80D300FBB144 /* canasto.rb */,
 				2579247310BC0E8A00AFF134 /* growl.rb */,
-				25A2405410810CD6007A9B66 /* DeleteAssetOperation.h */,
-				25A2405510810CD6007A9B66 /* DeleteAssetOperation.m */,
 				255A7A5910458B0200DF0563 /* AssetManagerCustomView.rb */,
 				257CFF700FCAF4E600936F68 /* NewDropWindowController.rb */,
-				257CFDE10FCA940500936F68 /* AssetDownloadOperation.h */,
-				257CFDE20FCA940500936F68 /* AssetDownloadOperation.m */,
 				259D80B30FC5AD310025D8FD /* AssetManagerDelegate.rb */,
 				25225A050FC5680C00338235 /* DropAsset.rb */,
 				2508C73B0FBC29A000A18478 /* DropConfig.rb */,
 				25B911C60FB9A567006001FB /* ApplicationController.rb */,
-				25E045210FC88B5C00966160 /* FileUploadOperation.h */,
-				25E045220FC88B5C00966160 /* FileUploadOperation.m */,
 				25C35A700FCC2B6D00B11405 /* CreateDropOperation.h */,
 				25C35A710FCC2B6D00B11405 /* CreateDropOperation.m */,
 			);
@@ -198,6 +187,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2523C35010BE7D2F002839B7 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				2523C35110BE7D2F002839B7 /* asset_info_toolbar_64.png */,
+				2523C35210BE7D2F002839B7 /* canasto.icns */,
+				2523C35310BE7D2F002839B7 /* drop_info_toolbar_64.png */,
+				2523C35410BE7D2F002839B7 /* iconUpgrade.png */,
+				2523C35510BE7D2F002839B7 /* README */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
 		257CFEAB0FCAAB3400936F68 /* dropkit */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,16 +212,6 @@
 				257CFEB30FCAAB3400936F68 /* XMLToObjectParser.m */,
 			);
 			path = dropkit;
-			sourceTree = "<group>";
-		};
-		25FB467510B5B24F00ABF5A8 /* icons */ = {
-			isa = PBXGroup;
-			children = (
-				25FB468310B5B52900ABF5A8 /* canasto.icns */,
-				25FB467610B5B24F00ABF5A8 /* asset_info_toolbar_64.png */,
-				25FB467710B5B24F00ABF5A8 /* drop_info_toolbar_64.png */,
-			);
-			path = icons;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* LittleDrop */ = {
@@ -249,7 +240,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				25FB467510B5B24F00ABF5A8 /* icons */,
+				2523C35010BE7D2F002839B7 /* icons */,
 				25EAA658108484A000A15967 /* dsa_pub.pem */,
 				25E8F8C50FCEACC8003637BB /* update.xml */,
 				25B911CE0FB9A57B006001FB /* little_drop.tiff */,
@@ -328,13 +319,15 @@
 				25E8F8C60FCEACC8003637BB /* update.xml in Resources */,
 				255A7A5A10458B0200DF0563 /* AssetManagerCustomView.rb in Resources */,
 				25EAA659108484A000A15967 /* dsa_pub.pem in Resources */,
-				25FB467810B5B24F00ABF5A8 /* asset_info_toolbar_64.png in Resources */,
-				25FB467910B5B24F00ABF5A8 /* drop_info_toolbar_64.png in Resources */,
-				25FB468410B5B52900ABF5A8 /* canasto.icns in Resources */,
 				25E16CF310BBF0F400CA635E /* vendor in Resources */,
 				2579247410BC0E8A00AFF134 /* growl.rb in Resources */,
 				25D3521110BD80D300FBB144 /* canasto.rb in Resources */,
-				25D3525710BDA95800FBB144 /* CurrentDropController.rb in Resources */,
+				25D3525710BDA95800FBB144 /* DropController.rb in Resources */,
+				2523C35610BE7D2F002839B7 /* asset_info_toolbar_64.png in Resources */,
+				2523C35710BE7D2F002839B7 /* canasto.icns in Resources */,
+				2523C35810BE7D2F002839B7 /* drop_info_toolbar_64.png in Resources */,
+				2523C35910BE7D2F002839B7 /* iconUpgrade.png in Resources */,
+				2523C35A10BE7D2F002839B7 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,14 +355,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				25E045230FC88B5C00966160 /* FileUploadOperation.m in Sources */,
-				257CFDE30FCA940500936F68 /* AssetDownloadOperation.m in Sources */,
 				257CFEB40FCAAB3400936F68 /* DropIO.m in Sources */,
 				257CFEB50FCAAB3400936F68 /* DropIOAsset.m in Sources */,
 				257CFEB60FCAAB3400936F68 /* DropIODrop.m in Sources */,
 				257CFEB70FCAAB3400936F68 /* XMLToObjectParser.m in Sources */,
 				25C35A720FCC2B6D00B11405 /* CreateDropOperation.m in Sources */,
-				25A2405610810CD6007A9B66 /* DeleteAssetOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +437,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = Canasto;
+				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 				VALID_ARCHS = i386;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;

@@ -14,7 +14,6 @@ class ApplicationController
   # Drops Array Controller
   attr_writer :drops, :assets
   # Assets Array Controller
-  attr_writer :progressIndicator
   attr_accessor :preferences
   attr_accessor :apiKeyTextField
   attr_accessor :webView
@@ -25,6 +24,7 @@ class ApplicationController
   attr_writer :dropManagerTableView
   attr_writer :searchField
   attr_writer :chatWebView
+  attr_writer :progressIndicator
 
   def init
     super
@@ -34,7 +34,7 @@ class ApplicationController
   end
 
   def awakeFromNib
-    @currentDropController = CurrentDropController.new
+    @dropController = DropController.new
     NSUserDefaultsController.sharedUserDefaultsController.setAppliesImmediately true
     @userDefaults = NSUserDefaults.standardUserDefaults
     @userDefaults.registerDefaults( { 
@@ -51,12 +51,13 @@ class ApplicationController
     @nc.addObserver self, :selector => 'assetDownloaderFinished:', :name => 'AssetDownloaderFinished', :object => nil
     @nc.addObserver self, :selector => 'assetDownloaderStarted:', :name => 'AssetDownloaderStarted', :object => nil
     @nc.addObserver self, :selector => 'assetDownloaderError:', :name => 'AssetDownloaderError', :object => nil
-    @nc.addObserver self, :selector => 'refreshAssets:', :name => 'DropIORefreshAssets', :object => nil
     @nc.addObserver self, :selector => 'sendFiles:', :name => 'SendFiles', :object => nil
     @nc.addObserver self, :selector => 'createDropOperationStarted:', :name => 'CreateDropOperationStarted', :object => nil
     @nc.addObserver self, :selector => 'createDropOperationFinished:', :name => 'CreateDropOperationFinished', :object => nil
     @nc.addObserver self, :selector => 'deleteAssetOperationStarted:', :name => 'DeleteAssetOperationStarted', :object => nil
     @nc.addObserver self, :selector => 'deleteAssetOperationFinished:', :name => 'DeleteAssetOperationFinished', :object => nil
+    @nc.addObserver self, :selector => 'changeDropOperationStarted:', :name => 'ChangeDropOperationStarted', :object => nil
+    @nc.addObserver self, :selector => 'changeDropOperationFinished:', :name => 'ChangeDropOperationFinished', :object => nil
 		@status_bar = NSStatusBar.systemStatusBar
 		@status_item = @status_bar.statusItemWithLength(NSVariableStatusItemLength)
 		@status_item.setHighlightMode(true)
@@ -67,6 +68,11 @@ class ApplicationController
 		
 		@status_item.setImage(@app_icon)
     @selectedDropMenuItem = nil
+    @progressIndicator.setUsesThreadedAnimation true
+  end
+
+  def goPremium(sender)
+
   end
 
   def dropConfigs
@@ -89,6 +95,7 @@ class ApplicationController
        'DropCrated',
        'AssetUploaded',
        'InvalidApiKey',
+       'FilesUploaded',
        'AssetDeleted'
       ]
     if apiKey.nil? or apiKey.empty?
@@ -206,9 +213,8 @@ class ApplicationController
     configs.delete dc.dropName
     @userDefaults.setObject configs, :forKey => 'NCXDropConfigs'
     @userDefaults.synchronize
-    if @drops.content and @drops.content.size == 0
-      @assets.removeObjects @assets.content
-    elsif @drops.content and @drops.content.size > 0
+    @assets.removeObjects @assets.content
+    if @drops.content and @drops.content.size > 0
       changeDropSelected selectedDropConfig.dropName
     end
   end
@@ -249,17 +255,8 @@ class ApplicationController
     obj = @assets.selectedObjects.first
     if returnCode == NSAlertSecondButtonReturn
       CanastoLog.debug "User wants to delete the asset, let's go"
-      @progressIndicator.startAnimation self
       begin
-        properties = {
-          'dropName' => dc.dropName,
-          'adminToken' => dc.adminToken,
-          'assetName' => obj.name
-        }
-        op = DeleteAssetOperation.alloc.init
-        op.properties = properties
-        CanastoLog.debug "Queing DeleteAssetOperation for asset #{obj.name}"
-        @opQueue.addOperation op
+        @dropController.deleteAsset(obj.name)
       rescue Exception => e
         CanastoLog.debug "Exception deleting asset #{obj.name}: #{e.message}"
       end
@@ -288,12 +285,7 @@ class ApplicationController
         end
       end
       CanastoLog.debug "Pasting files to drop"
-      notifObj = {
-        :dropName => dropName,
-        :adminToken => adminToken,
-        :files => pfiles
-      }
-      uploadFiles(notifObj)
+      uploadFiles(pfiles)
     else
       infoAlert "Nothing to paste", "Copy something to the clipboard first."
     end
@@ -323,10 +315,12 @@ class ApplicationController
     changeDropSelected(dropName)
   end
 
-  def changeDropSelected(dropName)
-    CanastoLog.debug "Changing drop selected from #{lastDropSelected} to #{dropName}"
-    @currentDropController.currentDrop = dropName
-    @progressIndicator.startAnimation self
+  def changeDropOperationStarted(notification)
+    CanastoLog.debug 'ChangeDropOperationStarted'
+  end
+
+  def changeDropOperationFinished(notification)
+    CanastoLog.debug 'ChangeDropOperationFinished'
     index = 0
     @drops.arrangedObjects.each do |config|
       if config.dropName == dropName
@@ -338,21 +332,23 @@ class ApplicationController
     @userDefaults.setObject dropName, :forKey => 'NCXLastDropSelected'
     @pasteMenuItem.enabled = true
     @pasteMenuItem.title = "Paste to #{dropName}"
-    dropConfig = nil
-    @drops.arrangedObjects.each do |dc|
-      if dc.dropName == dropName
-        CanastoLog.debug "Drop config found for drop #{dropName}"
-        dropConfig = dc 
-      end
-    end
-    if dropConfig.nil?
-        CanastoLog.error "FATAL Drop config NOT FOUND for drop #{dropName}"
-    end
-    CanastoLog.debug "Sending DropIORefreshAssets notification"
-    Growl.growl 'ChangeDropSelected', 'Canasto', "Changed current drop to #{dropName}"
-    n = NSNotification.notificationWithName 'DropIORefreshAssets', :object => dropConfig
-    @nQueue.enqueueNotification n, :postingStyle => NSPostNow
-    loadChat
+    #dropConfig = nil
+    #@drops.arrangedObjects.each do |dc|
+    #  if dc.dropName == dropName
+    #    CanastoLog.debug "Drop config found for drop #{dropName}"
+    #    dropConfig = dc 
+    #  end
+    #end
+    #if dropConfig.nil?
+    #    CanastoLog.error "FATAL Drop config NOT FOUND for drop #{dropName}"
+    #end
+  end
+
+  def changeDropSelected(dropName)
+    @progressIndicator.startAnimation self
+    CanastoLog.debug "Changing drop selected from #{lastDropSelected} to #{dropName}"
+    @dropController.currentDrop = dropName
+    #loadChat
   end
 
   def saveDropConfigs(sender)
@@ -404,21 +400,21 @@ class ApplicationController
   end
 
   def assetDownloaderFinished(notification)
-    @progressIndicator.stopAnimation self
+    @assets.removeObjects @assets.content
     notification.object.each do |a|
       da = DropAsset.new
       da.name = a.name
       da.title = a.title
       da.type = a.type
-      da.URL = a.hiddenUrl
+      da.URL = a.hidden_url
       da.fileSize = a.filesize
-      da.createdAt = a.createdAt
+      da.createdAt = a.created_at
       @assets.addObject da
     end
+    @progressIndicator.stopAnimation self
   end
 
   def assetDownloaderError(notification)
-    @progressIndicator.stopAnimation self
     alert = NSAlert.new
     alert.informativeText = 'The selected drop no longer exists. Do you want to remove it from the list?'
     alert.messageText = 'Invalid Drop'
@@ -447,34 +443,19 @@ class ApplicationController
   end
 
   def refreshAssets(notification)
-    @progressIndicator.startAnimation self
-    drop = selectedDropConfig
-    @assets.removeObjects @assets.content
-    op = AssetDownloadOperation.new
-    op.dropName = drop.dropName
-    op.adminToken = drop.adminToken
-    @opQueue.addOperation op
+    @dropController.refreshAssets
   end
 
   def sendFiles(notification)
-    @progressIndicator.startAnimation self
     obj = notification.object
     uploadFiles(obj)
   end
 
   def uploadFiles(obj)
-    dropName = obj[:dropName]
-    adminToken = obj[:adminToken]
     files = obj[:files]
-    CanastoLog.debug "Sending files to drop #{dropName}"
     CanastoLog.debug "File list:"
     CanastoLog.debug "\n#{files.join("\n")}"
-    fu = FileUploadOperation.new
-    fu.dropName = dropName
-    fu.adminToken = adminToken
-    fu.files = files
-    CanastoLog.debug "Queing FileUploadOperation for drop #{dropName}"
-    @opQueue.addOperation fu
+    @dropController.uploadFiles(files)
   end
   
   def openWebView(sender)
@@ -504,19 +485,14 @@ class ApplicationController
   # NSOperation Handlers
   #
   def fileUploaderFinished(notification)
-    drop = selectedDropConfig
-    CanastoLog.debug "FileUploadOperation finished. drop: #{drop.dropName}"
     @progressIndicator.stopAnimation self
-    CanastoLog.debug "Clearing assets to display assets from drop #{drop.dropName}"
-    @assets.removeObjects(@assets.content || [])
-    op = AssetDownloadOperation.new
-    op.dropName = drop.dropName
-    op.adminToken = drop.adminToken
-    CanastoLog.debug "Refresing assets from drop #{drop.dropName}"
-    @opQueue.addOperation op
+    drop = selectedDropConfig
+    CanastoLog.debug "FileUploadOperationFinished. drop: #{drop.dropName}"
+    Growl.growl 'FilesUploaded', 'Canasto', "Files uploaded!"
   end
 
   def fileUploaderStarted(notification)
+    @progressIndicator.startAnimation self
     Growl.growl 'AssetUploaded', 'Canasto', "Uploading files to #{currentDrop}"
   end
   
@@ -525,16 +501,10 @@ class ApplicationController
   end
 
   def fileUploaderFileSent(notification)
-    dropAsset = DropAsset.alloc.init
-    dropAsset.name = File.basename(notification.object)
     Growl.growl "AssetUploaded", 'Canasto', "File #{notification.object} uploaded!"
-    @assets.addObject dropAsset
   end
 
   def deleteAssetOperationFinished(notification)
-    @progressIndicator.stopAnimation self
-    obj = @assets.selectedObjects.first
-    @assets.removeObject obj
     Growl.growl 'AssetDeleted', 'Canasto', "Asset #{notification.object} deleted!"
     CanastoLog.debug "DeleteAssetOperation finished for #{notification.object}"
   end
